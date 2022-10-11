@@ -11,7 +11,7 @@ package provaprovina;
 public class Magia {
     
     
-    private int numero=0;
+    public int numero=0;
 
     public Magia() {
     }
