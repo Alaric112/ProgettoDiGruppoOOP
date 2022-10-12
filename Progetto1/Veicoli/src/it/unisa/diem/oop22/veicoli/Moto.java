@@ -8,11 +8,9 @@ package it.unisa.diem.oop22.veicoli;
  *
  * @author patap
  */
-public abstract class Moto extends Veicolo{
-    private boolean guidaLibera = false;
-    
-    
-    
+public class Moto extends Veicolo{
+    private boolean guidaLibera;
+            
     public Moto(String numTelaio, String modello, String alimentazione, String targa, boolean guidaLibera){
         super(numTelaio, modello, alimentazione, targa);
                 this.guidaLibera = guidaLibera;
