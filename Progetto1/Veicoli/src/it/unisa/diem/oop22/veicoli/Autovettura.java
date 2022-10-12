@@ -25,7 +25,7 @@ public class Autovettura extends Veicolo {
     public boolean controllaTarga() {
                  
        // Controllo targa?
-       for(int i=0; i < getTarga().length(); i++){
+       for(int i=0; i < 2; i++){
           
              char c = getTarga().charAt(i);  
               if(!(c >= 'A' && c <='Z')){
@@ -35,7 +35,7 @@ public class Autovettura extends Veicolo {
            
        }
        
-       for(int i=2; i < getTarga().length(); i++){
+       for(int i=2; i < 5; i++){
            
               char c = getTarga().charAt(i);  
               if(!(c >= '0' && c <='9')){
@@ -45,6 +45,16 @@ public class Autovettura extends Veicolo {
            
        }
    
+        for(int i=2; i < 7; i++){
+           
+              char c = getTarga().charAt(i);  
+              if(!(c >= '0' && c <='9')){
+                  
+                  return false;
+              }  
+           
+       }
+       
        return true; 
     }
     
