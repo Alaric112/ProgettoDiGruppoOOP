@@ -10,4 +10,8 @@ package it.unisa.diem.oop22.veicoli;
  */
 public class Veicolo {
     
+    
+    
+    
+    
 }

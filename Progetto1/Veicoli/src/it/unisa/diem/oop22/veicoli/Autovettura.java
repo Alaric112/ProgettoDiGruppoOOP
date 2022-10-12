@@ -9,5 +9,9 @@ package it.unisa.diem.oop22.veicoli;
  * @author patap
  */
 public class Autovettura {
+   
+    
+    
+    
     
 }
