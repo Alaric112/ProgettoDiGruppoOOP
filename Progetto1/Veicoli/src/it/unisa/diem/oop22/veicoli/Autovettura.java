@@ -23,18 +23,29 @@ public class Autovettura extends Veicolo {
  
     @Override
     public boolean controllaTarga() {
-        boolean x = false;
-        
+                 
        // Controllo targa?
-       for(int i=0; i < targa.length(); i++){
-           
-           
-           
+       for(int i=0; i < getTarga().length(); i++){
+          
+             char c = getTarga().charAt(i);  
+              if(!(c >= 'A' && c <='Z')){
+                  
+                  return false;
+              } 
            
        }
        
-        
-       return x; 
+       for(int i=2; i < getTarga().length(); i++){
+           
+              char c = getTarga().charAt(i);  
+              if(!(c >= '0' && c <='9')){
+                  
+                  return false;
+              }  
+           
+       }
+   
+       return true; 
     }
     
     @Override
