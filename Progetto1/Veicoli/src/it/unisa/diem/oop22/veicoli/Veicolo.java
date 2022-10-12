@@ -8,10 +8,12 @@ package it.unisa.diem.oop22.veicoli;
  *
  * @author patap
  */
-public class Veicolo {
+public abstract class  Veicolo{
     
+    private String numTelaio;
+    private String modello;
+    private String alimentazione;
+    private String targa;
     
-    
-    
-    
+   
 }
