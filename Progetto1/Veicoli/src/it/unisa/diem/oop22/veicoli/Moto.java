@@ -24,7 +24,19 @@ public abstract class Moto extends Veicolo{
     }
     
     public boolean controlloTarga(){
-        
+        for(int i = 0; i < 2; i++){
+            char c = getTarga().charAt(i);
+            if(!(c >= 'A' && c<='Z')){
+                return false;
+            }
+        }
+        for(int i = 2; i < 8; i++){
+                char c = getTarga().charAt(i);
+                if(!(c >= '0' && c<='9')){
+                return false;
+            }
+               
+        return true;
         
     }
     
