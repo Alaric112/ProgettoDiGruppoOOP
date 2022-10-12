@@ -8,6 +8,25 @@ package it.unisa.diem.oop22.veicoli;
  *
  * @author patap
  */
-public class Moto {
+public abstract class Moto extends Veicolo{
+    private boolean guidaLibera = false;
+    
+    
+    
+    public Moto(String numTelaio, String modello, String alimentazione, String targa, boolean guidaLibera){
+        super(numTelaio, modello, alimentazione, targa);
+                this.guidaLibera = guidaLibera;
+    }
+           
+    public boolean getGuidaLibera(){
+        guidaLibera = true;
+        return guidaLibera;
+    }
+    
+    public boolean controlloTarga(){
+        
+        
+    }
+    
     
 }
