@@ -19,26 +19,47 @@ public abstract class Moto extends Veicolo{
     }
            
     public boolean getGuidaLibera(){
-        guidaLibera = true;
+        guidaLibera = false;
         return guidaLibera;
     }
     
-    public boolean controlloTarga(){
-        for(int i = 0; i < 2; i++){
-            char c = getTarga().charAt(i);
-            if(!(c >= 'A' && c<='Z')){
-                return false;
-            }
+    @Override
+    public boolean controllaTarga(){
+
+        if (getTarga().length() != 7){
+            
+            return false;
         }
-        for(int i = 2; i < 8; i++){
-                char c = getTarga().charAt(i);
-                if(!(c >= '0' && c<='9')){
-                return false;
-            }
-               
+                    
+       // Controllo targa?
+       for(int i=0; i < 2; i++){
+          
+             char c = getTarga().charAt(i);  
+              if(!(c >= 'A' && c <='Z')){
+                  
+                  return false;
+              } 
+           
+       }
+       
+       for(int i=2; i < 7; i++){
+           
+              char c = getTarga().charAt(i);  
+              if(!(c >= '0' && c <='9')){
+                  
+                  return false;
+              }  
+           
+       }
+          
         return true;
-        
     }
     
+    
+    @Override
+    public String toString() {
+        return "\nMoto" + super.toString()+ guidaLibera;
+    }
+   
     
 }

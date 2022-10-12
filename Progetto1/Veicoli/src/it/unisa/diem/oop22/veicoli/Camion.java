@@ -23,6 +23,11 @@ public class Camion extends Veicolo {
    @Override
     public boolean controllaTarga()
     {
+        if (getTarga().length() != 8){
+            
+            return false;
+        }
+        
         // Controllo targa?
        for(int i=0; i < 2; i++){
           
@@ -50,8 +55,5 @@ public class Camion extends Veicolo {
     public String toString() {
         return "Camion" + super.toString();
     }
-    
-   
-   
    
 }

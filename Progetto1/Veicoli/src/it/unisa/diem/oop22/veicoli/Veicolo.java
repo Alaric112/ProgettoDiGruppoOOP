@@ -20,8 +20,7 @@ public abstract class Veicolo{
         this.modello = modello;
         this.alimentazione = alimentazione;
         this.targa = targa;
-    
-    
+      
     }
 
     public String getNumTelaio() {
