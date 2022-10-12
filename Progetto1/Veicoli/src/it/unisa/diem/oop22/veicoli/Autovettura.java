@@ -8,10 +8,43 @@ package it.unisa.diem.oop22.veicoli;
  *
  * @author patap
  */
-public class Autovettura {
+public class Autovettura extends Veicolo {
    
+    private int numeroPosti;
+
+    public Autovettura(String numTelaio, String modello, String alimentazione, String targa, int numeroPosti) {
+        super(numTelaio, modello, alimentazione, targa);
+        this.numeroPosti = numeroPosti;
+    }
+
+    public int getNumeroPosti() {
+        return numeroPosti;
+    }
+ 
+    @Override
+    public boolean controllaTarga() {
+        boolean x = false;
+        
+       // Controllo targa?
+       for(int i=0; i < targa.length(); i++){
+           
+           
+           
+           
+       }
+       
+        
+       return x; 
+    }
     
+    @Override
+    public String toString() {
+    String s = super.toString() + '\n'; 
+   
+    s+= numeroPosti;
     
+    return s;
     
+    }
     
 }
