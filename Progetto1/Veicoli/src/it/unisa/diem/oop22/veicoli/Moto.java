@@ -55,7 +55,7 @@ public class Moto extends Veicolo{
     
     @Override
     public String toString() {
-        return "\nMoto\n" + super.toString()+"Guida libera: " +guidaLibera+"\n";
+        return "\nMoto: \n" + super.toString()+"Guida libera: " +guidaLibera+"\n";
     }
    
     
