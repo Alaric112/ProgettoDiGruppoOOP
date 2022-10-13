@@ -29,8 +29,7 @@ public class Autovettura extends Veicolo {
             return false;
         } 
         
-       // Controllo targa?
-       for(int i=0; i < 2; i++){
+        for(int i=0; i < 2; i++){
           
              char c = getTarga().charAt(i);  
               if(!(c >= 'A' && c <='Z')){
@@ -65,11 +64,8 @@ public class Autovettura extends Veicolo {
     
     @Override
     public String toString() {
-    String s = super.toString() + '\n'; 
-   
-    s+= numeroPosti;
-    
-    return s;
+        return "\nAutoVettura:\n" + super.toString()+"Numero posti: " +numeroPosti +"\n";
+
     
     }
     

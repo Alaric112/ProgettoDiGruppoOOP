@@ -28,7 +28,6 @@ public class Camion extends Veicolo {
             return false;
         }
         
-        // Controllo targa?
        for(int i=0; i < 2; i++){
           
              char c = getTarga().charAt(i);  
@@ -53,7 +52,7 @@ public class Camion extends Veicolo {
 
     @Override
     public String toString() {
-        return "Camion" + super.toString();
+        return "\nCamion:\n" + super.toString() +"Numero Assi: " +numeroAssi +"\n";
     }
    
 }

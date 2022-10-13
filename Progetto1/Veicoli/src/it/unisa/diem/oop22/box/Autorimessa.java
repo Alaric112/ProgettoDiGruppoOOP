@@ -42,6 +42,12 @@ public class Autorimessa extends Box {
     @Override
     public void entra(Veicolo v){
     
+        if (!v.controllaTarga()){
+            
+            System.out.println("Targa non valida. Ingresso vietato.");
+            return;
+        }
+        
         if(autorimessaPiena()){
             
             System.out.println("L'auto rimessa è piena");
@@ -85,7 +91,7 @@ public class Autorimessa extends Box {
             System.out.println("L'auto rimessa è vuota");
             return s;
         }
-    
+        
         s+= "\nVeicoli presenti:\n";
         for(int i=0; i<riemp; i++){
             

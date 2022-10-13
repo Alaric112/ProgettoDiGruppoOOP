@@ -47,7 +47,7 @@ public abstract class Veicolo{
     
     @Override
     public String toString() {
-        return "###" + "\nnumTelaio: " + numTelaio + "\nmodello: " + modello + "\nalimentazione: " + alimentazione+ "\ntarga: " + targa +'\n';
+        return "###" + "\nnumTelaio: " + numTelaio + "\nmodello: " + modello + "\nalimentazione: " + alimentazione+ "\ntarga: " + targa +"\n";
     }
    
 }

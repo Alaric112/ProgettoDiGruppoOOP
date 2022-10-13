@@ -29,7 +29,6 @@ public class Moto extends Veicolo{
             return false;
         }
                     
-       // Controllo targa?
        for(int i=0; i < 2; i++){
           
              char c = getTarga().charAt(i);  
@@ -56,7 +55,7 @@ public class Moto extends Veicolo{
     
     @Override
     public String toString() {
-        return "\nMoto" + super.toString()+ guidaLibera;
+        return "\nMoto\n" + super.toString()+"Guida libera: " +guidaLibera+"\n";
     }
    
     
