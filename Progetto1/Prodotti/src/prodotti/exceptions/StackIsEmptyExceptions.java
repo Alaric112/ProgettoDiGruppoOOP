@@ -2,18 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package prodotti;
+package prodotti.exceptions;
 
 /**
  *
  * @author patap
  */
-public class ProdottoQueue {
- 
+public class StackIsEmptyExceptions extends StackExceptions {
     
-    public void stampaTriste(){
-        
-      System.out.println("Sono triste :(");
-    
-    }
 }
