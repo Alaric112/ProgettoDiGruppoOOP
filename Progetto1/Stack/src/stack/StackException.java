@@ -8,11 +8,6 @@ package stack;
  *
  * @author patap
  */
-public class Stack {
-    
-    
-    
-    
-    
+public class StackException {
     
 }
