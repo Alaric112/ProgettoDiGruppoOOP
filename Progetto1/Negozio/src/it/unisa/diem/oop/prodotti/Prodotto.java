@@ -8,11 +8,12 @@ package it.unisa.diem.oop.prodotti;
  *
  * @author patap
  */
-public class Prodotto {
+public abstract class Prodotto {
     private String codice, nome;
     private double prezzo;
     private static int numProdotti;
-
+    private String DataScadenza;
+    
     public Prodotto(String codice, String nome, double prezzo) {
         this(codice,nome);
         this.prezzo = prezzo;
@@ -23,8 +24,8 @@ public class Prodotto {
         this.nome = nome;
         
         numProdotti++;
-    }    
-    
+    }      
+        
     public String getCodice() {
         return codice;
     }
