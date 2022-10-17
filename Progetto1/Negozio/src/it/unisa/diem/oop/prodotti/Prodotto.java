@@ -10,8 +10,9 @@ package it.unisa.diem.oop.prodotti;
  */
 public abstract class Prodotto {
     private String codice, nome;
-    private double prezzo;
+    private static double prezzo;
     private static int numProdotti;
+    private String materiale;
     private String DataScadenza;
     
     public Prodotto(String codice, String nome, double prezzo) {
@@ -62,6 +63,8 @@ public abstract class Prodotto {
         return "Prodotto: " + "\ncodice: " + codice + "\nnome: " + nome + "\nprezzo: " + prezzo + '\n';
         
     }
+    
+    public abstract void applicaSconto(double prezzo);
             
 
 }

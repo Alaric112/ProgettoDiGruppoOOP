@@ -8,7 +8,7 @@ import it.unisa.diem.oop22.veicoli.Veicolo;
 
 /**
  *
- * @author patap
+ * @author nostro
  */
 public abstract class Box {
     
