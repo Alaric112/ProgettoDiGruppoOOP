@@ -23,10 +23,15 @@ public class Camion extends Veicolo {
    @Override
     public boolean controllaTarga()
     {
+        
+        
         if (getTarga().length() != 8){
             
             return false;
         }
+        
+        // Implementazione del controllo targa su un unica riga
+        // String regex = "^[A-z]{2}[0-9]{3}[A-z]{2}$";
         
        for(int i=0; i < 2; i++){
           
