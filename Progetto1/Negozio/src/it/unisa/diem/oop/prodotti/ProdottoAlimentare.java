@@ -25,5 +25,18 @@ public class ProdottoAlimentare extends Prodotto {
         return super.stampa() + "Data di scadenza: " + dataScadenza + '\n';
         
     }
+
+    @Override
+    public void applicaSconto(double prezzo) {
+       LocalDate todaysDate = LocalDate.now();
+       LocalDate data = todaysDate.minusDays(10);
+       if(dataScadenza.isBefore(data)){
+           
+            prezzo -= (prezzo*20)/100;
+ 
+       }
+        
+        
+    }
        
 }
