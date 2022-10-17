@@ -12,6 +12,7 @@ public abstract class Prodotto {
     private String codice, nome;
     private double prezzo;
     private static int numProdotti;
+    private String materiale;
     private String DataScadenza;
     
     public Prodotto(String codice, String nome, double prezzo) {
