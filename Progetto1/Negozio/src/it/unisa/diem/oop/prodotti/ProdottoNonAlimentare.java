@@ -13,21 +13,20 @@ public class ProdottoNonAlimentare extends Prodotto{
     private String materiale;
     private boolean riciclabile;
 
-    public ProdottoNonAlimentare(String codice, String nome, double prezzo, String Materiale, boolean riciclabile) {
+    public ProdottoNonAlimentare(String codice, String nome, double prezzo, String materiale, boolean riciclabile) {
         super(codice, nome, prezzo);
         this.riciclabile = riciclabile;
+        this.materiale = materiale;
     }
 
 
     
     @Override
     public void applicaSconto(double prezzo){
-        private double sconto;
-        if(materiale != null){
-            if(riciclabile){
-                sconto = (prezzo*10)/100;
-                prezzo -= sconto;
-            }
+        if(riciclabile){
+            System.out.println("you son of a bitch i'm in");
+                prezzo = prezzo - ((prezzo*10)/100);
+                setPrezzo(prezzo);
         }
     }
     

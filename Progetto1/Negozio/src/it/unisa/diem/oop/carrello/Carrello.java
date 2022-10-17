@@ -46,14 +46,14 @@ public class Carrello {
         
         for(int i=0;i<riemp;i++)
         {
-            totale= totale+prodotti[i].getPrezzo();
+            totale = totale+prodotti[i].getPrezzo();
         }
-        return  totale;
+        return totale;
     }
 
     @Override
     public String toString() {
-        String s= "contenuto del carrello:" + "\nprodotti=" + prodotti + '\n';
+        String s = "contenuto del carrello:" + "\nprodotti=" + prodotti + '\n';
         for(int i=0;i<riemp;i++)
         {
             s+=prodotti[i];
