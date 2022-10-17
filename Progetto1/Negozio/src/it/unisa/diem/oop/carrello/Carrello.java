@@ -52,7 +52,8 @@ public class Carrello {
     
     }
     public double calcolaTotaleScontato(){
-        double totale = 0;
+        double totale;
+        totale = 0.0;
         for(int i=0;i<maxDim;i++)
         {
             totale= totale+prodotti[i].getPrezzo();
