@@ -51,11 +51,11 @@ public class Carrello {
     riemp++;
     
     }
-    public int calcolaTotaleScontato(){
-        int totale = 0;
+    public double calcolaTotaleScontato(){
+        double totale = 0;
         for(int i=0;i<maxDim;i++)
         {
-            totale=totale+;
+            totale= totale+prodotti[i].getPrezzo();
         }
         return  totale;
     }
