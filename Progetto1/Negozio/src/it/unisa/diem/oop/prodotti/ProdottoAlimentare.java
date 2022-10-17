@@ -12,16 +12,17 @@ import java.time.LocalDate;
  */
 public class ProdottoAlimentare extends Prodotto {
     
-    LocalDate DataScadenza;
+    LocalDate dataScadenza;
 
     public ProdottoAlimentare(String codice, String nome, double prezzo, LocalDate DataScadenza) {
         super(codice, nome, prezzo);
-        this.DataScadenza = DataScadenza;
+        this.dataScadenza = DataScadenza;
     }
     
     @Override
-    public void stampa() {
-        System.out.println("Prodotto: " + "\ncodice: " + codice + "\nnome: " + nome + "\nprezzo: " + prezzo + '\n');
+    public String stampa() {
+        
+        return super.stampa() + "Data di scadenza: " + dataScadenza + '\n';
         
     }
        

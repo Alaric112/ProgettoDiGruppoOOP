@@ -59,8 +59,8 @@ public abstract class Prodotto {
         Prodotto.numProdotti = numProdotti;
     }
 
-    public void stampa() {
-        System.out.println("Prodotto: " + "\ncodice: " + codice + "\nnome: " + nome + "\nprezzo: " + prezzo + '\n');
+    public String stampa() {
+        return "Prodotto: " + "\ncodice: " + codice + "\nnome: " + nome + "\nprezzo: " + prezzo + '\n';
         
     }
             
