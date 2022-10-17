@@ -4,6 +4,7 @@
  */
 package negozio;
 
+import it.unisa.diem.oop.carrello.Carrello;
 import it.unisa.diem.oop.prodotti.*;
 import java.time.LocalDate;
 
