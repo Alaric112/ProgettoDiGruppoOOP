@@ -64,7 +64,7 @@ public abstract class Prodotto {
         
     }
     
-    public abstract void applicaSconto();
+    public abstract void applicaSconto(double prezzo);
             
 
 }
