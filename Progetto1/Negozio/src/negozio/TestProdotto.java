@@ -15,6 +15,24 @@ public class TestProdotto {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
+        Prodotto p1 = new ProdottoAlimentare("A1", "pane", 2, LocalDate.of(2022, 10, 31));
+        Prodotto p2 = new ProdottoAlimentare("A2", "latte", 2, LocalDate.of(2022, 10, 18));
+        Prodotto p3 = new ProdottoNonAlimentare("N3", "piatti", 2, "plastica", false);
+        Prodotto p4 = new ProdottoNonAlimentare("N4", "bicchieri", 2, "carta", true);
+
+        Carrello c = new Carrello();
+
+        c.aggiungi(p1);
+        c.aggiungi(p2);
+        c.aggiungi(p3);
+        c.aggiungi(p4);
+
+        System.out.println(c);
+
+        System.out.println("Il totale scontato è: " + c.calcolaTotale()); 
+        
+        
     }
     
 }
