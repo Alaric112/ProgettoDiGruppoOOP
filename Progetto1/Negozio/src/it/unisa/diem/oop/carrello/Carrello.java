@@ -33,7 +33,7 @@ public class Carrello {
         
         return riemp;
     }
-    
+    /* non serve per il programma non so se cancellarlo
     public boolean isEmpty(){
         
         return riemp == 0;
@@ -44,7 +44,7 @@ public class Carrello {
         return riemp == maxDim;
     }
         
-    
+    */
     public void aggiungi(Prodotto s)  {
            
     prodotti[riemp] = s;    
