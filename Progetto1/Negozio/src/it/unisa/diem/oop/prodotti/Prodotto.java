@@ -63,6 +63,8 @@ public abstract class Prodotto {
         return "Prodotto: " + "\ncodice: " + codice + "\nnome: " + nome + "\nprezzo: " + prezzo + '\n';
         
     }
+    
+    public abstract void applicaSconto();
             
 
 }
