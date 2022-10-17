@@ -33,28 +33,18 @@ public class Carrello {
         
         return riemp;
     }
-    /* non serve per il programma non so se cancellarlo
-    public boolean isEmpty(){
-        
-        return riemp == 0;
-    }
-    
-    public boolean isFull(){
-        
-        return riemp == maxDim;
-    }
-        
-    */
+ 
     public void aggiungi(Prodotto s)  {
            
     prodotti[riemp] = s;    
     riemp++;
     
     }
+    
     public double calcolaTotaleScontato(){
-        double totale;
-        totale = 0.0;
-        for(int i=0;i<maxDim;i++)
+        double totale = 0.0;
+        
+        for(int i=0;i<riemp;i++)
         {
             totale= totale+prodotti[i].getPrezzo();
         }
@@ -63,8 +53,12 @@ public class Carrello {
 
     @Override
     public String toString() {
-        return "contenuto del carrello:" + "\nmaxDim=" + maxDim + "\nriemp=" + riemp + "\nprodotti=" + prodotti + '\n';
+        String s= "contenuto del carrello:" + "\nprodotti=" + prodotti + '\n';
+        for(int i=0;i<riemp;i++)
+        {
+            s+=prodotti[i];
+        }
+        return s;
     }
-    
     
 }
