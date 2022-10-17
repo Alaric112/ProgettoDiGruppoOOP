@@ -25,6 +25,21 @@ public class ProdottoQueue {
       this(DEFAUT_SIZE);
     }
     
+    // restituisce il numero di prodotti "occupanti"
+    public int size(){
+        
+        return riemp;
+    }    
+    
+    public boolean isEmpty(){
+        
+        return riemp == 0;
+    }
+    
+    public boolean isFull(){
+        
+        return riemp == maxDim;
+    }    
     
     public void stampaTriste(){
         
