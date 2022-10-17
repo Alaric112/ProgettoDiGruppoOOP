@@ -42,18 +42,18 @@ public class Carrello {
     }
     
     public double calcolaTotaleScontato(){
-        double totale = 0.0;
+        double totale = 0;
         
         for(int i=0;i<riemp;i++)
         {
-            totale = totale+prodotti[i].applicaSconto(prodotti[i].getPrezzo());
+            totale += prodotti[i].applicaSconto(prodotti[i].getPrezzo());
         }
         return totale;
     }
 
     @Override
     public String toString() {
-        String s = "contenuto del carrello:" + "\nprodotti=" + prodotti + '\n';
+        String s = "contenuto del carrello:" + '\n';
         for(int i=0;i<riemp;i++)
         {
             s+=prodotti[i];

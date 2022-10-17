@@ -59,8 +59,9 @@ public abstract class Prodotto {
         Prodotto.numProdotti = numProdotti;
     }
 
-    public String stampa() {
-        return "Prodotto: " + "\ncodice: " + codice + "\nnome: " + nome + "\nprezzo: " + prezzo + '\n';
+    @Override
+    public String toString() {
+        return "Prodotto codice=" + codice + ", nome=" + nome + ", prezzo=" + prezzo;
         
     }
     
