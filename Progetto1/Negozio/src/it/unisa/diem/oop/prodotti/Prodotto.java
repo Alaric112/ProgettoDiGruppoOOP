@@ -10,7 +10,7 @@ package it.unisa.diem.oop.prodotti;
  */
 public abstract class Prodotto {
     private String codice, nome;
-    private double prezzo;
+    private static double prezzo;
     private static int numProdotti;
     private String materiale;
     private String DataScadenza;

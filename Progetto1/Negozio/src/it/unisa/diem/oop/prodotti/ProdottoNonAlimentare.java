@@ -13,7 +13,7 @@ public class ProdottoNonAlimentare extends Prodotto{
     private String materiale;
     private boolean riciclabile;
 
-    public ProdottoNonAlimentare(String codice, String nome, double prezzo, String Materiale) {
+    public ProdottoNonAlimentare(String codice, String nome, double prezzo, String Materiale, boolean riciclabile) {
         super(codice, nome, prezzo);
         this.riciclabile = riciclabile;
     }
