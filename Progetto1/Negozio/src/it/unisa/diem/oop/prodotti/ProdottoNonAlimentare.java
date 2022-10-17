@@ -22,12 +22,11 @@ public class ProdottoNonAlimentare extends Prodotto{
 
     
     @Override
-    public void applicaSconto(double prezzo){
+    public double applicaSconto(double prezzo){
         if(riciclabile){
-            System.out.println("you son of a bitch i'm in");
                 prezzo = prezzo - ((prezzo*10)/100);
-                setPrezzo(prezzo);
         }
+        return prezzo;
     }
     
     

@@ -27,7 +27,7 @@ public class ProdottoAlimentare extends Prodotto {
     }
 
     @Override
-    public void applicaSconto(double prezzo) {
+    public double applicaSconto(double prezzo) {
        LocalDate todaysDate = LocalDate.now();
        LocalDate data = todaysDate.minusDays(10);
        if(dataScadenza.isBefore(data)){
@@ -36,7 +36,7 @@ public class ProdottoAlimentare extends Prodotto {
  
        }
         
-        
+        return prezzo;
     }
        
 }

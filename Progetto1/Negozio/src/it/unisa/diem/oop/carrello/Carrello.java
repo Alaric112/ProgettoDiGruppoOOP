@@ -46,7 +46,7 @@ public class Carrello {
         
         for(int i=0;i<riemp;i++)
         {
-            totale = totale+prodotti[i].getPrezzo();
+            totale = totale+prodotti[i].applicaSconto(prodotti[i].getPrezzo());
         }
         return totale;
     }
