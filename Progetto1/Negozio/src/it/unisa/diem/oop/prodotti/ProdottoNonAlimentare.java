@@ -9,6 +9,8 @@ package it.unisa.diem.oop.prodotti;
  * @author Portatile
  */
 public class ProdottoNonAlimentare extends Prodotto{
+    
+    private String materiale;
     private boolean riciclabile;
 
     public ProdottoNonAlimentare(String codice, String nome, double prezzo, String Materiale) {
