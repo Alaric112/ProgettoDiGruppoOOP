@@ -22,9 +22,11 @@ public class ProdottoNonAlimentare extends Prodotto{
     
     @Override
     public void applicaSconto(double prezzo){
+        private double sconto;
         if(materiale != null){
             if(riciclabile){
-                prezzo = prezzo-((prezzo*10)/100);
+                sconto = (prezzo*10)/100;
+                prezzo -= sconto;
             }
         }
     }
