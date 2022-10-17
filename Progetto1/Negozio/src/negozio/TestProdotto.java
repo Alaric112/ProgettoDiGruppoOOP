@@ -4,6 +4,7 @@
  */
 package negozio;
 
+import it.unisa.diem.oop.carrello.Carrello;
 import it.unisa.diem.oop.prodotti.*;
 import java.time.LocalDate;
 
@@ -33,7 +34,7 @@ public class TestProdotto {
 
         System.out.println(c);
 
-        System.out.println("Il totale scontato è: " + c.calcolaTotale()); 
+        System.out.println("Il totale scontato è: " + c.calcolaTotaleScontato()); 
         
         
     }

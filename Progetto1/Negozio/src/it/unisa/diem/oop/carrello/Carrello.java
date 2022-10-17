@@ -33,7 +33,7 @@ public class Carrello {
         
         return riemp;
     }
-    
+    /* non serve per il programma non so se cancellarlo
     public boolean isEmpty(){
         
         return riemp == 0;
@@ -44,18 +44,19 @@ public class Carrello {
         return riemp == maxDim;
     }
         
-    
+    */
     public void aggiungi(Prodotto s)  {
            
     prodotti[riemp] = s;    
     riemp++;
     
     }
-    public int calcolaTotaleScontato(){
-        int totale = 0;
+    public double calcolaTotaleScontato(){
+        double totale;
+        totale = 0.0;
         for(int i=0;i<maxDim;i++)
         {
-            totale=totale+;
+            totale= totale+prodotti[i].getPrezzo();
         }
         return  totale;
     }
