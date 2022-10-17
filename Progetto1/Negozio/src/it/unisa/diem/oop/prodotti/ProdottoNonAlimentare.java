@@ -24,7 +24,7 @@ public class ProdottoNonAlimentare extends Prodotto{
     public void applicaSconto(double prezzo){
         if(materiale != null){
             if(riciclabile){
-                prezzo = prezzo-(prezzo*10)/100;
+                prezzo = prezzo-((prezzo*10)/100);
             }
         }
     }
