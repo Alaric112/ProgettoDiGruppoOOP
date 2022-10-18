@@ -11,7 +11,7 @@ import it.unisa.diem.oop.prodotti.Prodotto;
  * @author patap
  */
 public class Carrello {
-    private final static int DEFAUT_SIZE=5;
+    private static int DEFAUT_SIZE=5;
     private int maxDim, riemp;
     private Prodotto prodotti[];
     
