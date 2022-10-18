@@ -30,10 +30,8 @@ public class ProdottoNonAlimentare extends Prodotto{
     }
     
     @Override
-    public String toString() {
-        
-        return super.toString() + ", materiale=" + materiale + ", riciclabile="+ riciclabile +'\n';
-        
+    public String toString() {  
+        return super.toString() + ", materiale=" + materiale + ", riciclabile="+ riciclabile +'\n';   
     }
     
 }
