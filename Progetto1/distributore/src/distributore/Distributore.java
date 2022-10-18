@@ -14,11 +14,15 @@ public class Distributore {
     private Tessera tessere[];
     private Bibita bibite[];
     private int maxTessere, maxBibite;
+    private int riempBibite, riempTessere;
     
     public Distributore(int maxTessere, int maxBibite) {
         this.maxTessere = maxTessere;
         this.maxBibite = maxBibite;
 
+        this.riempBibite = 0;
+        this.riempTessere = 0;
+        
         tessere = new Tessera[maxTessere];
         bibite = new Bibita[maxBibite];
     }
@@ -27,6 +31,12 @@ public class Distributore {
     public Distributore(){
         
         this(DEAFAULT_SIZE, DEAFAULT_SIZE);
+        
+    }
+    
+    public void aggiungiBibita(Bibita tipo){
+        
+        
         
     }
     
