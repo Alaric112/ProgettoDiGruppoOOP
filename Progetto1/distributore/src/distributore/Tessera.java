@@ -42,7 +42,26 @@ public class Tessera implements Comparable<Tessera>{
         return 0;
         
     }
-    
-    
+
+    public int getCodice() {
+        return codice;
+    }
+
+    public void setCodice(int codice) {
+        this.codice = codice;
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
+    }
+
+    public void caricaSaldo(double saldo){
+        
+        this.saldo += saldo;       
+    }    
     
 }

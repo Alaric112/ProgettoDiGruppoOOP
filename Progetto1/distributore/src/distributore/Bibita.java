@@ -49,6 +49,41 @@ public abstract class Bibita implements Comparable<Bibita>{
         hash = 13 * hash + Objects.hashCode(this.codice);
         return hash;
     }
+
+    public String getCodice() {
+        return codice;
+    }
+
+    public void setCodice(String codice) {
+        this.codice = codice;
+    }
+
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public double getPrezzo() {
+        return prezzo;
+    }
+
+    public void setPrezzo(double prezzo) {
+        this.prezzo = prezzo;
+    }
+
+    public int getNumero() {
+        return numero;
+    }
+
+    public void setNumero(int numero) {
+        this.numero = numero;
+    }
     
-    
+    public void minusNumero(){
+        
+        this.numero--;
+    }
 }

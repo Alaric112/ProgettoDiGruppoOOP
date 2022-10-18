@@ -58,14 +58,14 @@ public class Distributore {
         
         for(int i=0; i<riempBibite; i++){
             
-            if(bibite[i].equals(codice)){
+            if(bibite[i].getCodice().equals(codice)){
                 
                 bibite[i].setNumero(num);
                 return;
             }
             
         }
-        System.out.println("Bibita non trovata");
+        System.out.println("Tipo Bibita non trovato");
         
     }
     
@@ -91,7 +91,7 @@ public class Distributore {
             
             if(tessere[i].equals(codice)){
                 
-                tessere[i].aggiungiCredito(soldi);
+                tessere[i].caricaSaldo(soldi);
                 return;
             }
          
@@ -121,12 +121,11 @@ public class Distributore {
         
             for(int i=0; i<riempBibite; i++){
             
-            if(bibite[i].equals(codice)){
+            if(bibite[i].equals(codice)){              
                 
-                
-                return tessere[i].getNumero();
+                return bibite[i].getNumero();
             }
-         
+
         }
         
         System.out.println("Il tipo della bibita non è stato trovato");
