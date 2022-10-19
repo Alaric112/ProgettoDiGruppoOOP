@@ -40,20 +40,16 @@ public class Autorimessa extends Box {
     }
     
     @Override
-    public void entra(Veicolo v){
+    public void entra(Veicolo v) throws AutoRimessaPienaException, TargaNonValidaException {
     
-        if (!v.controllaTarga()){
-            
-            System.out.println("Targa non valida. Ingresso vietato.");
-            return;
-        }
+        if (!v.controllaTarga())
+             throw new TargaNonValidaException("Attenzione! Targa non valida");
+
         
-        if(autorimessaPiena()){
-            
-            System.out.println("L'auto rimessa è piena");
-            return;
-        }
-        
+        if(autorimessaPiena())
+             throw new AutoRimessaPienaException("Attenzione! Autorimessa piena");
+
+
         Veicoli[coda] = v;
         riemp++;
 
@@ -62,14 +58,12 @@ public class Autorimessa extends Box {
     }
 
     @Override
-    public Veicolo esce() {
+    public Veicolo esce() throws AutoRimessaVuotaException {
 
       
-        if(autorimessaVuota()){
-            
-            System.out.println("L'auto rimessa è vuota");
-            return null;
-        }
+        if(autorimessaVuota())
+            throw new AutoRimessaVuotaException("Attenzione! Autorimessa vuota");
+
         
         Veicolo v = Veicoli[testa];
         Veicoli[testa] = null;

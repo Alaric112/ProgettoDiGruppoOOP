@@ -20,8 +20,8 @@ public abstract class Box {
         this.nome = nome;
     }
 
-    public abstract void entra(Veicolo v);
-    public abstract Veicolo esce();
+    public abstract void entra(Veicolo v) throws AutoRimessaPienaException, TargaNonValidaException;
+    public abstract Veicolo esce() throws AutoRimessaVuotaException;
 
     @Override
     public String toString() {
