@@ -10,6 +10,8 @@ package it.unisa.diem.oop.prodotti;
  */
 public abstract class Prodotto {
     private String codice, nome;
+    // è possibile evitare di usare get e setter se si imposta l'attributo come protected per permettere la modifica del 
+    // prezzo da parte di tutte le sottoclassi
     private static double prezzo;
     private static int numProdotti;
     private String materiale;
