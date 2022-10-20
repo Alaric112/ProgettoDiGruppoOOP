@@ -1,4 +1,3 @@
 # ProgettoDiGruppoOOP
- Repositary per il progetto di gruppo
-
-NON voglio snitch
+ Repositary gruppo 6
+ 
