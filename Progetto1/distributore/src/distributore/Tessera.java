@@ -8,13 +8,43 @@ package distributore;
  *
  * @author patap
  */
-public class Tessera implements Comparable<Tessera>{
-    private int codice;
-    private double saldo;
+public class Tessera {
+ 
+    int codice;
+    double saldo;
 
+    public Tessera(int codice, double saldo) {
+        this.codice = codice;
+        this.saldo = saldo;
+    }
+    
+    // Costruttore secondario
+    public Tessera(int codice){
+        
+        this(codice, 0.0);
+        
+    }
+
+    public int getCodice() {
+        return codice;
+    }
+
+    public void setCodice(int codice) {
+        this.codice = codice;
+    }
+
+    public double getSaldo() {
+        return saldo;
+    }
+
+    public void setSaldo(double saldo) {
+        this.saldo = saldo;
+    }
+        
     @Override
     public int hashCode() {
-        int hash = 3;
+        int hash = 7;
+        hash = 19 * hash + this.codice;
         return hash;
     }
 
@@ -35,33 +65,6 @@ public class Tessera implements Comparable<Tessera>{
         }
         return true;
     }
-
-    @Override
-    public int compareTo(Tessera o) {
-        
-        return 0;
-        
-    }
-
-    public int getCodice() {
-        return codice;
-    }
-
-    public void setCodice(int codice) {
-        this.codice = codice;
-    }
-
-    public double getSaldo() {
-        return saldo;
-    }
-
-    public void setSaldo(double saldo) {
-        this.saldo = saldo;
-    }
-
-    public void caricaSaldo(double saldo){
-        
-        this.saldo += saldo;       
-    }    
+    
     
 }

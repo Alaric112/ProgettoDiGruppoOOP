@@ -4,8 +4,6 @@
  */
 package distributore;
 
-import distributore.eccezioni.BibitaEsaurita;
-import distributore.eccezioni.BibitaNonPresente;
 import java.util.Objects;
 
 /**
@@ -13,6 +11,7 @@ import java.util.Objects;
  * @author patap
  */
 public abstract class Bibita implements Comparable<Bibita>{
+    
     private String codice;
     private String nome;
     private double prezzo;
@@ -24,32 +23,20 @@ public abstract class Bibita implements Comparable<Bibita>{
         this.prezzo = prezzo;
         this.numero = numero;
     }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Bibita other = (Bibita) obj;
-        if (!Objects.equals(this.codice, other.codice)) {
-            return false;
-        }
-        return true;
+   
+    // Costruttore secondario
+    public Bibita(String codice, String nome){
+        
+        this(codice, nome, 5.0, 10);
     }
 
+    // Questo meccanimo funziona grazie a "implements"
     @Override
-    public int hashCode() {
-        int hash = 5;
-        hash = 13 * hash + Objects.hashCode(this.codice);
-        return hash;
+    public int compareTo(Bibita x){
+        
+        return codice.toLowerCase().compareTo(x.getCodice().toLowerCase());
     }
-
+    
     public String getCodice() {
         return codice;
     }
@@ -81,9 +68,35 @@ public abstract class Bibita implements Comparable<Bibita>{
     public void setNumero(int numero) {
         this.numero = numero;
     }
-    
-    public void minusNumero(){
-        
-        this.numero--;
+
+    @Override
+    public int hashCode() {
+        int hash = 7;
+        hash = 79 * hash + Objects.hashCode(this.codice);
+        return hash;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Bibita other = (Bibita) obj;
+        if (!Objects.equals(this.codice, other.codice)) {
+            return false;
+        }
+        return true;
+    }
+ 
+    @Override
+    public String toString() {
+        return "Codice = " + codice + "\nNome = " + nome + "\nPrezzo=" + prezzo + "\nQuantità = " + numero + "\n";
+    }
+    
 }

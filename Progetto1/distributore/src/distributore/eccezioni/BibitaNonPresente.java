@@ -1,13 +1,29 @@
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Exception.java to edit this template
  */
 package distributore.eccezioni;
 
 /**
  *
- * @author PC
+ * @author patap
  */
-public class BibitaNonPresente extends RuntimeException{
-    
+public class BibitaNonPresente extends Exception {
+
+    /**
+     * Creates a new instance of <code>BibitaNonPresente</code> without detail
+     * message.
+     */
+    public BibitaNonPresente() {
+    }
+
+    /**
+     * Constructs an instance of <code>BibitaNonPresente</code> with the
+     * specified detail message.
+     *
+     * @param msg the detail message.
+     */
+    public BibitaNonPresente(String msg) {
+        super(msg);
+    }
 }
