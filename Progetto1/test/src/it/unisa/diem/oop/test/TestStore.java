@@ -1,16 +1,13 @@
 package it.unisa.diem.oop.test;
 
 
-import it.unisa.diem.oop.developed.group06.Smartphone;
-import it.unisa.diem.oop.developed.group06.DeviceStore;
-import it.unisa.diem.oop.developed.group06.Notebook;
-import it.unisa.diem.oop.developed.group06.Device;
-import it.unisa.diem.oop.developed.group06.DeviceInsertionException;
+import it.unisa.diem.oop.developed.groupxx.Smartphone;
+import it.unisa.diem.oop.developed.groupxx.DeviceStore;
+import it.unisa.diem.oop.developed.groupxx.Notebook;
+import it.unisa.diem.oop.developed.groupxx.Device;
 import it.unisa.diem.oop.provided.NBScreenType;
 import it.unisa.diem.oop.provided.MobileCPUType;
 import it.unisa.diem.oop.provided.CPUType;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 
 /*
  * To change this license header, choose License Headers in Project Properties.
@@ -47,8 +44,6 @@ public class TestStore {
         
         DeviceStore store = new DeviceStore("MyStore");
         
-        try {
-        
         store.addDevice(d1);
         store.addDevice(d2);
         store.addDevice(d3);
@@ -56,9 +51,6 @@ public class TestStore {
         store.addDevice(d5);
         store.addDevice(d6);
         
-                } catch (DeviceInsertionException ex) {
-            Logger.getLogger(TestStore.class.getName()).log(Level.SEVERE, null, ex);
-        }
         
         System.out.println(store);
         

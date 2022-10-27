@@ -5,7 +5,7 @@
  */
 package it.unisa.diem.oop.test;
 
-import it.unisa.diem.oop.developed.groupxx.*; //da modificare
+import it.unisa.diem.oop.developed.group06.*; //da modificare
 import it.unisa.diem.oop.provided.*;
 
 /**

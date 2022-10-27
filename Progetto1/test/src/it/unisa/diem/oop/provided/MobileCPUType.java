@@ -1,7 +1,5 @@
 package it.unisa.diem.oop.provided;
 
-import it.unisa.diem.oop.developed.group06.Device;
-
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -11,10 +9,9 @@ import it.unisa.diem.oop.developed.group06.Device;
 /**
  *
  * @author lucagreco
- * 
  */
-public interface DeviceFilter {
+public enum MobileCPUType {
     
-    boolean checkDevice(Device d);
+    kirin_9000, kirin_990, kirin_820
     
 }

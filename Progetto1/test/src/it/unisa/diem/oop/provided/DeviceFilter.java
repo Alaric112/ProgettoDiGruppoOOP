@@ -1,6 +1,6 @@
 package it.unisa.diem.oop.provided;
 
-import it.unisa.diem.oop.developed.group06.Device;
+import it.unisa.diem.oop.developed.groupxx.Device;
 
 /*
  * To change this license header, choose License Headers in Project Properties.

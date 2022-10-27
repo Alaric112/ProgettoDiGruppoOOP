@@ -1,8 +1,8 @@
 package it.unisa.diem.oop.provided;
 
 
-import it.unisa.diem.oop.developed.group06.Device;
-import it.unisa.diem.oop.developed.group06.DeviceStore;
+import it.unisa.diem.oop.developed.groupxx.Device;
+import it.unisa.diem.oop.developed.groupxx.DeviceStore;
 import it.unisa.diem.oop.provided.DeviceFilter;
 import java.util.Comparator;
 import java.util.Set;
