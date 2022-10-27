@@ -36,7 +36,7 @@ public class Smartphone extends Device{
 
     @Override
     public String toString() {
-        return "Smartphone:" + super.toString() +  "\nCPU= " + cpu + "\nscreenSizeInch= " + screenSizeInch + '\n';
+        return "Smartphone:\n" + super.toString() +  "CPU= " + cpu + "\nscreenSizeInch= " + screenSizeInch + '\n';
     }
     
 }

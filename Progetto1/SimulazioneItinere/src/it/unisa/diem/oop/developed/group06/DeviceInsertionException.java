@@ -8,7 +8,7 @@ package it.unisa.diem.oop.developed.group06;
  *
  * @author patap
  */
-public class DeviceInsertionException extends Exception {
+public class DeviceInsertionException extends RuntimeException {
 
     /**
      * Creates a new instance of <code>DeviceInsertionException</code> without

@@ -43,7 +43,7 @@ public class Notebook extends Device {
 
     @Override
     public String toString() {
-        return "Notebook" + super.toString() +"CPU= " + type + "\nscreenType= " + screenType + "\ntouchScreen= " + touchScreen + '\n';
+        return "Notebook:\n" + super.toString() +"CPU= " + type + "\nscreenType= " + screenType + "\ntouchScreen= " + touchScreen + '\n';
     }
 
 }

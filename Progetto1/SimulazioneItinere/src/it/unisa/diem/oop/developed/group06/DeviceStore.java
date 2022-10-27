@@ -23,47 +23,49 @@ public class DeviceStore implements Filterable {
     public DeviceStore(String name){
         
         this.name = name;
-        store = new TreeSet();
+        store = new TreeSet<>();
         
     }
     
     public DeviceStore(String name, Comparator<Device> c){
         
         this.name = name;
-        store = new TreeSet(c);
+        store = new TreeSet<>(c);
     }
    
     public void addDevice(Device d){
         
-        if(store.contains(d)){
-            
-            System.out.println("Sono già contenuto nel tree");
-            return;
-        }
-        
-        store.add(d);
-        
+       if(!store.add(d))
+        throw new DeviceInsertionException();
     }
 
     @Override
-    public String toString() {
-        return name + "contains " + store.size() + "items.\nPrinting:\n*****" + store +'\n';
-    }
-    
-   /* 
-    @Override
     public DeviceStore filter(DeviceFilter d, Comparator<Device> c){
-        
-       Iterator<Device> i = store.iterator();
-       if (c == null){
-           
-          
-           
-       }
-        
     
+      DeviceStore subStore = new DeviceStore(this.name, c);  
+    
+             for(Device x : store ){
+    
+              if(d.checkDevice(x))
+                  subStore.addDevice(x);
+        }
+        
+        return subStore;
     }
     
+    @Override
+    public String toString() {
+    
+        String s= this.name + " contains " + store.size() + " items.\nPrinting:";
+    
+        for(Device d : store ){
+    
+            s+="\n*****\n";
+            s+=d;
+    
+    
+        }
+        return s;
+    
     }
-*/
 }

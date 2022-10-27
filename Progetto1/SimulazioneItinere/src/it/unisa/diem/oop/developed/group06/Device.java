@@ -12,7 +12,7 @@ import java.util.Objects;
  *
  * @author patap
  */
-public abstract class Device{
+public abstract class Device implements Comparable<Device>{
   
     private String serialNumber;
     private LocalDate releaseDate;
@@ -21,7 +21,7 @@ public abstract class Device{
 
     public Device(String serialNumber, int year, int month, int dayOfMonth, int RAMsize, int storageCapacity) {
         this.serialNumber = serialNumber;
-        this.releaseDate = LocalDate.of(year, Month.MARCH, dayOfMonth);
+        this.releaseDate = LocalDate.of(year, month, dayOfMonth);
         this.RAMsize = RAMsize;
         this.storageCapacity = storageCapacity;
     }
@@ -45,12 +45,15 @@ public abstract class Device{
             return false;
         }
         final Device other = (Device) obj;
-        if (!Objects.equals(this.serialNumber, other.serialNumber)) {
+        
+       if (!Objects.equals(this.serialNumber, other.serialNumber)) {
             return false;
         }
+
         return true;
     }
     
+    @Override
     public int compareTo(Device x){
         
         return serialNumber.toLowerCase().compareTo(x.getSerialNumber().toLowerCase());
@@ -74,7 +77,7 @@ public abstract class Device{
 
     @Override
     public String toString() {
-        return "serialNumber=" + serialNumber + "\nreleaseDate= " + releaseDate + "\nRAMsize= " + RAMsize + "\nstorageCapacity= " + storageCapacity + '\n';
+        return "serialNumber=" + serialNumber + "\nreleaseDate= " + releaseDate + "\nRAMsize= " + RAMsize + "GB\nstorageCapacity= " + storageCapacity + "GB\n";
     }
     
     public abstract boolean hasTouchScreen();
