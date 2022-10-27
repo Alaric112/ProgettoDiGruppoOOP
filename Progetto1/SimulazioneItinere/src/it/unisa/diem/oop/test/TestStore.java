@@ -47,18 +47,12 @@ public class TestStore {
         
         DeviceStore store = new DeviceStore("MyStore");
         
-        try {
-        
         store.addDevice(d1);
         store.addDevice(d2);
         store.addDevice(d3);
         store.addDevice(d4);
         store.addDevice(d5);
-        store.addDevice(d6);
-        
-                } catch (DeviceInsertionException ex) {
-            Logger.getLogger(TestStore.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        store.addDevice(d6);       
         
         System.out.println(store);
         

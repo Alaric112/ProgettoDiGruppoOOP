@@ -36,6 +36,7 @@ public class Notebook extends Device {
         return screenType;
     }
 
+    @Override
     public boolean hasTouchScreen() {
         return touchScreen;
     }

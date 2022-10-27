@@ -33,11 +33,12 @@ public class DeviceStore implements Filterable {
         store = new TreeSet(c);
     }
    
-    public void addDevice(Device d) throws DeviceInsertionException {
+    public void addDevice(Device d){
         
         if(store.contains(d)){
             
-            throw new DeviceInsertionException();
+            System.out.println("Sono già contenuto nel tree");
+            return;
         }
         
         store.add(d);
@@ -49,6 +50,7 @@ public class DeviceStore implements Filterable {
         return name + "contains " + store.size() + "items.\nPrinting:\n*****" + store +'\n';
     }
     
+   /* 
     @Override
     public DeviceStore filter(DeviceFilter d, Comparator<Device> c){
         
@@ -59,5 +61,9 @@ public class DeviceStore implements Filterable {
            
        }
         
+    
     }
+    
+    }
+*/
 }
