@@ -4,7 +4,10 @@
  * and open the template in the editor.
  */
 package oop2019.prova1.test;
-import oop2019.prova1.gruppoXX.*;
+import oop2019.prova1.gruppo06.Computer;
+import oop2019.prova1.gruppo06.NetworkHub;
+import oop2019.prova1.gruppo06.FileServer;
+import oop2019.prova1.gruppo06.Printer;
 /**
  * 
  */

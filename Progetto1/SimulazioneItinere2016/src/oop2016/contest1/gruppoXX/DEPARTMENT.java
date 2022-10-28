@@ -19,6 +19,7 @@ public class Department extends LinkedList<Person> implements Sortable{
     public void sort(){        
  
         
+        
     }
     
     @Override
