@@ -45,18 +45,27 @@ public abstract class Device implements Comparable<Device>{
             return false;
         }
         final Device other = (Device) obj;
-        
+      
+        /*
        if (!Objects.equals(this.serialNumber, other.serialNumber)) {
             return false;
         }
-
+        */
+        if (!this.serialNumber.equalsIgnoreCase(other.serialNumber)) {
+            return false;
+        }
+        
+        
         return true;
     }
     
     @Override
     public int compareTo(Device x){
         
-        return serialNumber.toLowerCase().compareTo(x.getSerialNumber().toLowerCase());
+        //return serialNumber.toLowerCase().compareTo(x.getSerialNumber().toLowerCase());
+        // versione specifica per NON essere case sensitive
+        
+        return this.serialNumber.compareToIgnoreCase(x.getSerialNumber());
     }
 
     public String getSerialNumber() {

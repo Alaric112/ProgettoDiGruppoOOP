@@ -23,10 +23,12 @@ public class TestDepartment {
         d.add(new Teacher("Gennaro", "Percannella", TeacherType.ASSOCIATE_PROFESSOR, 1973, 5, 18));
         d.add(new Teacher("Mario", "Vento", TeacherType.FULL_PROFESSOR, 1960, 1, 5));
         System.out.println(d);
+        
+        
         d.sort();
         System.out.println("Ordino gli elementi");
         System.out.println(d);
-        
+       /* 
         System.out.println("Ottengo nuovo dipartimento con persone nate dopo l'1/1/1995");
         Department d1 = d.filter(new SelectYoungPersonFilter(1995,1,1));
         System.out.println(d1);
@@ -34,5 +36,6 @@ public class TestDepartment {
         System.out.println("Ottengo nuovo dipartimento contenente solo gli studenti");
         Department d2 = d.filter(new SelectStudentFilter());
         System.out.println(d2);
+        */
     }
 }

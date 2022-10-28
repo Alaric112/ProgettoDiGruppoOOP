@@ -4,10 +4,26 @@
  */
 package oop2016.contest1.gruppoXX;
 
+import java.time.LocalDate;
+import java.time.Month;
+
 /**
  *
  * @author 39334
  */
-public class SelectYoungPersonFilter {
+public class SelectYoungPersonFilter implements PersonFilter {
+    
+    private LocalDate minData;
+
+    public SelectYoungPersonFilter(int day, int month, int dayOfMonth) {
+        this.minData = LocalDate.of(day, month, dayOfMonth);
+    }
+    
+    @Override
+    public boolean checkPerson(Person p){
+        
+        return p.getBirthDate().isAfter(minData);
+        
+    }
     
 }

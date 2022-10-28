@@ -8,6 +8,13 @@ package oop2016.contest1.gruppoXX;
  *
  * @author 39334
  */
-public class SELECTSTUDENTFILTER {
+public class SelectStudentFilter implements PersonFilter {
+   
+    @Override
+    public boolean checkPerson(Person p){
+        
+        return p instanceof Student;
+        
+    }
     
 }
