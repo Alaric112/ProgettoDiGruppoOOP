@@ -18,6 +18,14 @@ public class TestPerson {
         System.out.println(p);
         Person p2 = new Person("Luca", "Rossi", 1994, 2, 15);
         System.out.println(p2);
+        /* ATTENZIONE CREDO CHE QUESTA IMPLEMENTAZIONE DEL MAIN è ERRATA */
+        
+        /* Credo che abbiano scambiato le stampe, chi ha fatto questa traccia in quanto il codice 
+        funziona nel "main" principale (TestDepartament) in quanto è il più importante che fa la somma di tutte le classi...
+        
+        by Alex
+        */
+        
         if(p.compareTo(p2)>0)
             System.out.println("La persona più anziana e': \n" + p);
         else if(p.compareTo(p2)<0)

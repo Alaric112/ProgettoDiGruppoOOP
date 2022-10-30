@@ -45,9 +45,11 @@ public class Person implements Comparable<Person> {
     @Override
     public int compareTo(Person p){
         
-       // return this.birthDate.compareTo(p.getBirthDate());
         
-        return p.getBirthDate().compareTo(this.birthDate);
+        System.out.println(birthDate.compareTo(p.getBirthDate()));
+        return this.birthDate.compareTo(p.getBirthDate());
+        
+        //return p.getBirthDate().compareTo(this.birthDate);
     }
         
     
