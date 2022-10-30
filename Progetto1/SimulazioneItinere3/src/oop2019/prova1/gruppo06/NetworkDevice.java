@@ -10,14 +10,14 @@ package oop2019.prova1.gruppo06;
  */
 public abstract class NetworkDevice implements NetworkInterface {
     
-    private final int Address;
+    private final int address;
     private static int counter =0;
     private NetworkInterface connection;
     
     public NetworkDevice(){
         
         counter++;
-        this.Address= counter;
+        this.address= counter;
         connection = null;
         
     }
@@ -27,7 +27,7 @@ public abstract class NetworkDevice implements NetworkInterface {
         
         // if(Address == destAddress)
         //this.equals(destAddress)
-        if(Address == destAddress)
+        if(address == destAddress)
             this.process(sourceAddress, message);
                           
     }
@@ -40,7 +40,7 @@ public abstract class NetworkDevice implements NetworkInterface {
     }
 
     public int getAddress() {
-        return Address;
+        return address;
     }
 
     public NetworkInterface getConnection() {
@@ -50,7 +50,7 @@ public abstract class NetworkDevice implements NetworkInterface {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 11 * hash + this.Address;
+        hash = 11 * hash + this.address;
         return hash;
     }
 
@@ -66,7 +66,7 @@ public abstract class NetworkDevice implements NetworkInterface {
             return false;
         }
         final NetworkDevice other = (NetworkDevice) obj;
-        if (this.Address != other.Address) {
+        if (this.address != other.address) {
             return false;
         }
         return true;
@@ -77,7 +77,7 @@ public abstract class NetworkDevice implements NetworkInterface {
     @Override
     public String toString(){
         
-        return "Device " + Address;
+        return "Device " + address;
     }
     
 }
