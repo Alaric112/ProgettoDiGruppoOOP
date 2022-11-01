@@ -9,5 +9,5 @@ package gruppo06.fare;
  * @author patap
  */
 public class Dumper {
-    
+    private String ciao;
 }
