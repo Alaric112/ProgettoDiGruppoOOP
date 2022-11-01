@@ -10,6 +10,6 @@ package gruppo06.fare;
  */
 public class Dumper {
     
-    private int cc;
+    private int dd;
     
 }
