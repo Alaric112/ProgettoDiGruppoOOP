@@ -49,16 +49,15 @@ public class Notebook extends Device {
         
         s.append("Notebook\n");
         s.append(super.toString());
-        s.append("screenType = ");
+        s.append("\nscreenType = ");
         s.append(screenType);
         if(touchScreen){
             
-        s.append("touchScreen available");
+        s.append("\ntouchScreen available");
         }
         
         return s.toString();
         
     }
-      
-        
+    
 }

@@ -11,7 +11,7 @@ import java.util.Objects;
  *
  * @author patap
  */
-public abstract class Device {
+public abstract class Device implements Comparable<Device> {
     
     private final String serialNumber;
     private final LocalDate releaseDate;
@@ -50,6 +50,15 @@ public abstract class Device {
         return true;
     }
 
+    @Override
+    public int compareTo(Device o){
+        
+       return serialNumber.compareToIgnoreCase(o.serialNumber);
+        
+        
+    }
+    
+    
     public String getSerialNumber() {
         return serialNumber;
     }
