@@ -8,9 +8,9 @@ package gruppo06.fare;
  *
  * @author patap
  */
-public class Tanker extends truck{
+public class Tanker extends Truck{
     private final int capacity;
-    private final Tanktype ttype;
+    private final TankType ttype;
 
     public Tanker(TankType ttype, int capacity, String chassisID, DriveWheelType dw, int year, int month, int dayOfMonth, TruckType tt, int truckClass){
         super(chassisID, dw, year,month, dayOfMonth,tt,truckClass);
@@ -32,10 +32,11 @@ public class Tanker extends truck{
         return ttype;
     }
     
+    @Override
     public boolean validateTruck(){
        if(capacity>=1&&capacity<=8){
          String regex = "^T[A-z]{3}[0-9]{3}$";
-         return getChassisId().matches(regex);
+         return this.getChassisID().matches(regex);
        }
        return false;
     }
