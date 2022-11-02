@@ -4,10 +4,24 @@
  */
 package gruppo06.fare;
 
+import java.util.Comparator;
+
 /**
  *
  * @author patap
  */
-public class TruckClassComparator {
+public class TruckClassComparator implements Comparator<Truck> {
+    
+    @Override
+    public int compare(Truck o1, Truck o2){
+    
+    int x = o1.getTruckClass()-o2.getTruckClass();            
+      
+    if(x == 0){           
+       return o1.getChassisID().compareTo(o2.getChassisID());
+    }
+    
+    return x;
+    }
     
 }

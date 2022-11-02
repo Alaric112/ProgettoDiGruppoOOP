@@ -5,6 +5,8 @@
  */
 package gruppo06.fornite;
 
+import gruppo06.fare.Truck;
+import gruppo06.fare.TruckFleet;
 import java.util.Comparator;
 
 /**
