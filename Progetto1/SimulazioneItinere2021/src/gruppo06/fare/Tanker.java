@@ -32,7 +32,7 @@ public class Tanker extends Truck{
         return capacity;
     }
 
-    public Tanktype getTtype() {
+    public TankType getTtype() {
         return ttype;
     }
     
