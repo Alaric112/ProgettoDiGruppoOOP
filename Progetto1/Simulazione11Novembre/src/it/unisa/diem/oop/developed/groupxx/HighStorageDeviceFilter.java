@@ -21,7 +21,7 @@ public class HighStorageDeviceFilter implements DeviceFilter {
     @Override
     public boolean checkDevice(Device d){
         
-        if(d.getSize()>minSize){
+        if(d.getStorageCapacity( )> minSize){
             
             return true;
             
