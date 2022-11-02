@@ -33,8 +33,8 @@ public class BoxTruck extends Truck {
     public boolean validateTruck(){
         
         String regex = "^B[A-z]{3}[0-9]{3}$";
-    
-        if(!(regex.equals(this.getChassisID())) || ((this.getTruckClass()<= 8) && this.getTruckClass() >= 1)){
+            
+        if(!((regex.equals(this.getChassisID())) || ((this.getTruckClass()< 9) && this.getTruckClass() > 0))){
         
             
             return false;
@@ -52,7 +52,7 @@ public class BoxTruck extends Truck {
         
     if(lutonBody){    
 
-        s.append("with luton Body");
+        s.append("\nwith luton Body");
     }    
         
 

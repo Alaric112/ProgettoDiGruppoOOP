@@ -10,18 +10,32 @@ import gruppo06.fornite.TruckFilter;
  *
  * @author patap
  */
-public class BigTankFilter implements TruckFilter{
+public class BigTankerFilter implements TruckFilter{
     private final int minCapacity;
 
-    public BigTankFilter(int minCapacity) {
+    public BigTankerFilter(int minCapacity) {
         this.minCapacity = minCapacity;
     }
     
+    
+    @Override
     public boolean checkTruck(Truck t){//capire perchè non è Tanker
-        if(t.getCapacity()>=minCapacity)
-        {
-            return true;
+        
+        if (t instanceof Tanker){
+        
+            final Tanker other = (Tanker) t;
+            
+            if(other.getCapacity() >= minCapacity ){
+                
+                return true;
+                                
+            }
+
+        
         }
-        return false;
+            return false;
+
     }
+    
+    
 }

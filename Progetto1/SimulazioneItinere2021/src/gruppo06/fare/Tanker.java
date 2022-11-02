@@ -7,6 +7,7 @@ package gruppo06.fare;
 import gruppo06.fornite.DriveWheelType;
 import gruppo06.fornite.TankType;
 import gruppo06.fornite.TruckType;
+import static gruppo06.fornite.TruckType.STANDARD;
 
 /**
  *
@@ -23,7 +24,7 @@ public class Tanker extends Truck{
     }
 
     public Tanker(TankType ttype, int capacity, String chassisID, DriveWheelType dw, int year, int month, int dayOfMonth, int truckClass) {
-        super(chassisID, dw, year,month, dayOfMonth,truckClass);
+        super(chassisID, dw, year,month, dayOfMonth, STANDARD ,truckClass);
         this.ttype = ttype;
         this.capacity = capacity;      
     }
@@ -38,26 +39,31 @@ public class Tanker extends Truck{
     
     @Override
     public boolean validateTruck(){
-       if(capacity>=1&&capacity<=8){
+        
+       if((this.getTruckClass() >=1 )&& (this.getTruckClass()<=8)){
          String regex = "^T[A-z]{3}[0-9]{3}$";
+         
+         
          return this.getChassisID().matches(regex);
        }
+       
        return false;
     }
 
     @Override
     public String toString() {
-        StringBuffer b = new StringBuffer("Tank Truck \n Tank Type :");
+        StringBuffer b = new StringBuffer("\nTank Truck\nTank Type: ");
         b.append(this.ttype);
-        b.append("\nTank capacity :");
+        b.append("\nTank capacity: ");
         b.append(this.capacity);
+        b.append("\n");
         b.append(super.toString());
-        b.append("validation :");
+        b.append("\nSide dump =  ");
         if(validateTruck()){
-        b.append("PASSED");
+        b.append("available");
         }
         else{
-            b.append("NOT PASSED");
+            b.append("not available");
         }
         return b.toString();
     }

@@ -101,8 +101,13 @@ public abstract class Truck implements Comparable<Truck>{
         s.append("\ntruck class = ");
         s.append(truckClass);
         s.append("\nvalidation = ");
-        s.append(validateTruck());
-
+        if(validateTruck()){
+        s.append("PASSED");
+        }
+        else{
+            
+        s.append("NOT PASSED");
+        }
         return s.toString();
     }
     

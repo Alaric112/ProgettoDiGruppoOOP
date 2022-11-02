@@ -28,9 +28,10 @@ public class TruckFleet implements Filterable, Iterable<Truck> {
     }
     
     public void add(Truck t){
-        
-        if(t.validateTruck()){
-            
+                
+       if(t.validateTruck() == false){
+           
+            System.out.println("Problema");
             throw new NotValidChassisIDException();
         }
         
@@ -73,7 +74,7 @@ public class TruckFleet implements Filterable, Iterable<Truck> {
         s.append(name);
         s.append("Contains ");
         s.append(fleet.size());
-        s.append("trucks.\nListing:\n");
+        s.append(" trucks.\nListing:\n");
         
         for(Truck i : fleet){
             

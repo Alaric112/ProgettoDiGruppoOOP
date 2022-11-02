@@ -6,6 +6,7 @@ package gruppo06.fare;
 
 import gruppo06.fornite.DriveWheelType;
 import gruppo06.fornite.TruckType;
+import static gruppo06.fornite.TruckType.STANDARD;
 
 /**
  *
@@ -13,24 +14,34 @@ import gruppo06.fornite.TruckType;
  */
 public class Dumper extends Truck{
     private final boolean sideDumpCapable;
+    
     public Dumper(boolean sideDumpCapable, String chassisID, DriveWheelType dw, int year, int month, int dayOfMonth, TruckType tt, int truckClass)
     {
-        super(chassisID,dw,year,month,dayOfMonth,tt,truckClass);
+        super(chassisID, dw, year, month, dayOfMonth, tt, truckClass);
         this.sideDumpCapable=sideDumpCapable;
     }
     
     public Dumper(String chassisID, DriveWheelType dw, int year, int month, int dayOfMonth, TruckType tt, int truckClass)
     {
-        super(chassisID,dw,year,month,dayOfMonth,tt,truckClass);
+        super(chassisID, dw, year, month, dayOfMonth, tt, truckClass);
         sideDumpCapable=false;
     }
+    
+    public Dumper(String chassisID, DriveWheelType dw, int year, int month, int dayOfMonth, int truckClass)
+    {
+        super(chassisID, dw, year, month, dayOfMonth, STANDARD, truckClass);
+        sideDumpCapable=false;
+    }
+    
     public boolean isSideDumpCapable(){
             return sideDumpCapable;
     }
     
     @Override
     public boolean validateTruck(){
-       if(capacity>=1&&capacity<=8){
+        
+
+       if((this.getTruckClass() > 0) && (this.getTruckClass() < 9)){
          String regex = "^D[A-z]{2}[0-9]{4}$";
          return this.getChassisID().matches(regex);
        }

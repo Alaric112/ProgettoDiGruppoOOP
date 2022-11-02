@@ -7,6 +7,10 @@ package gruppo06;
 
 // prova in itinere 2 novembre 2021
 
+import gruppo06.fare.*;
+import gruppo06.fornite.*;
+
+
 /**
  *
  * @author lucagreco
@@ -35,7 +39,7 @@ public class TestFleet {
         
         Truck t8 = new Dumper ("DAC1334", DriveWheelType.AWD_6X6, 2006,11,8, TruckType.STANDARD, 8);
         
-        Truck t9 = new Dumper (true,"DAC1334", DriveWheelType.AWD_6X6, 2006, 11, 8, TruckType.STANDARD, 8);
+        Truck t9 = new Dumper (true, "DAC1334", DriveWheelType.AWD_6X6, 2006, 11, 8, TruckType.STANDARD, 8);
         
         Truck t10 = new BoxTruck ("BFGV234", DriveWheelType.RWD_4X2, 2012,7,3, TruckType.STANDARD,7);
         
