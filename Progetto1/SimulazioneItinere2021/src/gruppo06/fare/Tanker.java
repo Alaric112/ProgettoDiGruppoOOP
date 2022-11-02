@@ -4,6 +4,10 @@
  */
 package gruppo06.fare;
 
+import gruppo06.fornite.DriveWheelType;
+import gruppo06.fornite.TankType;
+import gruppo06.fornite.TruckType;
+
 /**
  *
  * @author patap
