@@ -4,11 +4,13 @@
  */
 package it.unisa.diem.oop.developed.groupxx;
 
+import java.util.Comparator;
+
 /**
  *
  * @author 39334
  */
-public class DeviceReleaseYearComparator implements java.util.Comparator<Device>{
+public class DeviceReleaseDateComparator implements Comparator<Device>{
     
     public int compare(Device o1, Device o2){
         

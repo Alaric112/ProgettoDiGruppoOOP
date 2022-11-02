@@ -11,13 +11,11 @@ import it.unisa.diem.oop.provided.DeviceFilter;
  * @author utente
  */
 public class NotebookFilter implements DeviceFilter {
+    
     @Override
     public boolean checkDevice(Device d){
-        if(d instanceof Notebook)
-        {
-            return d instanceof Notebook;
-        }
-        return false;
+
+        return d instanceof Notebook;
     }
     
 }

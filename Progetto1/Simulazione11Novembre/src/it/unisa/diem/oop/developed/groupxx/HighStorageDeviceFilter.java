@@ -12,7 +12,7 @@ import it.unisa.diem.oop.provided.DeviceFilter;
  */
 public class HighStorageDeviceFilter implements DeviceFilter {
     
-    private int minSize;
+    private final int minSize;
 
     public HighStorageDeviceFilter(int minSize) {
         this.minSize = minSize;
@@ -21,13 +21,7 @@ public class HighStorageDeviceFilter implements DeviceFilter {
     @Override
     public boolean checkDevice(Device d){
         
-        if(d.getStorageCapacity( )> minSize){
-            
-            return true;
-            
-        }
-        
-        return false;
+        return d.getStorageCapacity() >= minSize;
         
     }
     

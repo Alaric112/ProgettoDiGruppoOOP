@@ -4,10 +4,12 @@
  */
 package it.unisa.diem.oop.developed.groupxx;
 
+import it.unisa.diem.oop.provided.Filterable;
+
 /**
  *
  * @author patap
  */
-public class DeviceStore {
+public class DeviceStore implements Filterable {
     
 }
