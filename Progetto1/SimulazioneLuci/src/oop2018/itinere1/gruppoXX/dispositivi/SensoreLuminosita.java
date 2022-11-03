@@ -8,6 +8,16 @@ package oop2018.itinere1.gruppoXX.dispositivi;
  *
  * @author PC
  */
-public class SensoreLuminosita {
+public class SensoreLuminosita extends Sensore{
+
+    public SensoreLuminosita(int id) {
+        super(id);
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + " -  Tipo: Sensore di luminosità";
+    }
+    
     
 }
