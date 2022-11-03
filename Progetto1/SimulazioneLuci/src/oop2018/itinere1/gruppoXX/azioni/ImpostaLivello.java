@@ -14,9 +14,9 @@ public class ImpostaLivello implements Azione {
     private AttuatoreRegolabile ar;
     private double livelloDaImpostare;
 
-    public ImpostaLivello(AttuatoreRegolabile ar, double LivelloDaImpostare) {
+    public ImpostaLivello(AttuatoreRegolabile ar, double livelloDaImpostare) {
         this.ar = ar;
-        this.LivelloDaImpostare = LivelloDaImpostare;
+        this.livelloDaImpostare = livelloDaImpostare;
     }
     
     public void Esegui() throws LivelloNonValidoException{
