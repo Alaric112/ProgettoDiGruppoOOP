@@ -11,12 +11,19 @@ package oop2018.itinere1.gruppoXX.dispositivi;
 public abstract class AttuatoreRegolabile extends Attuatore{
     private final double livelloMin;
     private final double livelloMax;
+    
     private double livello;
 
-    public AttuatoreRegolabile(int id, double livelloMin, double livelloMax, double livello) {
+    public AttuatoreRegolabile(int id, double livelloMin, double livelloMax, double livello) throws LivelloNonValidoException {
         super(id);
         this.livelloMin = livelloMin;
         this.livelloMax = livelloMax;
+        
+                
+        if(!(livelloMin <= livello && livello <= livelloMax)){
+            throw new LivelloNonValidoException();
+        }
+        
         this.livello = livello;
     }
 
