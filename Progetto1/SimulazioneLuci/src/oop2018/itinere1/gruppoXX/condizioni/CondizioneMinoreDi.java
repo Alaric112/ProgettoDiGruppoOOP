@@ -12,7 +12,7 @@ import oop2018.itinere1.gruppoXX.dispositivi.Sensore;
  */
 public class CondizioneMinoreDi implements Condizione{
     private final Sensore sensore;
-    private final double valoreDiConfronto;
+    private double valoreDiConfronto;
 
     public CondizioneMinoreDi(Sensore sensore, double valoreDiConfronto) {
         this.sensore = sensore;
@@ -21,15 +21,16 @@ public class CondizioneMinoreDi implements Condizione{
     
     @Override
     public boolean verifica(){
-        return sensore.getValore()<valoreDiConfronto;
+           
+        return sensore.getValore() < valoreDiConfronto;
     }
     
     @Override
     public String toString(){
-        StringBuffer b = new StringBuffer("Tipo condizione: Maggiore di ");
+        StringBuffer b = new StringBuffer("Tipo condizione: Minore di ");
         b.append(valoreDiConfronto);
         b.append(" ");
-        b.append(super.toString());
+        b.append(sensore.toString());
         return b.toString();
     }
 

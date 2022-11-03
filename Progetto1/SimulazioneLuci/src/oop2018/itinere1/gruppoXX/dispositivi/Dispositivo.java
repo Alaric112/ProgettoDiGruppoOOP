@@ -9,7 +9,7 @@ package oop2018.itinere1.gruppoXX.dispositivi;
  * @author PC
  */
 public abstract class Dispositivo {
-    private int id;
+    private final int id;
     private boolean acceso;
 
     public Dispositivo(int id) {
@@ -40,8 +40,7 @@ public abstract class Dispositivo {
             return false;
         }
         return true;
-        
-        
+          
     }
 
     public int getId() {

@@ -4,6 +4,7 @@
  */
 package oop2018.itinere1.gruppoXX;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
@@ -22,7 +23,7 @@ public class Impianto {
 
     public Impianto(String name) {
         this.name = name;
-        this.regole = new LinkedList();
+        this.regole = new ArrayList();
         this.dispositivi = new HashMap();
         
     }
@@ -43,17 +44,16 @@ public class Impianto {
     public void add(Regola r){
         
         regole.add(r);
-        
-        
+     
     }
     
     public void applicaRegole(){
         
-        for (Regola i : regole){
+        for(Regola i : regole){
             
                 i.applica();
           
-                return;
+               
             }
             
         }

@@ -34,7 +34,14 @@ public class Regola {
     
     public boolean applica(){
             
+        System.out.println("\nsono prima del verifica\n");
+
+        System.out.println(condizione.verifica());
+        
         if(condizione.verifica()){
+            
+                    System.out.println("\nsono prima del esegui\n");
+
             
             try {
                 azione.esegui();

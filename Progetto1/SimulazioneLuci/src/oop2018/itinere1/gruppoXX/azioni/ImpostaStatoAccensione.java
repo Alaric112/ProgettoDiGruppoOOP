@@ -11,26 +11,34 @@ import oop2018.itinere1.gruppoXX.dispositivi.Attuatore;
  * @author utente
  */
 public class ImpostaStatoAccensione implements Azione{
+    
     private final Attuatore attuatore;
-    private boolean SetOn;
+    private final boolean setOn;
 
-    public ImpostaStatoAccensione(Attuatore attuatore, boolean SetOn) {
+    public ImpostaStatoAccensione(Attuatore attuatore, boolean setOn) {
         this.attuatore = attuatore;
-        this.SetOn = SetOn;
+        this.setOn = setOn;
     }
     
     @Override
     public void esegui(){
-        if(SetOn){
+        
+                System.out.println("\nSono prima del if\n");
+
+        
+        if(setOn){
             attuatore.accendi();
+            return;
         }
-        else
-            attuatore.spegni();
+        
+        System.out.println("\nCIao\n");
+        attuatore.spegni();
     }
     
-    public String ToString(){
+    @Override
+    public String toString(){
         StringBuffer b = new StringBuffer("Tipo Azione: ");
-        if(SetOn){
+        if(setOn){
             b.append(" accendi ");
         }
         else{
