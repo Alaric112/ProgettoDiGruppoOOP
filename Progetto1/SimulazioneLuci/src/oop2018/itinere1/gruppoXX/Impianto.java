@@ -32,10 +32,58 @@ public class Impianto {
       return x;
     }
     
+    public Dispositivo getDispositivo(int id){
+        
+       return dispositivi.get(id);
+        
+    }
+    
     public void add(Regola r){
         
         regole.add(r);
         
+        
     }
+    
+    public void applicaRegole(){
+        
+        for (Regola i : regole){
+            
+            i.applica();
+            
+        }
+        
+    }
+
+    @Override
+    public String toString() {
+
+        StringBuffer s = new StringBuffer();
+        
+        
+        
+        s.append("=====================\nInformazioni impianto\n=====================\n\nNome: ");
+        s.append(name);
+        s.append("\n---- Elenco dispositivi ----\n");
+        
+        for(Dispositivo i : dispositivi.values()){
+            
+            s.append(i.toString());
+            s.append("\n");
+        }
+
+        s.append("\n\n---- Elenco regole ----\n");
+        
+        for(Regola j : regole){
+            
+            s.append(j.toString());
+            s.append("\n");
+        }
+        
+        return s.toString();
+           
+    }
+    
+    
     
 }
