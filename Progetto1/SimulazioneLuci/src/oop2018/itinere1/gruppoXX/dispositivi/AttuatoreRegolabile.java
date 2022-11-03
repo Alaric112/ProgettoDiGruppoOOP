@@ -32,7 +32,10 @@ public abstract class AttuatoreRegolabile extends Attuatore{
         return livello;
     }
 
-    public void setLivello(double livello) {
+    public void setLivello(double livello) throws LivelloNonValidoException {
+        if(!(livelloMin <= livello && livello <= livelloMax)){
+            throw new LivelloNonValidoException();
+        }
         this.livello = livello;
     }
 
