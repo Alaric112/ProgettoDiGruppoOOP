@@ -5,30 +5,35 @@
 package oop2018.itinere1.gruppoXX.azioni;
 
 import oop2018.itinere1.gruppoXX.dispositivi.AttuatoreRegolabile;
+import oop2018.itinere1.gruppoXX.dispositivi.LivelloNonValidoException;
 
 /**
  *
  * @author utente
  */
 public class ImpostaLivello implements Azione {
-    private AttuatoreRegolabile ar;
-    private double livelloDaImpostare;
+    private final AttuatoreRegolabile ar;
+    private final double livelloDaImpostare;
 
     public ImpostaLivello(AttuatoreRegolabile ar, double livelloDaImpostare) {
         this.ar = ar;
         this.livelloDaImpostare = livelloDaImpostare;
     }
     
-    public void Esegui() throws LivelloNonValidoException{
+    @Override
+    public void esegui() throws LivelloNonValidoException{
         //fare try catch
         ar.setLivello(livelloDaImpostare);
     }
 
     @Override
     public String toString() {
-        StringBuffer b = new StringBuffer("Tipo azione: Accendi ");
-        b.append(valoreDiConfronto);
-        b.append(super.toString());
+        
+        StringBuffer b = new StringBuffer();
+
+        b.append(ar.toString());
+        b.append("\n");
+               
         return b.toString();
     }
     

@@ -31,10 +31,10 @@ public class ImpostaStatoAccensione implements Azione{
     public String ToString(){
         StringBuffer b = new StringBuffer("Tipo Azione: ");
         if(SetOn){
-            b.append("accendi");
+            b.append(" accendi ");
         }
         else{
-            b.append("spegni");
+            b.append(" spegni ");
         }
         b.append(attuatore.toString());
         return b.toString();
