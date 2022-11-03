@@ -27,6 +27,7 @@ public class CondizioneMaggioreDi {
     public String toString(){
         StringBuffer b = new StringBuffer("Tipo condizione: Maggiore di ");
         b.append(valoreDiConfronto);
+        b.append(" ");
         b.append(super.toString());
         return b.toString();
     }
