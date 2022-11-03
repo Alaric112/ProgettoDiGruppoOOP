@@ -8,6 +8,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import oop2018.itinere1.gruppoXX.azioni.Azione;
 import oop2018.itinere1.gruppoXX.condizioni.Condizione;
+import oop2018.itinere1.gruppoXX.dispositivi.LivelloNonValidoException;
 
 /**
  *
@@ -32,19 +33,17 @@ public class Regola {
     }    
     
     public boolean applica(){
-        
+            
         if(condizione.verifica()){
             
             try {
                 azione.esegui();
-                return true;
             } catch (Exception ex) {
-                return false;
-
+                    return false;
             }
-            
+            return true;
         }
-        
+                
         return false;
     }
 

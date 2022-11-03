@@ -10,7 +10,7 @@ package oop2018.itinere1.gruppoXX.dispositivi;
  */
 public class Condizionatore extends AttuatoreRegolabile{
 
-    public Condizionatore(int id, double livelloMin, double livelloMax, double livello) {
+    public Condizionatore(int id, double livelloMin, double livelloMax, double livello) throws LivelloNonValidoException {
         super(id, livelloMin, livelloMax, livello);
     }
 

@@ -14,7 +14,7 @@ public abstract class Dispositivo {
 
     public Dispositivo(int id) {
         this.id = id;
-        this.acceso = false;
+        this.acceso = true;
     }
 
     @Override

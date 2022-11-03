@@ -5,6 +5,7 @@
 package oop2018.itinere1.gruppoXX;
 
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import oop2018.itinere1.gruppoXX.dispositivi.Dispositivo;
@@ -15,12 +16,13 @@ import oop2018.itinere1.gruppoXX.dispositivi.Dispositivo;
  */
 public class Impianto {
     
-    private String name;
-    private List<Regola> regole;
-    private Map<Integer, Dispositivo> dispositivi;
+    private final String name;
+    private final List<Regola> regole;
+    private final Map<Integer, Dispositivo> dispositivi;
 
     public Impianto(String name) {
         this.name = name;
+        this.regole = new LinkedList();
         this.dispositivi = new HashMap();
         
     }
@@ -49,12 +51,13 @@ public class Impianto {
         
         for (Regola i : regole){
             
-            i.applica();
+                i.applica();
+          
+                return;
+            }
             
         }
         
-    }
-
     @Override
     public String toString() {
 
