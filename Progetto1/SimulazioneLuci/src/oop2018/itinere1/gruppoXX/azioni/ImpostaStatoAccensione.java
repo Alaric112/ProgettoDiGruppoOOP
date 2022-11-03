@@ -36,7 +36,7 @@ public class ImpostaStatoAccensione implements Azione{
         else{
             b.append("spegni");
         }
-        b.append(super.toString());
+        b.append(attuatore.toString());
         return b.toString();
     }
 }
