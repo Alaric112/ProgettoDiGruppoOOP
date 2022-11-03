@@ -10,7 +10,7 @@ import oop2018.itinere1.gruppoXX.dispositivi.Sensore;
  *
  * @author utente
  */
-public class CondizioneMaggioreDi {
+public class CondizioneMaggioreDi implements Condizione {
     private final Sensore sensore;
     private final double valoreDiConfronto;
 
