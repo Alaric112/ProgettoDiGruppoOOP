@@ -17,6 +17,9 @@ public class SensoreTemperatura extends Sensore{
     @Override
     public String toString() {
         return super.toString() + " - Tipo: Sensore di temperatura";
+        //StringBuffer b = new StringBuffer(super.toString());
+        //b.append(" - Tipo: Sensore di temperatura");
+        //return b.toString();
     }
     
     

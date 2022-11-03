@@ -17,6 +17,9 @@ public class SensoreLuminosita extends Sensore{
     @Override
     public String toString() {
         return super.toString() + " -  Tipo: Sensore di luminosità";
+        //StringBuffer b = new StringBuffer(super.toString());
+        //b.append(" - Tipo: Sensore di luminosità");
+        //return b.toString();
     }
     
     

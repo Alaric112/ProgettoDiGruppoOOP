@@ -17,6 +17,9 @@ public class Condizionatore extends AttuatoreRegolabile{
     @Override
     public String toString() {
         return super.toString() + " - Tipo: Condizionatore";
+        //StringBuffer b = new StringBuffer(super.toString());
+        //b.append(" - Tipo: Condizionatore");
+        //return b.toString();
     }
  
 }

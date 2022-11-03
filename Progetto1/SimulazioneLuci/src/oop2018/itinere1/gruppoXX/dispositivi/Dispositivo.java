@@ -59,4 +59,16 @@ public abstract class Dispositivo {
     public boolean isAcceso() {
         return acceso;
     }
+
+    @Override
+    public String toString() {
+        return "ID dispositivo: " + id + " Stato: " + acceso;
+        //StringBuffer b = new StringBuffer("ID dispositivo: ");
+        //b.append(id);
+        //b.append(" Stato: ");
+        //b.append(acceso);
+        //return b.toString();
+    }
+    
+    
 }
