@@ -11,7 +11,7 @@ import oop2018.itinere1.gruppoXX.dispositivi.Attuatore;
  * @author utente
  */
 public class ImpostaStatoAccensione implements Azione{
-    private Attuatore attuatore;
+    private final Attuatore attuatore;
     private boolean SetOn;
 
     public ImpostaStatoAccensione(Attuatore attuatore, boolean SetOn) {

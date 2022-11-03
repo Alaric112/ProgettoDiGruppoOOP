@@ -5,8 +5,6 @@
  */
 package oop2018.itinere1.gruppoXX.dispositivi;
 
-import oop2018.itinere1.gruppoXX.dispositivi.Dispositivo;
-
 /**
  *
  * @author Gennaro

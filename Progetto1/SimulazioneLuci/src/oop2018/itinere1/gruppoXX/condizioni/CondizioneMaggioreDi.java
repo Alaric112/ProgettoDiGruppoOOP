@@ -19,6 +19,7 @@ public class CondizioneMaggioreDi implements Condizione {
         this.valoreDiConfronto = valoreDiConfronto;
     }
     
+    @Override
     public boolean verifica(){
         return sensore.getValore()>valoreDiConfronto;
     }
