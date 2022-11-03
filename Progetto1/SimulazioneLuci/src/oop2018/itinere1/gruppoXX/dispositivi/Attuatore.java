@@ -20,6 +20,9 @@ public abstract class Attuatore extends Dispositivo{
     @Override
     public String toString() {
         return super.toString() + " Categoria: Attuatore";
+        //StringBuffer b = new StringBuffer(super.toString());
+        //b.append(" Categoria: Attuatore");
+        //return b.toString();
     }
     
 }

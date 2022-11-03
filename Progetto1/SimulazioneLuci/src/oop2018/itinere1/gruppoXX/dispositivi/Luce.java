@@ -17,6 +17,9 @@ public class Luce extends Attuatore{
     @Override
     public String toString() {
         return super.toString()+ " - Tipo: Luce";
+        //StringBuffer b = new StringBuffer(super.toString());
+        //b.append(" - Tipo: Luce");
+        //return b.toString();
     }
     
     
