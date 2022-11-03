@@ -32,7 +32,7 @@ public class Person implements Comparable<Person> {
 
     public LocalDate getBirthDate() {
         
-        LocalDate date = this.birthDate;
+        LocalDate date = LocalDate.of(birthDate.getYear(), birthDate.getMonth(), birthDate.getDayOfMonth());
         return date;
     }
 
