@@ -4,8 +4,10 @@
  */
 package oop2018.itinere1.gruppoXX;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import oop2018.itinere1.gruppoXX.dispositivi.Dispositivo;
 
 /**
  *
@@ -23,6 +25,17 @@ public class Impianto {
         
     }
     
+    public Dispositivo add(Dispositivo d){
+        
+      Dispositivo x = dispositivi.put(d.getId(), d);
+        
+      return x;
+    }
     
+    public void add(Regola r){
+        
+        regole.add(r);
+        
+    }
     
 }
