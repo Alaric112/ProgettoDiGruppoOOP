@@ -55,7 +55,7 @@ public class Person implements Comparable<Person> {
     @Override
     public int compareTo(Person p){
         
-        return this.birthDate.compareTo(p.birthDate);
+        return p.birthDate.compareTo(this.birthDate);
            
     }
     
