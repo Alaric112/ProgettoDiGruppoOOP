@@ -4,13 +4,15 @@
  */
 package oop2018.itinere1.gruppoXX.condizioni;
 
+import oop2018.itinere1.gruppoXX.dispositivi.Sensore;
+
 /**
  *
  * @author utente
  */
 public class CondizioneMaggioreDi {
-    private Sensore sensore;
-    private double valoreDiConfronto;
+    private final Sensore sensore;
+    private final double valoreDiConfronto;
 
     public CondizioneMaggioreDi(Sensore sensore, double valoreDiConfronto) {
         this.sensore = sensore;
@@ -18,7 +20,7 @@ public class CondizioneMaggioreDi {
     }
     
     public boolean verifica(){
-        return s.getValore()>valoreDiConfronto;
+        return sensore.getValore()>valoreDiConfronto;
     }
     
     @Override
