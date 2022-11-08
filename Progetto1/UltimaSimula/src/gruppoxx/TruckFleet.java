@@ -44,16 +44,14 @@ public class TruckFleet implements Filterable, Iterable<Truck> {
     }
     
     public void sort(Comparator<Truck> t){
-        
-        
-        
-        if(t == null){
-           
-          Collections.sort(fleet);   
-          return;   
+              
+        if (t == null){
+            
+            Collections.sort(fleet);
+            return;
         }
         
-        Collections.sort(fleet, t);      
+        Collections.sort(fleet, t);  
         
     }
     
@@ -86,6 +84,7 @@ public class TruckFleet implements Filterable, Iterable<Truck> {
         return s.toString();
     }
     
+    @Override
     public TruckFleet filter(TruckFilter t, Comparator<Truck> c){
         
      

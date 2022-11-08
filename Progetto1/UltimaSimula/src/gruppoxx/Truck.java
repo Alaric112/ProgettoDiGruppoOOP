@@ -11,7 +11,7 @@ import java.util.Objects;
  *
  * @author utente
  */
-public abstract class Truck {
+public abstract class Truck implements Comparable<Truck>{
     private final String chassisID;
     private final LocalDate registrationDate;
     private final DriveWheelType dw;
@@ -29,7 +29,7 @@ public abstract class Truck {
     @Override
     public int hashCode() {
         int hash = 5;
-        hash = 61 * hash + Objects.hashCode(this.chassisID);
+        hash = 61 * hash + Objects.hashCode(this.chassisID.toUpperCase());
         return hash;
     }
 
@@ -45,10 +45,17 @@ public abstract class Truck {
             return false;
         }
         final Truck other = (Truck) obj;
-        if (!Objects.equals(this.chassisID, other.chassisID)) {
+        if (this.chassisID.equalsIgnoreCase(other.chassisID)) {
             return false;
         }
         return true;
+    }
+    
+    @Override
+    public int compareTo(Truck o){
+        
+        return this.chassisID.compareToIgnoreCase(o.chassisID);
+        
     }
 
     public String getChassisID() {
@@ -92,7 +99,5 @@ public abstract class Truck {
             b.append(" NOT PASSED");
         return b.toString();
     }
-    
-    
-    
+ 
 }
