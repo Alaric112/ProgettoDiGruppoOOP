@@ -21,9 +21,10 @@ public class BigTankerFilter implements TruckFilter {
     public boolean checkTruck(Truck t) {
 
     if(t instanceof Tanker){
-      
+    
+    Tanker x = (Tanker) t;    
         
-        if(t.getCapacity() >= minCapacity ){
+        if(x.getCapacity() >= minCapacity ){
             
             
             return true;
