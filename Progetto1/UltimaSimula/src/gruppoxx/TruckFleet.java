@@ -7,6 +7,7 @@ package gruppoxx;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -33,6 +34,12 @@ public class TruckFleet implements Filterable, Iterable<Truck> {
        }
        
        fleet.add(t);
+        
+    }
+    
+    public void remove(Truck t){
+        
+        fleet.remove(t);
         
     }
     
