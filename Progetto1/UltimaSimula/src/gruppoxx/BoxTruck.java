@@ -55,8 +55,5 @@ public class BoxTruck extends Truck {
         
         return s.toString();
     }
-        
-    
-    
     
 }
