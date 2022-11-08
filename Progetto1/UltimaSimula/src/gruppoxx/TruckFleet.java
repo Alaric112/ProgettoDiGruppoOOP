@@ -17,7 +17,7 @@ import java.util.List;
 public class TruckFleet implements Filterable, Iterable<Truck> {
     
     private List<Truck> fleet;
-    private String name;
+    private final String name;
 
     public TruckFleet(String name) {
         this.name = name;
@@ -26,7 +26,7 @@ public class TruckFleet implements Filterable, Iterable<Truck> {
     }
     
     public void add(Truck t){
-        
+               
        if(!t.validateTruck()){
            
            throw new NotValidChassisIDException();
@@ -44,6 +44,14 @@ public class TruckFleet implements Filterable, Iterable<Truck> {
     }
     
     public void sort(Comparator<Truck> t){
+        
+        
+        
+        if(t == null){
+           
+          Collections.sort(fleet);   
+          return;   
+        }
         
         Collections.sort(fleet, t);      
         

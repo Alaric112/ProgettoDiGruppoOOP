@@ -29,10 +29,10 @@ public class BoxTruck extends Truck {
     @Override
     public boolean validateTruck(){
         
-        if((getTruckClass() >= 1) || (getTruckClass() <= 8)) {
+        if((getTruckClass() >= 1) && (getTruckClass() <= 8)) {
         
            String regex =  "^B[A-z]{3}[0-9]{3}$"; 
-           return getChassisID().equals(regex);
+           return getChassisID().matches(regex);
         }
         
         return false;

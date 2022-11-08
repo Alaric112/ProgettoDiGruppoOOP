@@ -5,7 +5,6 @@
 package gruppoxx;
 
 import java.time.LocalDate;
-import java.time.Month;
 import java.util.Objects;
 
 /**
@@ -71,23 +70,22 @@ public abstract class Truck {
     public int getTruckClass() {
         return truckClass;
     }
-    
-    
+       
     public abstract boolean validateTruck();
     
     @Override
     public String toString(){
-        StringBuffer b = new StringBuffer("chassis ID= ");
+        StringBuffer b = new StringBuffer("chassis ID = ");
         b.append(chassisID);
-        b.append("\ntruck type= ");
+        b.append("\ntruck type = ");
         b.append(tt);
-        b.append("\ndrive-wheel= ");
+        b.append("\ndrive-wheel = ");
         b.append(dw);
-        b.append("\nregistration Date= ");
+        b.append("\nregistration Date = ");
         b.append(registrationDate);
-        b.append("\ntruck Class= ");
+        b.append("\ntruck Class = ");
         b.append(truckClass);
-        b.append("validation=");
+        b.append("\nvalidation = ");
         if(validateTruck())
             b.append(" PASSED");
         else

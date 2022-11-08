@@ -37,7 +37,7 @@ public class Dumper extends Truck{
     public boolean validateTruck() {
         if(this.getTruckClass()<=8 && this.getTruckClass()>=1){
             String regex = "^D[A-z]{2}[0-9]{4}$";
-            return this.getChassisID().equals(regex);
+            return this.getChassisID().matches(regex);
         }
         return false;
         
@@ -45,14 +45,12 @@ public class Dumper extends Truck{
 
     @Override
     public String toString() {
-        StringBuffer b = new StringBuffer("Dump Truck\n ");
+        StringBuffer b = new StringBuffer("\nDump Truck\n");
         b.append(super.toString());
-        b.append("\nSide Dump = ");
         if(isSideDumpCapable()){
-            b.append("avaiable");
+            b.append("\nSide Dump = avaiable");
         }
-        else
-            b.append("not avaiable");
+
         return b.toString();
     }
     

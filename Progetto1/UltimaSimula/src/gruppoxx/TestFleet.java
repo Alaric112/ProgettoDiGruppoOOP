@@ -53,7 +53,6 @@ public class TestFleet {
         //cambiare il valore di questa variabile per testare l'eccezione
         boolean testexception = false;
         
-        
         tf.add(t1);
         tf.add(t2);
         tf.add(t3);

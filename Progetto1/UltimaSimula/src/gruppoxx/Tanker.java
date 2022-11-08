@@ -37,9 +37,9 @@ public class Tanker extends Truck {
     @Override
     public boolean validateTruck() {
         
-        if(this.getTruckClass()<=8 && this.getTruckClass()>=1){
+        if((this.getTruckClass() < 9) && (this.getTruckClass()> 0)){
             String regex = "^T[A-z]{3}[0-9]{3}$";
-            return this.getChassisID().equals(regex);
+            return getChassisID().matches(regex);
         }
         return false;
         
@@ -47,10 +47,11 @@ public class Tanker extends Truck {
 
     @Override
     public String toString() {
-        StringBuffer b = new StringBuffer("Tank Truck\n Tank Type = ");
+        StringBuffer b = new StringBuffer("\nTank Truck\nTank Type = ");
         b.append(ttype);
-        b.append("\n Tank capacity = ");
+        b.append("\nTank capacity = ");
         b.append(capacity);
+        b.append("\n");
         b.append(super.toString());
         return b.toString();
     }
