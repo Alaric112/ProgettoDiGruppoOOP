@@ -20,12 +20,17 @@ public class BigTankerFilter implements TruckFilter {
     @Override
     public boolean checkTruck(Truck t) {
 
+    if(t instanceof Tanker){
+      
+        
         if(t.getCapacity() >= minCapacity ){
             
             
             return true;
             
         }
+        
+    }
 
         return false;
     }
