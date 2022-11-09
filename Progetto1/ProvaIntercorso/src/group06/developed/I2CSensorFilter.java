@@ -4,10 +4,22 @@
  */
 package group06.developed;
 
+import group06.Sensor;
+import group06.provided.SensorFilter;
+import static group06.provided.SensorOutputType.I2C;
+
 /**
  *
  * @author darbo
  */
-public class I2CSensorFilter {
+public class I2CSensorFilter implements SensorFilter{
+
+    @Override
+    public boolean checkSensor(Sensor s) {
+        
+        return (s.getSot()== I2C);
+    }
+    
+    
     
 }

@@ -22,9 +22,9 @@ public class SourceVoltageFilter implements SensorFilter{
     
     public boolean checkSensor(Sensor s){
         
-        if(s instanceof TemperatureSensor){
+        if(s.getVs() >= vs){
             
-            return(s.getRange() >= vs );
+            return true;
             
         }
         
