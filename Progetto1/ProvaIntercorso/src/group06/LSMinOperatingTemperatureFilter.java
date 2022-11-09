@@ -24,7 +24,7 @@ public class LSMinOperatingTemperatureFilter implements SensorFilter{
         
         if(s instanceof LightSensor){
             
-            return(((LightSensor) s).getOperatingTemperature().getLow() == minTemperature ); 
+            return(((LightSensor) s).getOperatingTemperature().getLow().equals(minTemperature) ); 
             
         }
         

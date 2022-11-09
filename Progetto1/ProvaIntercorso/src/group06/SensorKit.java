@@ -34,6 +34,11 @@ public class SensorKit implements Filterable, Iterable<Sensor>{
             sensors.add(s);
             
         }
+        else{
+            
+            throw new BadSensorPartNumberException();
+        }
+        
         
     }
     

@@ -18,7 +18,7 @@ public class I2CSensorFilter implements SensorFilter{
         
         
         
-        return (s.getSot() == I2C);
+        return (s.getSot().equals(I2C));
     }
     
     
