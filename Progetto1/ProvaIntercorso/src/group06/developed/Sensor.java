@@ -18,11 +18,11 @@ public abstract class Sensor implements Comparable<Sensor> {
     private final String partNumber;
     private final String manufacturer;
     private final double price;
-    private final Range<double> vs;
+    private final Range<Double> vs;
     private final SensorOutputType sot;
     private final LocalDate manifacturingDate;
 
-    public Sensor(String partNumber, String manufacturer, double price, Range<double> vs, SensorOutputType sot, LocalDate manifacturingDate) {
+    public Sensor(String partNumber, String manufacturer, double price, Range<Double> vs, SensorOutputType sot, LocalDate manifacturingDate) {
         this.partNumber = partNumber;
         this.manufacturer = manufacturer;
         this.price = price;
