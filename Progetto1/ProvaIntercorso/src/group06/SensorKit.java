@@ -63,6 +63,20 @@ public class SensorKit implements Filterable, Iterable<Sensor>{
     @Override
     public SensorKit filter(SensorFilter f, Comparator<Sensor> c)  {
         
+    SensorKit subKit = new SensorKit(name);
+        
+    for(Sensor i : sensors){    
+        if(f.checkSensor(i))
+        
+           subKit.add(i); 
+            
+            
+        }
+    
+    subKit.sort(c);
+
+    return subKit;  
+        
     }
     
     
