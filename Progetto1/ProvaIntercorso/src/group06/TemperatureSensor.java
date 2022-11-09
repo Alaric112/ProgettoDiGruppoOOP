@@ -21,7 +21,7 @@ public class TemperatureSensor extends Sensor{
     private final int bits;
 
     public TemperatureSensor(String partNumber, String manufacturer, double price, Range<Double> vs, SensorOutputType sot, LocalDate manifacturingDate, double tempResolution ,double tempError, int bits){
-        super(partNumber, manufacturer, price, vs, DIGITAL, manifacturingDate);
+        super(partNumber, manufacturer, price, vs, sot, manifacturingDate);
         if(super.getSot() == ANALOG){
             throw new BadArgumentsForSensorTypeException();
         }
@@ -32,7 +32,7 @@ public class TemperatureSensor extends Sensor{
     }
     
     public TemperatureSensor(String partNumber, String manufacturer, double price, Range<Double> vs, SensorOutputType sot, LocalDate manifacturingDate, double tempError, double outputSensitivity) {
-        super(partNumber, manufacturer, price, vs, ANALOG, manifacturingDate);
+        super(partNumber, manufacturer, price, vs, sot, manifacturingDate);
          if(super.getSot() == DIGITAL){
             throw new BadArgumentsForSensorTypeException();
         }
@@ -63,7 +63,7 @@ public class TemperatureSensor extends Sensor{
     public boolean hasValidPartNumber() {
         String regex = "^AD[0-9]{4}$";
         String regex1 = "^ADT[0-9]{4}$";
-        if(super.getPartNumber().matches(regex) || super.getPartNumber().matches(regex1)){
+        if(getPartNumber().matches(regex) || getPartNumber().matches(regex1)){
              return true;
          }
          return false;
@@ -71,12 +71,31 @@ public class TemperatureSensor extends Sensor{
 
     @Override
     public String toString() {
-         StringBuffer b = new StringBuffer("\n***Analog Temperature Sensor***\n");
-         b.append("Temperature Error(Deg) = ");
+           
+    StringBuffer b = new StringBuffer();
+        
+    if(getSot() == ANALOG){  
+         b.append("\n***Analog Temperature Sensor***");
+         b.append("\nTemperature Error(Deg) = ");
          b.append(tempError);         
          b.append("\nOutputSensitivity(mV/°C) = ");
          b.append(outputSensitivity);         
          b.append(super.toString());
+         
+    }
+    else{
+        
+         b.append("\n***Digital Temperature Sensor***");
+         b.append("\nTemperature Resolution = ");
+         b.append(tempResolution);
+         b.append("\nTemperature Error(Deg) = ");
+         b.append(tempError);         
+         b.append("\nBits = ");
+         b.append(bits);         
+         b.append(super.toString());
+        
+    }
+    
          return b.toString();
     }
     

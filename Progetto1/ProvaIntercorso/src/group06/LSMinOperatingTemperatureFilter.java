@@ -18,15 +18,13 @@ public class LSMinOperatingTemperatureFilter implements SensorFilter{
          this.minTemperature = minTemperature;
          
     }
-    
-    
-    
+       
     @Override
     public boolean checkSensor(Sensor s){
         
         if(s instanceof LightSensor){
             
-            return(((LightSensor) s).getOperatingTemperature().getLow() >= minTemperature ); 
+            return(((LightSensor) s).getOperatingTemperature().getLow() == minTemperature ); 
             
         }
         

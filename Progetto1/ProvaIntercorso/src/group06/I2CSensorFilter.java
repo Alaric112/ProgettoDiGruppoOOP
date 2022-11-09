@@ -16,7 +16,9 @@ public class I2CSensorFilter implements SensorFilter{
     @Override
     public boolean checkSensor(Sensor s) {
         
-        return (s.getSot()== I2C);
+        
+        
+        return (s.getSot() == I2C);
     }
     
     
