@@ -4,6 +4,11 @@
  */
 package group06.developed;
 
+import group06.provided.LightSensorType;
+import group06.provided.Range;
+import group06.provided.SensorOutputType;
+import java.time.LocalDate;
+
 /**
  *
  * @author Portatile
@@ -14,6 +19,21 @@ public class LightSensor extends Sensor{
     private final Range<double> operatingTemperature;
     private final LightSensorType lst;
 
+    public LightSensor(double wavelength, boolean proximityDetection, <any> operatingTemperature, LightSensorType lst, String partNumber, String manufacturer, double price, Range<Object> vs, SensorOutputType sot, LocalDate manifacturingDate) {
+        super(partNumber, manufacturer, price, vs, sot, manifacturingDate);
+        this.wavelength = wavelength;
+        this.proximityDetection = proximityDetection;
+        this.operatingTemperature = operatingTemperature;
+        this.lst = lst;
+    }
+    
+    public LightSensor(double wavelength, <any> operatingTemperature, LightSensorType lst, String partNumber, String manufacturer, double price, Range<Object> vs, SensorOutputType sot, LocalDate manifacturingDate) {
+        super(partNumber, manufacturer, price, vs, sot, manifacturingDate);
+        this.wavelength = wavelength;
+        this.operatingTemperature = operatingTemperature;
+        this.lst = lst;
+    }
+
     public double getWavelength() {
         return wavelength;
     }
@@ -22,7 +42,7 @@ public class LightSensor extends Sensor{
         return proximityDetection;
     }
 
-    public <any> getOperatingTemperature() {
+    public Range<Double> getOperatingTemperature() {
         return operatingTemperature;
     }
 
