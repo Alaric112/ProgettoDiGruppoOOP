@@ -8,6 +8,7 @@ package group06.provided;
 /**
  *
  * @author lucagreco
+ *
  */
 public class Range<T extends Number & Comparable> {
     
