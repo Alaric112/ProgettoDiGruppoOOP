@@ -8,7 +8,7 @@ import java.util.Comparator;
 
 /**
  *
- * @author darbo
+ * @author lorenzo
  */
 public class ManifacturingDateComparator implements Comparator<Sensor>{
     

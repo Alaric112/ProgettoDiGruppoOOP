@@ -4,10 +4,34 @@
  */
 package group06.developed;
 
+import group06.provided.SensorFilter;
+
 /**
  *
- * @author darbo
+ * @author lorenzo
  */
-public class SourceVoltageFilter {
+public class SourceVoltageFilter implements SensorFilter{
+    
+    private double vs;
+
+    public SourceVoltageFilter(double vs){
+        
+        this.vs = vs;
+        
+    }
+    
+    public boolean checkSensor(Sensor s){
+        
+        if(s instanceof TemperatureSensor){
+            
+            return(s.getRange() >= vs );
+            
+        }
+        
+        return false;
+        
+    }
+    
+    
     
 }
