@@ -29,5 +29,53 @@ public class Accelerometer extends Sensor {
         this(partNumber, manufacturer, price, vs, sot, manifacturingDate, double range, 3, double bandwidth);
         
     }
+
+    public double getRange() {
+        return range;
+    }
+
+    public int getSensingAxis() {
+        return sensingAxis;
+    }
+
+    public double getBandwith() {
+        return bandwith;
+    }
     
+    @Override
+    public boolean hasValidPartNumber(){
+        
+       String regex = "^ADXL[0-9]{3}$"; 
+       String regex2 = "^ADIS[0-9]{3}$"; 
+       
+       if((getPartNumber().matches(regex)) || (getPartNumber().matches(regex2))){
+           
+           return true;
+           
+       }
+       
+        return false;
+    }    
+
+    @Override
+    public String toString() {
+
+        StringBuffer s = new StringBuffer();
+        
+        s.append("\n***Accelerometer***");
+        s.append("\nRange(g) = ");
+        s.append(range);
+        s.append("\nNumber of sensing Axis = ");
+        s.append(sensingAxis);
+        s.append("\nBandwith (KHz)= ");
+        s.append(bandwith);
+        s.append(super.toString());
+        
+        return s.toString();
+        
+    }
+    
+    
+        
+        
 }
