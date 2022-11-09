@@ -8,7 +8,7 @@ package group06;
  *
  * @author patap
  */
-public class BadSensorPartNumberException extends RuntimeException {
+public class BadSensorPartNumberException extends Exception {
 
     /**
      * Creates a new instance of <code>BadSensorPartNumberException</code>
