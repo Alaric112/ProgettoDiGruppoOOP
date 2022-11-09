@@ -23,7 +23,7 @@ public class SourceVoltageFilter implements SensorFilter{
     @Override
     public boolean checkSensor(Sensor s){
         
-        if(s.getVs() >= vs){
+        if(s.getVs() == vs){
             
             return true;
             
