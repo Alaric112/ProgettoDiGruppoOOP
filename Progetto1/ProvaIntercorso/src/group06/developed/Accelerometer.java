@@ -26,7 +26,7 @@ public class Accelerometer extends Sensor {
     }
     
         public Accelerometer(String partNumber, String manufacturer, double price, Range<Double> vs, SensorOutputType sot, LocalDate manifacturingDate, double range, double bandwith) {
-        this(partNumber, manufacturer, price, vs, sot, manifacturingDate, range, 3, double bandwidth);
+        this(partNumber, manufacturer, price, vs, sot, manifacturingDate, range, 3, bandwith);
         
     }
 
@@ -73,9 +73,6 @@ public class Accelerometer extends Sensor {
         
         return s.toString();
         
-    }
-    
-    
-        
+    }       
         
 }

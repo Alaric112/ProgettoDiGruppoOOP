@@ -19,7 +19,7 @@ public class LightSensor extends Sensor{
     private final Range<Double> operatingTemperature;
     private final LightSensorType lst;
 
-    public LightSensor(double wavelength, boolean proximityDetection, <Double> operatingTemperature, LightSensorType lst, String partNumber, String manufacturer, double price, Range<Object> vs, SensorOutputType sot, LocalDate manifacturingDate) {
+    public LightSensor(double wavelength, boolean proximityDetection, <Double>, operatingTemperature, LightSensorType lst, String partNumber, String manufacturer, double price, Range<Object> vs, SensorOutputType sot, LocalDate manifacturingDate) {
         super(partNumber, manufacturer, price, vs, sot, manifacturingDate);
         this.wavelength = wavelength;
         this.proximityDetection = proximityDetection;
