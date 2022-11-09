@@ -18,14 +18,14 @@ public class Accelerometer extends Sensor {
     private final int sensingAxis;
     private final double bandwith;
 
-    public Accelerometer(String partNumber, String manufacturer, double price, Range<Object> vs, SensorOutputType sot, LocalDate manifacturingDate, double range, int sensingAxis, double bandwith) {
+    public Accelerometer(String partNumber, String manufacturer, double price, Range<Double> vs, SensorOutputType sot, LocalDate manifacturingDate, double range, int sensingAxis, double bandwith) {
         super(partNumber, manufacturer, price, vs, sot, manifacturingDate);
         this.range = range;
         this.sensingAxis = sensingAxis;
         this.bandwith = bandwith;
     }
     
-        public Accelerometer(String partNumber, String manufacturer, double price, Range<Object> vs, SensorOutputType sot, LocalDate manifacturingDate, double range, double bandwith) {
+        public Accelerometer(String partNumber, String manufacturer, double price, Range<Double> vs, SensorOutputType sot, LocalDate manifacturingDate, double range, double bandwith) {
         this(partNumber, manufacturer, price, vs, sot, manifacturingDate, double range, 3, double bandwidth);
         
     }
