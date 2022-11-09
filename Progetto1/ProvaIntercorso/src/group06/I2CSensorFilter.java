@@ -2,9 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package group06.developed;
+package group06;
 
-import group06.Sensor;
 import group06.provided.SensorFilter;
 import static group06.provided.SensorOutputType.I2C;
 
