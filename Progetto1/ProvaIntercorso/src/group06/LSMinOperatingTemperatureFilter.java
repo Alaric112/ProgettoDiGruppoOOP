@@ -21,6 +21,7 @@ public class LSMinOperatingTemperatureFilter implements SensorFilter{
     
     
     
+    @Override
     public boolean checkSensor(Sensor s){
         
         if(s instanceof LightSensor){
