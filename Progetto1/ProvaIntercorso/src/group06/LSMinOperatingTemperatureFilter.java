@@ -8,7 +8,7 @@ import group06.provided.SensorFilter;
 
 /**
  *
- * @author darbo
+ * @author lorenzo
  */
 public class LSMinOperatingTemperatureFilter implements SensorFilter{
     
@@ -26,7 +26,7 @@ public class LSMinOperatingTemperatureFilter implements SensorFilter{
         
         if(s instanceof LightSensor){
             
-            return(s.getOperatingTemperature() >= minTemperature ); 
+            return(((LightSensor) s).getOperatingTemperature().getLow() >= minTemperature ); 
             
         }
         
