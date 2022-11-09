@@ -5,6 +5,7 @@
 package group06;
 
 import group06.provided.Range;
+import group06.provided.SensorOutputType;
 import static group06.provided.SensorOutputType.ANALOG;
 import static group06.provided.SensorOutputType.DIGITAL;
 import java.time.LocalDate;
@@ -19,7 +20,7 @@ public class TemperatureSensor extends Sensor{
     private final double tempResolution;
     private final int bits;
 
-    public TemperatureSensor(double tempError, double outputSensitivity, double tempResolution, int bits, String partNumber, String manufacturer, double price, Range<Object> vs, LocalDate manifacturingDate){
+    public TemperatureSensor(String partNumber, String manufacturer, double price, Range<Double> vs, SensorOutputType sot, LocalDate manifacturingDate, double tempError, double outputSensitivity, double tempResolution, int bits){
         super(partNumber, manufacturer, price, vs, DIGITAL, manifacturingDate);
         if(super.getSot() == ANALOG){
             throw new BadArgumentsForSensorTypeException();
@@ -30,15 +31,15 @@ public class TemperatureSensor extends Sensor{
         this.bits = bits;
     }
     
-    public TemperatureSensor(double tempError, double outputSensitivity, double tempResolution, int bits, String partNumber, String manufacturer, double price, Range<Object> vs, LocalDate manifacturingDate) {
+    public TemperatureSensor(String partNumber, String manufacturer, double price, Range<Double> vs, SensorOutputType sot, LocalDate manifacturingDate, double tempError, double outputSensitivity) {
         super(partNumber, manufacturer, price, vs, ANALOG, manifacturingDate);
          if(super.getSot() == DIGITAL){
             throw new BadArgumentsForSensorTypeException();
         }
         this.tempError = tempError;
         this.outputSensitivity = outputSensitivity;
-        this.tempResolution = tempResolution;
-        this.bits = bits;
+        this.tempResolution = 0;
+        this.bits = 0;
     }
     
 
