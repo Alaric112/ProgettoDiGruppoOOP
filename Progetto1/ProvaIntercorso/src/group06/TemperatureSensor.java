@@ -20,13 +20,13 @@ public class TemperatureSensor extends Sensor{
     private final double tempResolution;
     private final int bits;
 
-    public TemperatureSensor(String partNumber, String manufacturer, double price, Range<Double> vs, SensorOutputType sot, LocalDate manifacturingDate, double tempError, double outputSensitivity, double tempResolution, int bits){
+    public TemperatureSensor(String partNumber, String manufacturer, double price, Range<Double> vs, SensorOutputType sot, LocalDate manifacturingDate, double tempResolution ,double tempError, int bits){
         super(partNumber, manufacturer, price, vs, DIGITAL, manifacturingDate);
         if(super.getSot() == ANALOG){
             throw new BadArgumentsForSensorTypeException();
         }
         this.tempError = tempError;
-        this.outputSensitivity = outputSensitivity;
+        this.outputSensitivity = 0.0;
         this.tempResolution = tempResolution;
         this.bits = bits;
     }
