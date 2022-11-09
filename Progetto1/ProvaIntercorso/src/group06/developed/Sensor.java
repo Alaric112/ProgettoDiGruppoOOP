@@ -71,8 +71,7 @@ public abstract class Sensor implements Comparable<Sensor> {
     public Range<Double> getVs() {
         return vs;
     }
-
-    
+  
     
     public String getManufacturer() {
         return manufacturer;
