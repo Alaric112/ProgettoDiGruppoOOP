@@ -32,6 +32,4 @@ public class SourceVoltageFilter implements SensorFilter{
         
     }
     
-    
-    
 }
