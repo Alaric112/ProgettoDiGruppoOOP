@@ -71,7 +71,7 @@ public class TemperatureSensor extends Sensor{
 
     @Override
     public String toString() {
-         StringBuffer b = new StringBuffer("***Analog Temperature Sensor***\n");
+         StringBuffer b = new StringBuffer("\n***Analog Temperature Sensor***\n");
          b.append("Temperature Error(Deg) = ");
          b.append(tempError);         
          b.append("\nOutputSensitivity(mV/°C) = ");

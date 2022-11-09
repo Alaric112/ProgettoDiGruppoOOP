@@ -59,7 +59,7 @@ public class LightSensor extends Sensor{
 
     @Override
     public String toString() {
-         StringBuffer b = new StringBuffer("***LightSensor***\n");
+         StringBuffer b = new StringBuffer("\n***LightSensor***\n");
          b.append("Wavelenght(nm) = ");
          b.append(wavelength);         
          b.append("\nProximityDetection = ");

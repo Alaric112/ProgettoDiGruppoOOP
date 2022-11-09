@@ -11,6 +11,8 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -26,11 +28,13 @@ public class SensorKit implements Filterable, Iterable<Sensor>{
     }
     
     public void add(Sensor s) throws BadSensorPartNumberException{
-        for(Sensor i : sensors){
-            if(i.hasValidPartNumber()){
-                sensors.add(i);
-            }
+
+        if(s.hasValidPartNumber()){
+            
+            sensors.add(s);
+            
         }
+        
     }
     
     public void remove(Sensor s){
@@ -55,8 +59,14 @@ public class SensorKit implements Filterable, Iterable<Sensor>{
         StringBuffer b = new StringBuffer();
         b.append("This Sensor Kit contains ");
         b.append(sensors.size());
-        b.append("sensors.\n");
-        b.append(super.toString());
+        b.append(" sensors.\n");
+        
+    for(Sensor i : sensors){
+        
+        b.append(i.toString());
+        b.append("\n");
+    }
+        
         return b.toString();
     }
 
@@ -68,7 +78,12 @@ public class SensorKit implements Filterable, Iterable<Sensor>{
     for(Sensor i : sensors){    
         if(f.checkSensor(i))
         
-           subKit.add(i); 
+           try {
+               subKit.add(i);
+        } catch (BadSensorPartNumberException ex) {
+
+            System.out.println("ERRORE");
+        } 
             
             
         }
