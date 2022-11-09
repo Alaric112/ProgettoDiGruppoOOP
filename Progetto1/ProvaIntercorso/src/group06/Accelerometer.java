@@ -46,7 +46,7 @@ public class Accelerometer extends Sensor {
     public boolean hasValidPartNumber(){
         
        String regex = "^ADXL[0-9]{3}$"; 
-       String regex2 = "^ADIS[0-9]{3}$"; 
+       String regex2 = "^ADIS[0-9]{5}$"; 
        
        if((getPartNumber().matches(regex)) || (getPartNumber().matches(regex2))){
            
