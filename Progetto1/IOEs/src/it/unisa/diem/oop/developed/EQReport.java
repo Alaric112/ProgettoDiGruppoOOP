@@ -10,6 +10,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDateTime;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
@@ -72,7 +73,9 @@ public class EQReport {
              
              scan.useDelimiter("\\|");
              
+             
              evento.setEventID(scan.next());
+             evento.setTime(LocalDateTime.parse(scan.next()));
              evento.setLatitude(scan.nextDouble());
              evento.setLongitude(scan.nextDouble());
              evento.setDepthKm(scan.nextDouble());
@@ -102,7 +105,7 @@ public class EQReport {
         try(BufferedWriter writer = new BufferedWriter(new FileWriter(filename) ) ){
                      
         for(EQEvent i : eqr.lista){
-             
+                         
         writer.write(   i.getEventID() + '|' + 
                                         i.getTime()+ '|'+
                                         i.getLatitude() + '|'+
