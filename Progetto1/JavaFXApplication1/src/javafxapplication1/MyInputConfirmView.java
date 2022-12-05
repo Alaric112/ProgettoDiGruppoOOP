@@ -50,8 +50,8 @@ public class MyInputConfirmView extends VBox {
         
         HBox raw2 = new HBox();
         
-        raw1.getChildren().addAll(lbl2, tfd2);
-        raw1.setSpacing(10);
+        raw2.getChildren().addAll(lbl2, tfd2);
+        raw2.setSpacing(10);
         
         // Container
         //VBox root = new VBox();
