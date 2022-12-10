@@ -45,7 +45,8 @@ public class AppConfirmView extends VBox {
         lbl1.setText("Input:");
         lbl2.setText("Fahr To Celsius");
         lbl3.setText("Result:");
-
+        lbl4.setText("0");
+        
         check1.setText("<-->");
         
         // raw 1
@@ -70,7 +71,7 @@ public class AppConfirmView extends VBox {
         
         HBox raw3 = new HBox();
         
-        raw3.getChildren().add(lbl3);
+        raw3.getChildren().addAll(lbl3, lbl4);
         raw3.setSpacing(10); 
         raw3.setAlignment(Pos.CENTER);
 

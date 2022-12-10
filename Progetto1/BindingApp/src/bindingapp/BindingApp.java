@@ -36,6 +36,9 @@ public class BindingApp extends Application {
         
         AppConfirmView view = new AppConfirmView();
 
+        AppConfirmController controller = new AppConfirmController(view);
+        controller.initBindings();
+
 
         Scene scene = new Scene(view, 300, 250);
         
