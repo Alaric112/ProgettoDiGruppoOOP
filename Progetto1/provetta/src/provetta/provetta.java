@@ -63,7 +63,7 @@ public class provetta extends Application {
         final double fn = (double)5/9;
         final double nf = (double)9/5;
         
-        tf.setTextFormatter(new TextFormatter( (UnaryOperator<Change>) c -> (c.getControlNewText().matches("-?\\d*(\\.\\d*)?")) ? c : null));
+        //tf.setTextFormatter(new TextFormatter( (UnaryOperator<Change>) c -> (c.getControlNewText().matches("-?\\d*(\\.\\d*)?")) ? c : null));
         
         Bindings.bindBidirectional(tf.textProperty(), input_data, sc); // input_data = tf.textProperty() (trasf. in double con sc)
         
