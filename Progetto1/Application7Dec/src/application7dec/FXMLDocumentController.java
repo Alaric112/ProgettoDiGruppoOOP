@@ -4,8 +4,10 @@
  */
 package application7dec;
 
+import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -18,6 +20,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.FileChooser;
 
 /**
  *
@@ -74,6 +77,15 @@ public class FXMLDocumentController implements Initializable {
         surnameCLN.setCellValueFactory(new PropertyValueFactory("surname"));
         codeCLN.setCellValueFactory(new PropertyValueFactory("code"));
         
+        addButton.disableProperty().bind(nameField.textProperty().isEmpty().or(surnameField.textProperty().isEmpty()));
+        
+        
+        // Disabilitare il pulsante se la lista è vuota
+        saveButton.disableProperty().bind(Bindings.isEmpty(list));
+        
+        
+        // Ho selezionato la riga 
+        deleteButton.disableProperty().bind(studentTable.getSelectionModel().selectedItemProperty().isNull());
         
         studentTable.setItems(list);
         
@@ -85,6 +97,19 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void saveAction(ActionEvent event) {
+    
+        FileChooser fc = new FileChooser();
+        
+        // possiamo prendere un riferimento e metterlo al interno del nostro controller
+        // qualsiasi elemento grafico fa parte della scena, facciamo getScene è otteniamo la scene 
+        
+        File f = fc.showSaveDialog(null);
+        // sulla parte di servizio, è utile fare è salvare l'intero oggetto, scriviamo tutto su uno oggetto
+        
+        try(ObjectOutputStream oos = new ObjectOutputStream( new BufferedOutputSteam))
+        
+        
+        
     }
 
     @FXML

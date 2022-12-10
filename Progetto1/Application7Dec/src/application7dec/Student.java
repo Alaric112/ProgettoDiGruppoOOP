@@ -4,11 +4,13 @@
  */
 package application7dec;
 
+import java.io.Serializable;
+
 /**
  *
  * @author patap
  */
-public class Student {
+public class Student implements Serializable {
     
     private String name;
     private String surname;
