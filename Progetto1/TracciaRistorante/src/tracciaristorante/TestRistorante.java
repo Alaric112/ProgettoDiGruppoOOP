@@ -1,4 +1,4 @@
-package it.unisa.oop2013.contest3;
+package tracciaristorante;
 
 import java.io.BufferedReader;
 import java.io.IOException;
