@@ -13,7 +13,9 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.net.URL;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import static java.util.Collections.list;
+import java.util.List;
 import java.util.Queue;
 import java.util.ResourceBundle;
 import javafx.beans.binding.Bindings;
@@ -89,13 +91,18 @@ public class FXMLDocumentController implements Initializable {
         try {
             // trova file "backup.bin"
         	ObjectInputStream in = new ObjectInputStream(new BufferedInputStream(new FileInputStream("backup.dat")));
-		list = (ObservableList<EQEvent>) in.readObject();
+		
+                List<EQEvent> l = new ArrayList();
+                l = (ArrayList<EQEvent>) in.readObject();
+                //list = (ObservableList<EQEvent>) in.readObject();
+                list.addAll(l);
+                                
 		in.close();
     			} catch (FileNotFoundException e) {
 			  try {
                               // se non trova il file lo crea?
                               System.out.println("Managgia, non ho trovato il file");
-				ObjectOutputStream on = new ObjectOutputStream(new FileOutputStream("backup.bin"));
+				ObjectOutputStream on = new ObjectOutputStream(new FileOutputStream("backup."));
 				on.close();   
                           } 
 //                          catch (FileNotFoundException ex) {
@@ -150,13 +157,16 @@ public class FXMLDocumentController implements Initializable {
                 //       TimedSaving slv = new TimedSaving(list);       
                 //       Thread tslv = new Thread(slv);
                 //       tslv.start();
-
-
-
-        this.repo = new Report(list);
-
+       
+       System.out.println(list);
+                
+       this.repo = new Report(list);      
+        
        TimedSaving slv = new TimedSaving(repo);       
        Thread tslv = new Thread(slv);
+       // con il metodo setDaemon è possibile definire il seguente thread come subordinato del thread principale
+       // quando si chiude il programma, si chiudera anche il thread subordinato
+       tslv.setDaemon(true);
        tslv.start();
         
     }    

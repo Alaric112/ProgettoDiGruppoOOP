@@ -4,10 +4,13 @@
  */
 package simulazioneesametodolist;
 
+import java.io.BufferedOutputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -57,9 +60,12 @@ public class Report {
     
         try {
     // Creazione link di scrittura "outputstream" sul file nominato filename
-			ObjectOutputStream out = new ObjectOutputStream(new FileOutputStream("backup.dat"));
+			ObjectOutputStream out = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream("backup.dat")));
     // scrive sul file gli elementi della coda che sono "seriazible"
-			out.writeObject(list);
+			
+                List<EQEvent> l = new ArrayList();
+                 l.addAll(list);
+                out.writeObject(l);
     // chiude link                    
 			out.close();
 		} catch (IOException e) {
