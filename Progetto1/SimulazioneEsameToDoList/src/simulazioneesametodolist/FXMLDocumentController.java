@@ -5,6 +5,8 @@
 package simulazioneesametodolist;
 
 import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -36,6 +38,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.stage.FileChooser;
 
 /**
  *
@@ -237,10 +240,39 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void importListAction(ActionEvent event) {
+        
+        
     }
 
     @FXML
     private void exportListAction(ActionEvent event) {
+    
+        FileChooser fc = new FileChooser();
+        
+        File f = fc.showSaveDialog(null);
+        
+        if(f==null) return;
+        
+        String nomefile = f.getAbsolutePath();
+        
+        nomefile+= ".csv"; 
+        
+        System.out.println(nomefile);
+        
+        try(ObjectOutputStream oos = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(nomefile)))) {
+        
+        List<EQEvent> l = new ArrayList();
+        
+        l.addAll(list);
+        
+        System.out.println("CIAAAAAAAAOOOOO" + l);
+        
+        oos.writeObject("cccccc");
+                
+        } catch (FileNotFoundException ex) {
+        } catch (IOException ex) {
+        }
+        
     }
     
     
