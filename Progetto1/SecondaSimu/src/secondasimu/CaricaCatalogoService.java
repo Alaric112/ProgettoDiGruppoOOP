@@ -54,46 +54,40 @@ public class CaricaCatalogoService extends Service  {
                                 
                                 ObservableList<Libro> list = FXCollections.observableArrayList();
                                 
-                           // try(Scanner scan= new Scanner(new BufferedReader( new InputStreamReader( new URL(getUrl()).openStream())))){
+                            try(Scanner scan= new Scanner(new BufferedReader( new InputStreamReader( new URL(getUrl()).openStream())))){
           //  Scanner scan = new Scanner(BufferedReader reader = new BufferedReader(new InputStreamReader(new URL(getUrl()).openStream()))
-             try(Scanner scan = new Scanner(new BufferedReader(new FileReader("Cat_Zani_ext.csv")))){
+             //try(Scanner scan = new Scanner(new BufferedReader(new FileReader("Cat_Zani_ext.csv")))){
              scan.useLocale(Locale.US);
-             scan.useDelimiter(";||\\||\n");
+             scan.useDelimiter(";|\n");
+
              scan.nextLine();
              
          while(scan.hasNext()){               
-             
-             System.out.println("Salve salve, salve");
-             
+                          
              Libro evento = new Libro();
-             
+
              evento.setTipoVol(scan.next());
+             
              evento.setGreed(scan.next());
              evento.setISBN(scan.next());             
              evento.setCodVol(scan.next());
              evento.setTitolo(scan.next());
-             evento.setAnno(scan.nextInt());
+             evento.setAnno(scan.nextInt()); 
              evento.setPrezzo(scan.nextDouble());
              evento.setPeso(scan.nextDouble());
              evento.setPagine(scan.nextInt());
-             
-             System.out.println(evento);
-             
+                          
              list.add(evento);
             }
                                 
         }catch(RuntimeException e){//Raggiunta la fine del file    
                     
-                    
+                    System.out.println("EVVOVE");
                 }
                             
                 return list;
             }
         };
     }
-    
-    
-    
-    
+       
 }
-

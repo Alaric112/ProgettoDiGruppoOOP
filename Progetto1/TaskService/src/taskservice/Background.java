@@ -57,7 +57,7 @@ public class Background extends Service  {
           //  Scanner scan = new Scanner(BufferedReader reader = new BufferedReader(new InputStreamReader(new URL(getUrl()).openStream()))
              
              scan.useLocale(Locale.US);
-             scan.useDelimiter("\\||\n");
+             scan.useDelimiter("\\||\n"); // | or \n
              scan.nextLine();
              
          while(scan.hasNext()){               
@@ -88,7 +88,7 @@ public class Background extends Service  {
                                 
         }catch(RuntimeException e){//Raggiunta la fine del file    
                     
-                    
+                 System.out.println("EVVOVE MIO");
                 }
                             
                 return list;
