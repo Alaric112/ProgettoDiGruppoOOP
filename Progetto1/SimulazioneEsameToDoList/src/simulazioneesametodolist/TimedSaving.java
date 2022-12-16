@@ -25,8 +25,8 @@ public class TimedSaving implements Runnable {
 
     public TimedSaving(Report list) {
         
-        System.out.println("Passaggio numero 1:");
-        System.out.println(list);
+//        System.out.println("Passaggio numero 1:");
+//        System.out.println(list);
         
         this.list = list;
     }

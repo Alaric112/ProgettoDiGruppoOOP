@@ -6,20 +6,28 @@ package simulazioneesametodolist;
 
 import java.io.BufferedInputStream;
 import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
+import java.io.PrintWriter;
 import java.net.URL;
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import static java.util.Collections.list;
 import java.util.List;
+import java.util.Locale;
 import java.util.Queue;
 import java.util.ResourceBundle;
+import java.util.Scanner;
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.BooleanBinding;
 import javafx.beans.property.StringProperty;
@@ -28,7 +36,9 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
 import javafx.scene.control.ContextMenu;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
@@ -38,6 +48,7 @@ import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.FileChooser;
 
 /**
@@ -128,6 +139,8 @@ public class FXMLDocumentController implements Initializable {
         
        dataCLM.setCellValueFactory(new PropertyValueFactory("data"));
        eventCLM.setCellValueFactory(new PropertyValueFactory("descrizione"));
+       
+       eventCLM.setCellFactory(TextFieldTableCell.forTableColumn());
        
        eventTable.setItems(list); 
        
@@ -241,7 +254,44 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void importListAction(ActionEvent event) {
         
+        FileChooser fc = new FileChooser();        
+        File f = fc.showOpenDialog(null);        
+        if(f==null) return;
         
+        String nomefile = f.getName();        
+        // si può usare un while per forza l'utente a scegliere prima o poi un csv
+        if(!nomefile.contains(".csv")){
+           //System.out.println("Inserire un file .csv\n");
+            
+            Alert alert = new Alert(Alert.AlertType.ERROR, "Non hai scelto un .csv file!", ButtonType.CLOSE);
+            alert.show();
+            
+            return;
+            //nomefile = fc.showOpenDialog(null).getName();
+        }
+        
+                try(Scanner i = new Scanner(new BufferedReader(new FileReader(f)))){
+            i.useLocale(Locale.US);
+            i.useDelimiter("\\||\n");
+            while(i.hasNext()){
+                String timeString=i.next();
+                LocalDate date;
+                date=LocalDate.parse(timeString, DateTimeFormatter.ISO_LOCAL_DATE);
+                String description = i.next();
+                EQEvent evento = new EQEvent(date,description);
+                list.add(evento);
+//                System.out.println("ohiohiohiohiohiohi");
+            }
+            //System.out.println("wewewewewewewewewewe");
+            // i codice qui non vengono eseguiti?  
+            
+        }catch(FileNotFoundException exc){
+        
+        }catch(RuntimeException rExc){//Raggiunta la fine del file   
+        
+        }
+                
+        eventTable.sort();
     }
 
     @FXML
@@ -257,23 +307,31 @@ public class FXMLDocumentController implements Initializable {
         
         nomefile+= ".csv"; 
         
-        System.out.println(nomefile);
         
-        try(ObjectOutputStream oos = new ObjectOutputStream(new BufferedOutputStream(new FileOutputStream(nomefile)))) {
         
-        List<EQEvent> l = new ArrayList();
-        
-        l.addAll(list);
-        
-        System.out.println("CIAAAAAAAAOOOOO" + l);
-        
-        oos.writeObject("cccccc");
+        try(PrintWriter o = new PrintWriter(new BufferedWriter(new FileWriter(nomefile)))){
+            for(EQEvent evento: list){
                 
-        } catch (FileNotFoundException ex) {
-        } catch (IOException ex) {
+            String str = evento.getDescrizione().replaceAll(";", "|");
+                
+                o.print(evento.getData() + "|" + str + "\n");
+                
+            System.out.println("E' stato effettuato export al path: " +nomefile);    
+                
+            }
+        }catch(Exception e){
+            
         }
         
     }
-    
-    
+
+    @FXML
+    private void updateEvent(TableColumn.CellEditEvent<EQEvent, String> event) {
+        
+        EQEvent q = eventTable.getSelectionModel().getSelectedItem();
+
+        q.setDescrizione(event.getNewValue());
+        
+    }
+        
 }
