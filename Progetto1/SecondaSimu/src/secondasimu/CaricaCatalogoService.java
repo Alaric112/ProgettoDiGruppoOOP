@@ -32,6 +32,8 @@ public class CaricaCatalogoService extends Service  {
     // ATTENZIONE esistono più classi Service, se si sta lavorando con javaFX si deve implementare Service per JavaFX
     
     private StringProperty url = new SimpleStringProperty();
+    private int numeroRisultati;
+    private ObservableList list;
 
         public final void setUrl(String value) {
             url.set(value);
@@ -45,6 +47,23 @@ public class CaricaCatalogoService extends Service  {
            return url;
         }    
 
+               
+    public int getNumeroRisultati() {
+        return numeroRisultati;
+    }
+
+    public void setNumeroRisultati(int numeroRisultati) {
+        this.numeroRisultati = numeroRisultati;
+    }
+
+    public ObservableList getList() {
+        return list;
+    }
+
+    public void setList(ObservableList list) {
+        this.list = list;
+    }
+       
     @Override
         protected Task<ObservableList<Libro>> createTask() {
             return new Task<ObservableList<Libro>>() {
@@ -52,18 +71,18 @@ public class CaricaCatalogoService extends Service  {
                 protected ObservableList<Libro> call()
                         throws IOException, MalformedURLException {
                                 
-                                ObservableList<Libro> list = FXCollections.observableArrayList();
+                                
                                 
                             try(Scanner scan= new Scanner(new BufferedReader( new InputStreamReader( new URL(getUrl()).openStream())))){
           //  Scanner scan = new Scanner(BufferedReader reader = new BufferedReader(new InputStreamReader(new URL(getUrl()).openStream()))
              //try(Scanner scan = new Scanner(new BufferedReader(new FileReader("Cat_Zani_ext.csv")))){
              scan.useLocale(Locale.US);
              scan.useDelimiter(";|\n");
-
+             int i = 0;
              scan.nextLine();
              
-         while(scan.hasNext()){               
-                          
+         while(scan.hasNext() && i<numeroRisultati){               
+              
              Libro evento = new Libro();
 
              evento.setTipoVol(scan.next());
@@ -77,14 +96,17 @@ public class CaricaCatalogoService extends Service  {
              evento.setPeso(scan.nextDouble());
              evento.setPagine(scan.nextInt());
                           
-             list.add(evento);
+             if(list.add(evento));
+                i++;
+             
             }
                                 
         }catch(RuntimeException e){//Raggiunta la fine del file    
                     
                     System.out.println("EVVOVE");
                 }
-                            
+                
+                System.out.println(list);
                 return list;
             }
         };

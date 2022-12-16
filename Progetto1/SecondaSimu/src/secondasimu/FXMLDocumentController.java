@@ -6,6 +6,10 @@ package secondasimu;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.beans.binding.Bindings;
+import javafx.beans.binding.BooleanBinding;
+import javafx.beans.property.IntegerProperty;
+import javafx.beans.property.SimpleIntegerProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -20,6 +24,8 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.util.StringConverter;
+import javafx.util.converter.IntegerStringConverter;
 
 /**
  *
@@ -65,6 +71,8 @@ public class FXMLDocumentController implements Initializable {
     
     private ObservableList<Libro> list;
     
+    private IntegerProperty num = new SimpleIntegerProperty();
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -81,8 +89,18 @@ public class FXMLDocumentController implements Initializable {
        
        bookTable.setItems(list); 
         
-       //pgIndicator.visibleProperty().bind();
+       //pgIndicator.visibleProperty().bind();       
+                
+        StringConverter cv = new IntegerStringConverter();
+        Bindings.bindBidirectional(textFieldLimite.textProperty(), num, cv);
+        num.set(100);
+
+        //BooleanBinding bb = Bindings.or(checkUniversitario.selectedProperty(), checkGiuridico.selectedProperty());
         
+        btnAggiorna.disableProperty().bind(checkUniversitario.selectedProperty().not().and(checkGiuridico.selectedProperty().not().and(checkScolastico.selectedProperty().not())));
+        BooleanBinding xx = Bindings.isEmpty(list);
+        btnExport.disableProperty().bind(xx);
+   
     }    
 
     @FXML
@@ -90,6 +108,8 @@ public class FXMLDocumentController implements Initializable {
         
        CaricaCatalogoService slv = new CaricaCatalogoService(); 
        slv.setUrl("http://193.205.163.165/oopdata/Cat_Zani_ext.csv");
+       slv.setList(list);
+       slv.setNumeroRisultati(num.get());
        // Lega la visibilita del indicatore a quando viene runnato il thread "slv" di servizio
        pgIndicator.visibleProperty().bind(slv.runningProperty());
        // mette in moto il thread
@@ -97,9 +117,9 @@ public class FXMLDocumentController implements Initializable {
        // lega la progressione del indicatore alla progressione del thread
        pgIndicator.progressProperty().bind(slv.progressProperty());
        
-       bookTable.itemsProperty().bind(slv.valueProperty());
+       //bookTable.itemsProperty().bind(slv.valueProperty());
        
-       System.out.println("FIne pulsante");
+       //System.out.println(list);
         
     }
 

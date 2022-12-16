@@ -62,7 +62,7 @@ public class Background extends Service  {
              
          while(scan.hasNext()){               
 
-             System.out.println("Managgia dio");
+             //System.out.println("Managgia dio");
              
              Terremoto evento = new Terremoto();
              
@@ -81,7 +81,7 @@ public class Background extends Service  {
              evento.setEventLocationName(scan.next());
              evento.setEventType(scan.next());
              
-             System.out.println(evento);
+             //System.out.println(evento);
              
              list.add(evento);
             }
