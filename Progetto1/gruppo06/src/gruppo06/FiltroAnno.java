@@ -30,9 +30,7 @@ public class FiltroAnno implements Filtro<Libro> {
         int annolibro = l.getAnno(); 
         
 //        System.out.println("Intervallo minimo" + min);
-//        System.out.println("Intervallo massimo" +max);
-        System.out.println("Anno libro corrente" +annolibro);
-        
+//        System.out.println("Intervallo massimo" +max);        
         if(annolibro >= 0 && annolibro <= 64){
             
             if(max>64)
@@ -43,7 +41,6 @@ public class FiltroAnno implements Filtro<Libro> {
                         
             if((annolibro >= Newmin) && (annolibro<= Newmax)){
                 
-                System.out.println("sono dentro il secondo if");
                 return true;
             }
             
