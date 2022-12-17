@@ -4,6 +4,10 @@
  */
 package secondasimu;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.net.URL;
 import java.util.ResourceBundle;
 import javafx.beans.binding.Bindings;
@@ -24,6 +28,7 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.stage.FileChooser;
 import javafx.util.StringConverter;
 import javafx.util.converter.IntegerStringConverter;
 
@@ -130,6 +135,32 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void exportAction(ActionEvent event) {
+    
+            FileChooser fc = new FileChooser();
+        
+        File f = fc.showSaveDialog(null);
+        
+        if(f==null) return;
+        
+        String nomefile = f.getAbsolutePath();
+        
+        nomefile+= ".csv";                 
+        
+        try(PrintWriter o = new PrintWriter(new BufferedWriter(new FileWriter(nomefile)))){
+            for(Libro evento: list){
+                
+//            String str = evento.getDescrizione().replaceAll(";", "|");
+//                
+//                o.print(evento.getData() + "|" + str + "\n");
+//                
+//            System.out.println("E' stato effettuato export al path: " +nomefile);    
+                
+            }
+        }catch(Exception e){
+            
+        }
+    
+    
     }
     
 }
