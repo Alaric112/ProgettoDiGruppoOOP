@@ -9,7 +9,10 @@ import java.io.File;
 import java.io.FileWriter;
 import java.io.PrintWriter;
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
+import java.util.function.UnaryOperator;
 import javafx.beans.binding.Bindings;
 import javafx.beans.binding.BooleanBinding;
 import javafx.beans.property.IntegerProperty;
@@ -23,9 +26,12 @@ import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ProgressIndicator;
+import javafx.scene.control.SelectionMode;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextFormatter;
+import javafx.scene.control.TextFormatter.Change;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.stage.FileChooser;
@@ -77,6 +83,8 @@ public class FXMLDocumentController implements Initializable {
     private ObservableList<Libro> list;
     
     private IntegerProperty num = new SimpleIntegerProperty();
+    private IntegerProperty minAnno = new SimpleIntegerProperty();
+    private IntegerProperty maxAnno = new SimpleIntegerProperty();
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -100,12 +108,33 @@ public class FXMLDocumentController implements Initializable {
         Bindings.bindBidirectional(textFieldLimite.textProperty(), num, cv);
         num.set(100);
 
+        Bindings.bindBidirectional(textFieldAnnoPartenza.textProperty(), minAnno, cv);
+        Bindings.bindBidirectional(textFieldAnnoFine.textProperty(), maxAnno, cv);        
+        
         //BooleanBinding bb = Bindings.or(checkUniversitario.selectedProperty(), checkGiuridico.selectedProperty());
         
         btnAggiorna.disableProperty().bind(checkUniversitario.selectedProperty().not().and(checkGiuridico.selectedProperty().not().and(checkScolastico.selectedProperty().not())));
         BooleanBinding xx = Bindings.isEmpty(list);
-        btnExport.disableProperty().bind(xx);
+        
+        BooleanBinding bb = Bindings.isEmpty(bookTable.getSelectionModel().getSelectedItems());
+        btnExport.disableProperty().bind(bb);
    
+        bookTable.getSelectionModel().setSelectionMode(SelectionMode.MULTIPLE);
+        
+        // Mette un filtro magico che funziona a caso
+        // filtra tutte le cose che non sono numeri Interi positivi
+        UnaryOperator<Change> integerFilter = change -> {
+        String newText = change.getControlNewText();
+        if (newText.matches("([0-9]*)?")) { 
+            return change;
+        }
+        return null;
+    };
+
+        textFieldAnnoPartenza.setTextFormatter(new TextFormatter<Integer>(new IntegerStringConverter(), null, integerFilter));
+        textFieldAnnoFine.setTextFormatter(new TextFormatter<Integer>(new IntegerStringConverter(), null, integerFilter));
+    //textFieldAnnoPartenza.setTextFormatter(new TextFormatter<>(new IntegerStringConverter())); 
+        
     }    
 
     @FXML
@@ -117,8 +146,10 @@ public class FXMLDocumentController implements Initializable {
        slv.setNumeroRisultati(num.get());
        
        FiltroTipoVolume filtroTipo = new FiltroTipoVolume(checkScolastico.selectedProperty().getValue(), checkGiuridico.selectedProperty().getValue(), checkUniversitario.selectedProperty().getValue());
+       FiltroAnno filtroAnno = new FiltroAnno(minAnno.getValue(), maxAnno.getValue());
        
-       slv.setFiltro(filtroTipo);
+       slv.setFiltroVolume(filtroTipo);
+       slv.setFiltroAnno(filtroAnno);
        
        // Lega la visibilita del indicatore a quando viene runnato il thread "slv" di servizio
        pgIndicator.visibleProperty().bind(slv.runningProperty());
@@ -147,20 +178,21 @@ public class FXMLDocumentController implements Initializable {
         nomefile+= ".csv";                 
         
         try(PrintWriter o = new PrintWriter(new BufferedWriter(new FileWriter(nomefile)))){
-            for(Libro evento: list){
+                        
+            List<Libro> exportlist = bookTable.getSelectionModel().getSelectedItems();
+                        
+            for(Libro evento: exportlist){
                 
-//            String str = evento.getDescrizione().replaceAll(";", "|");
-//                
-//                o.print(evento.getData() + "|" + str + "\n");
-//                
-//            System.out.println("E' stato effettuato export al path: " +nomefile);    
-                
+            o.print(evento.getISBN() + ";" + evento.getTitolo() + ";" + evento.getAnno() + ";" + evento.getPrezzo() + "\n");
+                                                    
             }
         }catch(Exception e){
             
+            System.out.println("Luca greco");
+            
         }
     
-    
+         System.out.println("E' stato effettuato export al path: " +nomefile);
     }
     
 }

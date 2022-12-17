@@ -34,8 +34,9 @@ public class CaricaCatalogoService extends Service  {
     private StringProperty url = new SimpleStringProperty();
     private int numeroRisultati;
     private ObservableList list;
-    private FiltroTipoVolume filtro;
-
+    private FiltroTipoVolume filtroVolume;
+    private FiltroAnno filtroAnno;
+    
         public final void setUrl(String value) {
             url.set(value);
         }
@@ -65,12 +66,20 @@ public class CaricaCatalogoService extends Service  {
         this.list = list;
     }
 
-    public FiltroTipoVolume getFiltro() {
-        return filtro;
+    public FiltroTipoVolume getFiltroVolume() {
+        return filtroVolume;
     }
 
-    public void setFiltro(FiltroTipoVolume filtro) {
-        this.filtro = filtro;
+    public void setFiltroVolume(FiltroTipoVolume filtro) {
+        this.filtroVolume = filtro;
+    }
+
+    public FiltroAnno getFiltroAnno() {
+        return filtroAnno;
+    }
+
+    public void setFiltroAnno(FiltroAnno filtroAnno) {
+        this.filtroAnno = filtroAnno;
     }
     
     
@@ -107,7 +116,7 @@ public class CaricaCatalogoService extends Service  {
              evento.setPeso(scan.nextDouble());
              evento.setPagine(scan.nextInt());
                          
-          if(filtro.valido(evento)){ 
+          if(filtroVolume.valido(evento) && filtroAnno.valido(evento)){ 
               
              if(list.add(evento)){
                 i++;

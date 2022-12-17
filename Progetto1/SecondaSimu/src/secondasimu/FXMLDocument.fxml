@@ -28,9 +28,9 @@
                   <HBox prefHeight="37.0" prefWidth="268.0" spacing="10.0">
                      <children>
                         <Label text="da" />
-                        <TextField fx:id="textFieldAnnoPartenza" prefHeight="31.0" prefWidth="99.0" />
+                        <TextField fx:id="textFieldAnnoPartenza" prefHeight="31.0" prefWidth="99.0" promptText="1965" />
                         <Label text="a" />
-                        <TextField fx:id="textFieldAnnoFine" prefHeight="31.0" prefWidth="105.0" />
+                        <TextField fx:id="textFieldAnnoFine" prefHeight="31.0" prefWidth="105.0" promptText="2021" />
                      </children>
                   </HBox>
                   <Separator prefWidth="200.0" />
