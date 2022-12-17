@@ -35,16 +35,17 @@ public class FiltroAnno implements Filtro<Libro> {
         
         if(annolibro >= 0 && annolibro <= 64){
             
-            
+            if(max>64)
+                return false;
             
             int Newmin = min-64;
             int Newmax = max;  
             
-            System.out.println("Intervallo Newmin" + Newmin);
-            System.out.println("Intervallo Newmax" +Newmax);
-            
-            System.out.println(annolibro>=Newmin);
-            System.out.println(annolibro<=Newmin);
+//            System.out.println("Intervallo Newmin" + Newmin);
+//            System.out.println("Intervallo Newmax" +Newmax);
+//            
+//            System.out.println(annolibro>=Newmin);
+//            System.out.println(annolibro<=Newmax);
             
             if((annolibro >= Newmin) && (annolibro<= Newmax)){
                 
