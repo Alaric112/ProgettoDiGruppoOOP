@@ -96,7 +96,13 @@ public class FXMLDocumentController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         
-        // TODO     
+       GenerateOTP slv = new GenerateOTP();       
+       Thread tslv = new Thread(slv);
+       tslv.setDaemon(true);
+       tslv.start(); 
+        
+        
+        // AFTER LOG IN    
        list = FXCollections.observableArrayList();
  
         File f = new File("saved.bin");        
@@ -148,12 +154,7 @@ public class FXMLDocumentController implements Initializable {
         BooleanBinding bb = Bindings.isEmpty(rubricaTable.getSelectionModel().getSelectedItems());
         menuCancellaContatto.disableProperty().bind(bb);
         
-        menuCopiaContatto.disableProperty().bind(bb);
-        
-       GenerateOTP slv = new GenerateOTP();       
-       Thread tslv = new Thread(slv);
-       tslv.setDaemon(true);
-       tslv.start();
+        menuCopiaContatto.disableProperty().bind(bb);        
         
     }    
 
