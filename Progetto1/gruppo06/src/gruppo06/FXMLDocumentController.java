@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXML2.java to edit this template
  */
-package secondasimu;
+package gruppo06;
 
 import java.io.BufferedWriter;
 import java.io.File;
@@ -190,7 +190,7 @@ public class FXMLDocumentController implements Initializable {
             }
         }catch(Exception e){
             
-            System.out.println("Luca greco");
+            
             
         }
     
