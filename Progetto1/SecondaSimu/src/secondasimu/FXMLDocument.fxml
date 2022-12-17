@@ -37,7 +37,7 @@
                   <HBox prefHeight="40.0" prefWidth="268.0" spacing="10.0">
                      <children>
                         <Label text="Limite risultati" />
-                        <TextField fx:id="textFieldLimite" prefHeight="31.0" prefWidth="138.0" />
+                        <TextField fx:id="textFieldLimite" prefHeight="31.0" prefWidth="138.0" promptText="100" />
                      </children>
                   </HBox>
                </children>

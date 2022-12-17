@@ -106,7 +106,7 @@ public class FXMLDocumentController implements Initializable {
                 
         StringConverter cv = new IntegerStringConverter();
         Bindings.bindBidirectional(textFieldLimite.textProperty(), num, cv);
-        num.set(100);
+        //num.set(100);
 
         Bindings.bindBidirectional(textFieldAnnoPartenza.textProperty(), minAnno, cv);
         Bindings.bindBidirectional(textFieldAnnoFine.textProperty(), maxAnno, cv);        
@@ -133,6 +133,8 @@ public class FXMLDocumentController implements Initializable {
 
         textFieldAnnoPartenza.setTextFormatter(new TextFormatter<Integer>(new IntegerStringConverter(), null, integerFilter));
         textFieldAnnoFine.setTextFormatter(new TextFormatter<Integer>(new IntegerStringConverter(), null, integerFilter));
+        textFieldAnnoFine.setTextFormatter(new TextFormatter<Integer>(new IntegerStringConverter(), null, integerFilter));
+
     //textFieldAnnoPartenza.setTextFormatter(new TextFormatter<>(new IntegerStringConverter())); 
         
     }    
