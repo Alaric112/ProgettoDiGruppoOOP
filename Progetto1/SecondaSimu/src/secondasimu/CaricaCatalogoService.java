@@ -34,6 +34,7 @@ public class CaricaCatalogoService extends Service  {
     private StringProperty url = new SimpleStringProperty();
     private int numeroRisultati;
     private ObservableList list;
+    private FiltroTipoVolume filtro;
 
         public final void setUrl(String value) {
             url.set(value);
@@ -63,7 +64,17 @@ public class CaricaCatalogoService extends Service  {
     public void setList(ObservableList list) {
         this.list = list;
     }
-       
+
+    public FiltroTipoVolume getFiltro() {
+        return filtro;
+    }
+
+    public void setFiltro(FiltroTipoVolume filtro) {
+        this.filtro = filtro;
+    }
+    
+    
+    
     @Override
         protected Task<ObservableList<Libro>> createTask() {
             return new Task<ObservableList<Libro>>() {
@@ -95,10 +106,13 @@ public class CaricaCatalogoService extends Service  {
              evento.setPrezzo(scan.nextDouble());
              evento.setPeso(scan.nextDouble());
              evento.setPagine(scan.nextInt());
-                          
-             if(list.add(evento));
+                         
+          if(filtro.valido(evento)){ 
+              
+             if(list.add(evento)){
                 i++;
-             
+                        }
+                    }
             }
                                 
         }catch(RuntimeException e){//Raggiunta la fine del file    

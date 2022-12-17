@@ -4,6 +4,7 @@
  */
 package secondasimu;
 
+import javafx.beans.binding.BooleanBinding;
 import javafx.beans.property.BooleanProperty;
 
 /**
@@ -12,36 +13,48 @@ import javafx.beans.property.BooleanProperty;
  */
 public class FiltroTipoVolume implements Filtro<Libro> {
 
-    private BooleanProperty scolastico;
-    private BooleanProperty giuridico;
-    private BooleanProperty universitario;
+    private Boolean ScolasticoProperty;
+    private Boolean GiuridicoProperty;
+    private Boolean UniversitarioProperty;
+
+    public FiltroTipoVolume(Boolean ScolasticoProperty, Boolean GiuridicoProperty, Boolean UniversitarioProperty) {
+        this.ScolasticoProperty = ScolasticoProperty;
+        this.GiuridicoProperty = GiuridicoProperty;
+        this.UniversitarioProperty = UniversitarioProperty;
+    }           
     
     @Override
     public boolean valido(Libro l) {
 
         boolean x = false;
+                
+//        System.out.println("----------------------");
+//        System.out.println(ScolasticoProperty);
+//        System.out.println(GiuridicoProperty);
+//        System.out.println(UniversitarioProperty);
+//        System.out.println("----------------------");
         
-        if(scolastico.get()){
+        if(ScolasticoProperty){
             //String regex = "^EN[0-9]{2}[A-z]{2}$";
-            x = l.getCodVol().startsWith("0");
+            x = l.getTipoVol().startsWith("0");
             
             if(x == true)
                 return x;
             
         }
 
-        if(giuridico.get()){
+        if(GiuridicoProperty){
             
-            x = l.getCodVol().startsWith("3");
+            x = l.getTipoVol().startsWith("3");
             
             if(x == true)
                 return x;
             
         }
         
-        if(universitario.get()){
+        if(UniversitarioProperty){
                         
-            x = l.getCodVol().startsWith("4");
+            x = l.getTipoVol().startsWith("4");
             
                if(x == true)
                 return x;

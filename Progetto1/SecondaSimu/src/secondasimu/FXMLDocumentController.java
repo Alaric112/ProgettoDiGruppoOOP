@@ -110,6 +110,11 @@ public class FXMLDocumentController implements Initializable {
        slv.setUrl("http://193.205.163.165/oopdata/Cat_Zani_ext.csv");
        slv.setList(list);
        slv.setNumeroRisultati(num.get());
+       
+       FiltroTipoVolume filtroTipo = new FiltroTipoVolume(checkScolastico.selectedProperty().getValue(), checkGiuridico.selectedProperty().getValue(), checkUniversitario.selectedProperty().getValue());
+       
+       slv.setFiltro(filtroTipo);
+       
        // Lega la visibilita del indicatore a quando viene runnato il thread "slv" di servizio
        pgIndicator.visibleProperty().bind(slv.runningProperty());
        // mette in moto il thread
