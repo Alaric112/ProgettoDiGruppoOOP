@@ -21,6 +21,7 @@ import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
+import java.util.Optional;
 import java.util.ResourceBundle;
 import java.util.Scanner;
 import java.util.logging.Level;
@@ -96,7 +97,7 @@ public class FXMLDocumentController implements Initializable {
               
        list = FXCollections.observableArrayList();   
        
-       f = new File("save.csv");
+       f = new File("save.csv");       
        
        ////////////////////////////////// Se non esiste il file, lo crea e scrive la password di defaut pwd
        if(!f.exists()){
@@ -119,13 +120,16 @@ public class FXMLDocumentController implements Initializable {
            
        }
        
-       ////////////////////////////////////////////////////////////////////////
-              
+       ////////////////////////////////////////////////////////////////////////       
+       
        try(Scanner i = new Scanner(new BufferedReader(new FileReader(f)))){
            
             i.useLocale(Locale.US);
+            //i.useDelimiter(";|\n|"+ System.lineSeparator());
             i.useDelimiter(";|\n");
+            
             passSbloco = i.next();
+            System.out.println(passSbloco);
             
             while(i.hasNext()){
                 String titolo=i.next();
@@ -160,13 +164,19 @@ public class FXMLDocumentController implements Initializable {
        menuCancella.disableProperty().bind(bb);        
        menuDuplica.disableProperty().bind(bb);   
        
+       SaveState slv = new SaveState(f, list, passSbloco);       
+       Thread tslv = new Thread(slv);
+       tslv.setDaemon(true);
+       tslv.start();
        
     }    
 
     @FXML
     private void sbloccaAction(ActionEvent event) {
-    
-                
+     System.out.println("ooooooooooooooooooooooooo");
+     System.out.println(passSbloco);
+     System.out.println(pswField.getText());
+     
        if(!pswField.getText().equals(passSbloco)){
                       
             lblPasswordErrata.visibleProperty().set(true);
@@ -209,42 +219,55 @@ public class FXMLDocumentController implements Initializable {
         td.setHeaderText("Vuoi cambiare password all'archivio?");
         td.setContentText("Inserisci nuova password");
         td.setTitle("Cambia Password");
-        td.showAndWait();
-        String newPassword = td.getResult();
         
-        if(newPassword.equals(""))
+        Optional<String> res = td.showAndWait();        
+        if (!res.isPresent())
+            return;        
+                    
+        String newPassword = res.get();
+        
+        if(newPassword.equals("")){
+            System.out.println("non si può inserire una password vuota");
             return;
+        }
         
-        System.out.println("Caaaaaaaaaaaaaaa");
-        System.out.println(newPassword);
-        
+        StringBuilder fileContent = new StringBuilder();
         try(BufferedReader in = new BufferedReader(new FileReader("save.csv"))){
             
          String strLine;
-         StringBuilder fileContent = new StringBuilder();
+         
     
          // Leggo il file riga per riga
          while ((strLine = in.readLine()) != null) {
-     
-            if(strLine.equals("pluto")){
+                
+            if(strLine.equals(passSbloco)){
                // se la riga è uguale a quella ricercata
-               fileContent.append(newPassword+System.lineSeparator());
+               fileContent.append(newPassword);
+               //fileContent.append(System.lineSeparator());
+               fileContent.append("\n");                 // .append(System.lineSeparator())
             } else {
                // ... altrimenti la trascrivo così com'è
-               fileContent.append(strLine);
-               fileContent.append(System.lineSeparator());
+               fileContent.append(strLine).append("\n"); //
+              // fileContent.append(System.lineSeparator());
             }
-         }
-                    
+         }                    
                         
         } catch (FileNotFoundException ex) {
 
         } catch (IOException ex) {
 
         }
-        
-        
        
+        try(PrintWriter o = new PrintWriter(new BufferedWriter(new FileWriter(f)))){
+
+            o.write(fileContent.toString());
+            
+        }catch(Exception e){
+            
+        }
+       
+        passSbloco = newPassword;
+        
       }
     }
 
