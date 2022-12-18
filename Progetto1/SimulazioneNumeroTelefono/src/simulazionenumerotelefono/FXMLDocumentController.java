@@ -95,13 +95,7 @@ public class FXMLDocumentController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-       GenerateOTP slv = new GenerateOTP();       
-       Thread tslv = new Thread(slv);
-       tslv.setDaemon(true);
-       tslv.start(); 
-        
-        
+                
         // AFTER LOG IN    
        list = FXCollections.observableArrayList();
  
@@ -137,7 +131,7 @@ public class FXMLDocumentController implements Initializable {
        cognomeClm.setCellValueFactory(new PropertyValueFactory("cognome"));
        numTelClm.setCellValueFactory(new PropertyValueFactory("numero"));
                      
-       rubricaTable.setItems(list);                
+       rubricaTable.setItems(list);           
        
        btnAddContatto.disableProperty().bind(tfdNome.textProperty().isEmpty().or(tfdCognome.textProperty().isEmpty().or(tfdNumTel.textProperty().isEmpty())));
        

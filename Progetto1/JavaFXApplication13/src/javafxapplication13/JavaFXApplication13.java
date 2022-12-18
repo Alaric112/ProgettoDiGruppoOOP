@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/javafx/FXML.java to edit this template
  */
-package simulazionenumerotelefono;
+package javafxapplication13;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -14,21 +14,16 @@ import javafx.stage.Stage;
  *
  * @author patap
  */
-public class SimulazioneNumeroTelefono extends Application {
+public class JavaFXApplication13 extends Application {
     
     @Override
     public void start(Stage stage) throws Exception {
-//        Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
-        Parent logInRoot = FXMLLoader.load(getClass().getResource("FXMLLogIn.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
         
-        stage.setTitle("My secret phone book");
+        Scene scene = new Scene(root);
         
- //       Scene scene = new Scene(root);
-        Scene logInScene = new Scene(logInRoot);
-        
-        stage.setScene(logInScene);
+        stage.setScene(scene);
         stage.show();
-
     }
 
     /**

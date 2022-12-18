@@ -27,15 +27,34 @@ import java.util.logging.Logger;
 public class GenerateOTP implements Runnable {
 
     private int otp;
-    
-    
-    
+    private boolean attivo;
+
+    public GenerateOTP(boolean attivo) {
+        this.attivo = attivo;
+    }
+            
+    public int getOtp() {
+        return otp;
+    }
+
+    public void setOtp(int otp) {
+        this.otp = otp;
+    }
+
+    public boolean isAttivo() {
+        return attivo;
+    }
+
+    public void setAttivo(boolean attivo) {
+        this.attivo = attivo;
+    }
+            
     @Override
     public void run() {
        
         File f = new File("otp.txt");
     
-    while(true){        
+    while(attivo){        
         
         try(PrintWriter o = new PrintWriter(new BufferedWriter(new FileWriter(f)))){
                         
