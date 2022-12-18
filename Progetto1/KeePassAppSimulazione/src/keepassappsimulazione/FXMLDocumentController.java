@@ -42,6 +42,7 @@ import javafx.scene.control.SplitPane;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextInputDialog;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.AnchorPane;
@@ -87,16 +88,15 @@ public class FXMLDocumentController implements Initializable {
     
     private ObservableList<Item> list;    
     private String passSbloco;
-    private boolean sbloccato;
+    private File f;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
               
        list = FXCollections.observableArrayList();   
-       sbloccato = false;
        
-       File f = new File("save.csv");
+       f = new File("save.csv");
        
        ////////////////////////////////// Se non esiste il file, lo crea e scrive la password di defaut pwd
        if(!f.exists()){
@@ -176,9 +176,7 @@ public class FXMLDocumentController implements Initializable {
            
            return;
        }
-       
-       sbloccato = true;
-       
+              
        logInPane.visibleProperty().set(false);
        splitPanePrincipale.visibleProperty().set(true);
     
@@ -190,7 +188,7 @@ public class FXMLDocumentController implements Initializable {
         Item c = new Item(tfdTitolo.getText(), tfdUsername.getText(), tfdPassword.getText());
         ClearAllfields();
    
-    //Synchronized(list){    
+    synchronized(list){    
         if(list.contains(c)){
             
             c.setTitolo(c.getTitolo()+"(copia)");
@@ -199,20 +197,66 @@ public class FXMLDocumentController implements Initializable {
         }
         
         list.add(c);
-     // } 
+      } 
     }
 
     @FXML
     private void cambioPasswordAction(ActionEvent event) {
+            
+    synchronized(f){
+        
+        TextInputDialog td = new TextInputDialog();
+        td.setHeaderText("Vuoi cambiare password all'archivio?");
+        td.setContentText("Inserisci nuova password");
+        td.setTitle("Cambia Password");
+        td.showAndWait();
+        String newPassword = td.getResult();
+        
+        if(newPassword.equals(""))
+            return;
+        
+        System.out.println("Caaaaaaaaaaaaaaa");
+        System.out.println(newPassword);
+        
+        try(BufferedReader in = new BufferedReader(new FileReader("save.csv"))){
+            
+         String strLine;
+         StringBuilder fileContent = new StringBuilder();
+    
+         // Leggo il file riga per riga
+         while ((strLine = in.readLine()) != null) {
+     
+            if(strLine.equals("pluto")){
+               // se la riga è uguale a quella ricercata
+               fileContent.append(newPassword+System.lineSeparator());
+            } else {
+               // ... altrimenti la trascrivo così com'è
+               fileContent.append(strLine);
+               fileContent.append(System.lineSeparator());
+            }
+         }
+                    
+                        
+        } catch (FileNotFoundException ex) {
+
+        } catch (IOException ex) {
+
+        }
+        
+        
+       
+      }
     }
 
     @FXML
     private void cancellaAction(ActionEvent event) {
     
+        
         Item c = userTable.getSelectionModel().getSelectedItem();
 
+    synchronized(list){     
         list.remove(c);
-    
+        }
     }
 
     @FXML
@@ -221,11 +265,11 @@ public class FXMLDocumentController implements Initializable {
         Item c = userTable.getSelectionModel().getSelectedItem();
         
         Item b = new Item(c.getTitolo()+"(copia)", c.getNomeUtente(), c.getPassword());
-        
+    synchronized(list){     
         // non usare bug!!!
         //b.setTitolo(c.getTitolo()+"(copia)");
         list.add(b);
-        
+    }    
         // forse nel duplica non c'è ne bisogno di questo alert
         Alert alert = new Alert(Alert.AlertType.WARNING, "Elemento esistente. E' stata creata una copia", ButtonType.OK);
         alert.show();
