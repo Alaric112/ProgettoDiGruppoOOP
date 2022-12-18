@@ -17,19 +17,25 @@ public class Item implements Serializable {
     private String nomeUtente;
     private String password;
 
+    
 /**
+ * 
  * 
  * @param titolo
  * @param nomeUtente
  * @param password 
  */    
-    
     public Item(String titolo, String nomeUtente, String password) {
         this.titolo = titolo;
         this.nomeUtente = nomeUtente;
         this.password = password;
     }
 
+    
+    /**
+     * 
+     * @return 
+     */
     public String getTitolo() {
         return titolo;
     }

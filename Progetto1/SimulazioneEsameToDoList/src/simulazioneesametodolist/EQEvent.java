@@ -12,9 +12,7 @@ import java.time.LocalDate;
  * @author patap
  */
 public class EQEvent implements Serializable, Comparable<EQEvent> {
-
-    
-    
+     
    private static int id=0;
    private LocalDate data;
    private String descrizione;

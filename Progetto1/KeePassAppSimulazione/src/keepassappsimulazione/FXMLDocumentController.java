@@ -190,6 +190,7 @@ public class FXMLDocumentController implements Initializable {
         Item c = new Item(tfdTitolo.getText(), tfdUsername.getText(), tfdPassword.getText());
         ClearAllfields();
    
+    //Synchronized(list){    
         if(list.contains(c)){
             
             c.setTitolo(c.getTitolo()+"(copia)");
@@ -198,7 +199,7 @@ public class FXMLDocumentController implements Initializable {
         }
         
         list.add(c);
-        
+     // } 
     }
 
     @FXML
