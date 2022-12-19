@@ -6,6 +6,7 @@ package javafxapplication15;
 
 import java.io.Serializable;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 /**
  *
@@ -15,7 +16,7 @@ public class INGEvent implements Serializable{
     
     
     private String eventID;
-    private LocalDate time;
+    private LocalDateTime time;
     private double latiutude;
     private double longitude;
     private double depthkm;
@@ -28,7 +29,7 @@ public class INGEvent implements Serializable{
     private String magAuthor;
     private String eventLocationName;
 
-    public INGEvent(String eventID, LocalDate time, double latiutude, double longitude, double depthkm, String author, String catalog, String contributor, String contributorID, String magType, double magnitude, String magAuthor, String eventLocationName) {
+    public INGEvent(String eventID, LocalDateTime time, double latiutude, double longitude, double depthkm, String author, String catalog, String contributor, String contributorID, String magType, double magnitude, String magAuthor, String eventLocationName) {
         this.eventID = eventID;
         this.time = time;
         this.latiutude = latiutude;
@@ -52,11 +53,11 @@ public class INGEvent implements Serializable{
         this.eventID = eventID;
     }
 
-    public LocalDate getTime() {
+    public LocalDateTime getTime() {
         return time;
     }
 
-    public void setTime(LocalDate time) {
+    public void setTime(LocalDateTime time) {
         this.time = time;
     }
 
