@@ -62,16 +62,16 @@ public class CaricaReportService extends Service<ObservableList<INGEvent>> {
              INGEvent evento = new INGEvent();
              
              evento.setEventID(scan.next());
-             evento.setDate(LocalDateTime.parse(scan.next()));
+             evento.setTime(LocalDateTime.parse(scan.next()));
              evento.setLatitude(scan.nextDouble());
              evento.setLongitude(scan.nextDouble());
              evento.setDepthKm(scan.nextDouble());
              evento.setMagAuthor(scan.next());
              evento.setCatalog(scan.next());
              evento.setContributor(scan.next());
-             evento.setContributorId(scan.next());
+             evento.setContributorID(scan.next());
              evento.setMagType(scan.next());
-             evento.setMagnitude(scan.next());
+             evento.setMagnitude(scan.nextDouble());
              evento.setMagAuthor(scan.next());
              evento.setEventLocationName(scan.next());
              evento.setEventType(scan.next());
