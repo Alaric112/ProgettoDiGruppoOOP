@@ -5,8 +5,14 @@
 package javafxapplication15;
 
 import java.net.URL;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ResourceBundle;
+import java.util.function.UnaryOperator;
+import javafx.beans.binding.Bindings;
+import javafx.beans.property.IntegerProperty;
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -14,11 +20,15 @@ import javafx.scene.control.Button;
 import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
+import javafx.scene.control.ProgressIndicator;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextFormatter;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
+import javafx.util.StringConverter;
+import javafx.util.converter.IntegerStringConverter;
 
 /**
  *
@@ -45,24 +55,42 @@ public class FXMLDocumentController implements Initializable {
     private DatePicker dataStart;
     @FXML
     private DatePicker dataEnd;
-
+    @FXML
+    private ProgressIndicator pgIndicator;
+    
     private ObservableList<INGEvent> list;
+    private IntegerProperty numL;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         
-//        dataStart.setChronology(value);
-          list = FXCollections.observableArrayList();
+//
+        dataStart.setValue(LocalDate.now());
+        dataEnd.setValue(LocalDate.now());
+        
+        list = FXCollections.observableArrayList();
           
-       dateClm.setCellValueFactory(new PropertyValueFactory("time"));
-       magnitudeClm.setCellValueFactory(new PropertyValueFactory("magnitude"));      
-       locationClm.setCellValueFactory(new PropertyValueFactory("eventLocationName"));      
+        dateClm.setCellValueFactory(new PropertyValueFactory("time"));
+        magnitudeClm.setCellValueFactory(new PropertyValueFactory("magnitude"));      
+        locationClm.setCellValueFactory(new PropertyValueFactory("eventLocationName"));      
 
        
-       terremotoTable.setItems(list);     
+        terremotoTable.setItems(list);     
 
-
+        StringConverter sc = new IntegerStringConverter();        
+        Bindings.bindBidirectional(txdLimiter.textProperty(), numL, sc);
+        
+        UnaryOperator<TextFormatter.Change> integerFilter = change -> {
+        String newText = change.getControlNewText();
+        if (newText.matches("([0-9]*)?")) { 
+            return change;
+        }
+        return null;
+        };
+        txdLimiter.setTextFormatter(new TextFormatter<>(new IntegerStringConverter(), null, integerFilter));
+        
+        
     }    
 
     @FXML
@@ -71,6 +99,8 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void loadAction(ActionEvent event) {
+        
+        
     }
     
 }

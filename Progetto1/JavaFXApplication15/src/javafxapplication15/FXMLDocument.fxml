@@ -6,6 +6,7 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ProgressIndicator?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -49,7 +50,12 @@
                   </DatePicker>
                </children>
             </HBox>
-            <Button fx:id="btnLoad" mnemonicParsing="false" onAction="#loadAction" text="Carica Dati" />
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="btnLoad" mnemonicParsing="false" onAction="#loadAction" text="Carica Dati" />
+                  <ProgressIndicator fx:id="pgIndicator" prefHeight="100.0" prefWidth="88.0" progress="0.0" />
+               </children>
+            </HBox>
          </children>
       </VBox>
    </children>
