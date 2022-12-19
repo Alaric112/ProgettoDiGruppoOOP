@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 
 /**
  *
- * @author patap
+ * @author gruppo06
  */
 public class Gruppo06 extends Application {
     
