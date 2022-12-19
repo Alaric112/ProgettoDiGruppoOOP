@@ -28,18 +28,17 @@ public class INGEvent implements Serializable{
     private double magnitude;
     private String magAuthor;
     private String eventLocationName;
+    private String eventType;
 
     public INGEvent() {
     }
-    
-    
 
-    public INGEvent(String eventID, LocalDateTime time, double latiutude, double longitude, double depthkm, String author, String catalog, String contributor, String contributorID, String magType, double magnitude, String magAuthor, String eventLocationName) {
+    public INGEvent(String eventID, LocalDateTime time, double latitude, double longitude, double depthKm, String author, String catalog, String contributor, String contributorID, String magType, double magnitude, String magAuthor, String eventLocationName, String eventType) {
         this.eventID = eventID;
         this.time = time;
-        this.latitude = latiutude;
+        this.latitude = latitude;
         this.longitude = longitude;
-        this.depthKm = depthkm;
+        this.depthKm = depthKm;
         this.author = author;
         this.catalog = catalog;
         this.contributor = contributor;
@@ -48,6 +47,7 @@ public class INGEvent implements Serializable{
         this.magnitude = magnitude;
         this.magAuthor = magAuthor;
         this.eventLocationName = eventLocationName;
+        this.eventType = eventType;
     }
 
     public String getEventID() {
@@ -66,12 +66,12 @@ public class INGEvent implements Serializable{
         this.time = time;
     }
 
-    public double getLatiutude() {
+    public double getLatitude() {
         return latitude;
     }
 
-    public void setLatiutude(double latiutude) {
-        this.latitude = latiutude;
+    public void setLatitude(double latitude) {
+        this.latitude = latitude;
     }
 
     public double getLongitude() {
@@ -82,12 +82,12 @@ public class INGEvent implements Serializable{
         this.longitude = longitude;
     }
 
-    public double getDepthkm() {
+    public double getDepthKm() {
         return depthKm;
     }
 
-    public void setDepthkm(double depthkm) {
-        this.depthKm = depthkm;
+    public void setDepthKm(double depthKm) {
+        this.depthKm = depthKm;
     }
 
     public String getAuthor() {
@@ -153,8 +153,16 @@ public class INGEvent implements Serializable{
     public void setEventLocationName(String eventLocationName) {
         this.eventLocationName = eventLocationName;
     }
+
+    public String getEventType() {
+        return eventType;
+    }
+
+    public void setEventType(String eventType) {
+        this.eventType = eventType;
+    }
     
     
-    
-    
+
+   
 }
