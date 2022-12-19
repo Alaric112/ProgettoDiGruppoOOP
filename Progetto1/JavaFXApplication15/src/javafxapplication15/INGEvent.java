@@ -29,6 +29,11 @@ public class INGEvent implements Serializable{
     private String magAuthor;
     private String eventLocationName;
 
+    public INGEvent() {
+    }
+    
+    
+
     public INGEvent(String eventID, LocalDateTime time, double latiutude, double longitude, double depthkm, String author, String catalog, String contributor, String contributorID, String magType, double magnitude, String magAuthor, String eventLocationName) {
         this.eventID = eventID;
         this.time = time;
