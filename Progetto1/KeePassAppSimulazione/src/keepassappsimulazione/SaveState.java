@@ -5,9 +5,12 @@
 package keepassappsimulazione;
 
 import java.io.BufferedOutputStream;
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
@@ -27,25 +30,35 @@ public class SaveState implements Runnable {
 
     private final File f;
     private final ObservableList<Item> list;
-    private final String passSbloco;
     
-    public SaveState(File f, ObservableList<Item> list, String passSbloco) {
+    public SaveState(File f, ObservableList<Item> list) {
         this.f = f;
         this.list = list;
-        this.passSbloco = passSbloco;
     }
             
     @Override
     public void run() {
         
-        
+        String passSblocco ="pwd";
             while(true){
             
                synchronized(list){
                    synchronized(f){
+                      
+                 try(BufferedReader in = new BufferedReader(new FileReader(f))){
+                     
+                    
+                     passSblocco = in.readLine();
+                     
+                 }   catch (FileNotFoundException ex) {
+
+                 } catch (IOException ex) {
+
+                 }  
+                       
                 try(PrintWriter o = new PrintWriter(new BufferedWriter(new FileWriter(f)))){
                         
-                    o.print(passSbloco+"\n");
+                    o.print(passSblocco+"\n");
                     for(Item evento: list){
                                 
                         o.print(evento.getTitolo()+ ";" + evento.getNomeUtente() + ";" + evento.getPassword()+"\n");                
@@ -53,8 +66,7 @@ public class SaveState implements Runnable {
         }catch(Exception e){
             
         }
-                
-                
+                                
             // controller.salvaEventi();
             System.out.println("BACKUP EFFETTUATO");
             

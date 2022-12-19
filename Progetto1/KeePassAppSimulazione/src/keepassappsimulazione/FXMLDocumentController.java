@@ -164,7 +164,7 @@ public class FXMLDocumentController implements Initializable {
        menuCancella.disableProperty().bind(bb);        
        menuDuplica.disableProperty().bind(bb);   
        
-       SaveState slv = new SaveState(f, list, passSbloco);       
+       SaveState slv = new SaveState(f, list);       
        Thread tslv = new Thread(slv);
        tslv.setDaemon(true);
        tslv.start();
