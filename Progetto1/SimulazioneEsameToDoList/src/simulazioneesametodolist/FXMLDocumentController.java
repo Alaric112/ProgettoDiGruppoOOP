@@ -151,10 +151,11 @@ public class FXMLDocumentController implements Initializable {
        
        StringProperty cont = textField.textProperty();           
        
-       // Disattiva pulsante di aggiunta se il textfield è vuoto
-       BooleanBinding bb = textField.textProperty().isEmpty();
-       addEventButton.disableProperty().bind(bb);
-       
+       // Disattiva pulsante di aggiunta se il textfield è vuoto e il date picker è vuoto anche esso
+       BooleanBinding bb = textField.textProperty().isEmpty();       
+       BooleanBinding cc = calendar.valueProperty().isNull();
+       addEventButton.disableProperty().bind(bb.or(cc));
+               
        // Disattiva menu di eliminazione se non ci sono elementi nella tabella
        BooleanBinding xx = Bindings.isEmpty(eventTable.getItems());
        deleteMenuItem.disableProperty().bind(xx);
