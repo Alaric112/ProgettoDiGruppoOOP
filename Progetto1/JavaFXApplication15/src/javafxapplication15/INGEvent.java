@@ -19,7 +19,7 @@ public class INGEvent implements Serializable{
     private LocalDateTime time;
     private double latitude;
     private double longitude;
-    private double depthkm;
+    private double depthKm;
     private String author;
     private String catalog;
     private String contributor;
@@ -39,7 +39,7 @@ public class INGEvent implements Serializable{
         this.time = time;
         this.latitude = latiutude;
         this.longitude = longitude;
-        this.depthkm = depthkm;
+        this.depthKm = depthkm;
         this.author = author;
         this.catalog = catalog;
         this.contributor = contributor;
@@ -83,11 +83,11 @@ public class INGEvent implements Serializable{
     }
 
     public double getDepthkm() {
-        return depthkm;
+        return depthKm;
     }
 
     public void setDepthkm(double depthkm) {
-        this.depthkm = depthkm;
+        this.depthKm = depthkm;
     }
 
     public String getAuthor() {
