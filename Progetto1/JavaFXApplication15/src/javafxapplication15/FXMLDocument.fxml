@@ -13,7 +13,6 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="800.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="javafxapplication15.FXMLDocumentController">
    <children>
       <TableView fx:id="terremotoTable" layoutX="67.0" layoutY="41.0" prefHeight="313.0" prefWidth="760.0" AnchorPane.bottomAnchor="267.0" AnchorPane.leftAnchor="20.0" AnchorPane.rightAnchor="20.0" AnchorPane.topAnchor="20.0">
@@ -35,15 +34,15 @@
             <HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="760.0" spacing="20.0">
                <children>
                   <Label text="Data Inizio" />
-                  <DatePicker />
+                  <DatePicker fx:id="dataStart" />
                   <Label text="Limite Risultati:" />
-                  <TextField fx:id="txdLimiter" />
+                  <TextField fx:id="txdLimiter" promptText="1000" />
                </children>
             </HBox>
             <HBox alignment="CENTER_LEFT" prefHeight="52.0" prefWidth="760.0" spacing="20.0">
                <children>
                   <Label text="Data fine" />
-                  <DatePicker>
+                  <DatePicker fx:id="dataEnd">
                      <HBox.margin>
                         <Insets left="9.0" />
                      </HBox.margin>

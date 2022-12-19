@@ -6,15 +6,19 @@ package javafxapplication15;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuItem;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 
 /**
  *
@@ -24,28 +28,41 @@ public class FXMLDocumentController implements Initializable {
     
     private Label label;
     @FXML
-    private TableView<?> terremotoTable;
+    private TableView<INGEvent> terremotoTable;
     @FXML
     private MenuItem menuSalva;
     @FXML
-    private TableColumn<?, ?> dateClm;
+    private TableColumn<INGEvent, LocalDateTime> dateClm;
     @FXML
-    private TableColumn<?, ?> magnitudeClm;
+    private TableColumn<INGEvent, String> magnitudeClm;
     @FXML
-    private TableColumn<?, ?> locationClm;
+    private TableColumn<INGEvent, String> locationClm;
     @FXML
     private TextField txdLimiter;
     @FXML
     private Button btnLoad;
-    
-    private void handleButtonAction(ActionEvent event) {
-        System.out.println("You clicked me!");
-        label.setText("Hello World!");
-    }
+    @FXML
+    private DatePicker dataStart;
+    @FXML
+    private DatePicker dataEnd;
+
+    private ObservableList<INGEvent> list;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
+        
+//        dataStart.setChronology(value);
+          list = FXCollections.observableArrayList();
+          
+       dateClm.setCellValueFactory(new PropertyValueFactory("time"));
+       magnitudeClm.setCellValueFactory(new PropertyValueFactory("magnitude"));      
+       locationClm.setCellValueFactory(new PropertyValueFactory("eventLocationName"));      
+
+       
+       terremotoTable.setItems(list);     
+
+
     }    
 
     @FXML
