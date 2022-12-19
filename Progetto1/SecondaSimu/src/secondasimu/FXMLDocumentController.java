@@ -169,7 +169,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void exportAction(ActionEvent event) {
     
-            FileChooser fc = new FileChooser();
+        FileChooser fc = new FileChooser();
         
         File f = fc.showSaveDialog(null);
         

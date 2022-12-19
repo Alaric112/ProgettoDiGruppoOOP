@@ -26,7 +26,9 @@ import javafx.concurrent.Task;
 public class CaricaReportService extends Service<ObservableList<INGEvent>> {
 
     private StringProperty url = new SimpleStringProperty();
-
+    private int limiteRisultati;
+    private ObservableList<INGEvent> list;
+    
         public final void setUrl(String value) {
             url.set(value);
         }
@@ -38,24 +40,39 @@ public class CaricaReportService extends Service<ObservableList<INGEvent>> {
         public final StringProperty urlProperty() {
            return url;
         }    
-       
+
+    public int getLimiteRisultati() {
+        return limiteRisultati;
+    }
+
+    public void setLimiteRisultati(int limiteRisultati) {
+        this.limiteRisultati = limiteRisultati;
+    }
+
+    public ObservableList<INGEvent> getList() {
+        return list;
+    }
+
+    public void setList(ObservableList<INGEvent> list) {
+        this.list = list;
+    }
+              
         @Override
         protected Task<ObservableList<INGEvent>> createTask() {
             return new Task<ObservableList<INGEvent>>() {
                 @Override
                 protected ObservableList<INGEvent> call()
                         throws IOException, MalformedURLException {
-                                
-                                ObservableList<INGEvent> list = FXCollections.observableArrayList();
-                                
+                                                               
                             try(Scanner scan= new Scanner(new BufferedReader( new InputStreamReader( new URL(getUrl()).openStream())))){
           //  Scanner scan = new Scanner(BufferedReader reader = new BufferedReader(new InputStreamReader(new URL(getUrl()).openStream()))
              
              scan.useLocale(Locale.US);
              scan.useDelimiter("\\||\n"); // | or \n
              scan.nextLine();
+             int i=0;
              
-         while(scan.hasNext()){               
+         while(scan.hasNext() && i<limiteRisultati){               
 
              //System.out.println("Managgia dio");
              
@@ -77,8 +94,9 @@ public class CaricaReportService extends Service<ObservableList<INGEvent>> {
              evento.setEventType(scan.next());
              
              //System.out.println(evento);
-             
-             list.add(evento);
+            if(list.add(evento))
+                i++;
+                
             }
                                 
         }catch(RuntimeException e){//Raggiunta la fine del file    
