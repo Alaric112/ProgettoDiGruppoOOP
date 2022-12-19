@@ -17,7 +17,7 @@ public class INGEvent implements Serializable{
     
     private String eventID;
     private LocalDateTime time;
-    private double latiutude;
+    private double latitude;
     private double longitude;
     private double depthkm;
     private String author;
@@ -37,7 +37,7 @@ public class INGEvent implements Serializable{
     public INGEvent(String eventID, LocalDateTime time, double latiutude, double longitude, double depthkm, String author, String catalog, String contributor, String contributorID, String magType, double magnitude, String magAuthor, String eventLocationName) {
         this.eventID = eventID;
         this.time = time;
-        this.latiutude = latiutude;
+        this.latitude = latiutude;
         this.longitude = longitude;
         this.depthkm = depthkm;
         this.author = author;
@@ -67,11 +67,11 @@ public class INGEvent implements Serializable{
     }
 
     public double getLatiutude() {
-        return latiutude;
+        return latitude;
     }
 
     public void setLatiutude(double latiutude) {
-        this.latiutude = latiutude;
+        this.latitude = latiutude;
     }
 
     public double getLongitude() {
