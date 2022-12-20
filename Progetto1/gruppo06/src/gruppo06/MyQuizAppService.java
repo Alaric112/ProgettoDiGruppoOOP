@@ -58,12 +58,13 @@ public class MyQuizAppService extends Service {
                           try(Scanner scan = new Scanner(new BufferedReader( new InputStreamReader( new URL(getUrl()).openStream())))){
              
                                  scan.useLocale(Locale.US);
-                                 scan.useDelimiter("\\|\n"); // || or \n
+                                 scan.useDelimiter(";|\n"); // || or \n
                                  scan.nextLine();
              
                     while(scan.hasNext()){
                         TFQuestionUserAttempt q1 = new TFQuestionUserAttempt();
                         q1.setQuestionTest(scan.next());
+                       // q1.
              
                         list.add(q1);
                 }
