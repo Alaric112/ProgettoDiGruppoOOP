@@ -6,6 +6,7 @@ package gruppo06;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -111,10 +112,16 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void exportAction(ActionEvent event) {
+    
+    
+    
     }
 
     @FXML
     private void fineAction(ActionEvent event) {
+    
+       Platform.exit();
+    
     }
     
 }
