@@ -50,6 +50,7 @@ public class MyQuizAppService extends Service {
         
     @Override
     protected Task<ObservableList<TFQuestionUserAttempt>> createTask() {
+        
         return new Task<ObservableList<TFQuestionUserAttempt>>() {
                 @Override
                 protected ObservableList<TFQuestionUserAttempt> call()
@@ -59,7 +60,6 @@ public class MyQuizAppService extends Service {
              
                                  scan.useLocale(Locale.US);
                                  scan.useDelimiter(";|\n"); // || or \n
-                                 scan.nextLine();
              
                     while(scan.hasNext()){
                         TFQuestionUserAttempt q1 = new TFQuestionUserAttempt();
@@ -76,6 +76,6 @@ public class MyQuizAppService extends Service {
                     return list;
                 }
             };
-    }
     
+    } 
 }

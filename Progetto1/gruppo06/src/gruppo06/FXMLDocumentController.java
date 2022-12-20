@@ -13,6 +13,7 @@ import java.time.LocalDate;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
 import javafx.beans.binding.Bindings;
+import javafx.beans.property.StringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -78,28 +79,29 @@ public class FXMLDocumentController implements Initializable {
     private String nomeUtente;
     private String cognomeUtente;
     private int counter;
-            
+   // private ;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         
         btnIniziaQuiz.disableProperty().bind(txdNome1.textProperty().isEmpty().or(txdCognome1.textProperty().isEmpty()));
-        btnAvanti.disableProperty().bind(radioTrue.selectedProperty().or(radioFalse.scaleShapeProperty()));
+        btnAvanti.disableProperty().bind(radioTrue.selectedProperty().not().and(radioFalse.selectedProperty().not()));
         
+        StringProperty valore = lblCounterpage2.textProperty();
         
-   //      BooleanBinding bb = Bindings.isEmpty(radioTrue);
-//        btnIniziaQuiz.disableProperty().bind();
-
        list = FXCollections.observableArrayList();
 
        domandaClm.setCellValueFactory(new PropertyValueFactory("questionTest"));
-       rispostaClm.setCellValueFactory(new PropertyValueFactory("answer"));
+       rispostaClm.setCellValueFactory(new PropertyValueFactory("givenAnswer"));
        
 //       eventCLM.setCellFactory(TextFieldTableCell.forTableColumn());
        
        quizTable.setItems(list);         
        pgIndicator1.visibleProperty().set(false);
-       
+      // lblCounterpage2.textProperty().bind(valore);
+      
+    //   valore.set(counter+1+"/"+list.size());
        
     }    
 
@@ -119,11 +121,19 @@ public class FXMLDocumentController implements Initializable {
 
        pgIndicator1.progressProperty().bind(slv.progressProperty());       
       
+
+   slv.setOnSucceeded(e ->{
+    
        pagina1.visibleProperty().set(false);
        page2.visibleProperty().set(true);
        
        counter++;
        
+       lblCounterpage2.textProperty().set(counter+"/"+list.size());
+       TFQuestionUserAttempt q = list.get(0);
+       lblDomandapage2.setText(q.getQuestionTest());
+      
+      });      
     }
 
     @FXML
@@ -137,7 +147,41 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void avantiAction(ActionEvent event) {
     
+    if(counter < list.size()){    
+       counter++; 
+       lblCounterpage2.textProperty().set(counter+"/"+list.size()); 
+       TFQuestionUserAttempt q = list.get(counter);
+       
+       int d= counter-1;
+       if(radioTrue.isSelected()){
+           
+//           System.out.println(list.get(counter));
+           list.get(d).setGivenAnswer(true);
+//           System.out.println(list.get(counter));
+
+       }else{
+           list.get(d).setGivenAnswer(false);
+       }
+              
+       lblDomandapage2.setText(q.getQuestionTest());
         
+    }else{
+    
+        
+        
+       page2.visibleProperty().set(false);
+       page3.visibleProperty().set(true);
+       int j =0;
+            
+       for(TFQuestionUserAttempt evento : list){
+
+           if(evento.isCorrect())
+                j++;                               
+            }
+               
+       lblCongratulazioni3.setText("Complimenti "+ nomeUtente +" " + cognomeUtente+"! hai totalizzato "+ j+" punti." );
+       
+    }
     
     }
 
@@ -167,7 +211,7 @@ public class FXMLDocumentController implements Initializable {
             if(evento.isCorrect())
                 i++;
                 
-                o.print(evento.getQuestion()+" "+ evento.isAnswer()+" "+ evento.isCorrect()+"\n");
+                o.print(evento.getQuestionTest()+" "+ evento.isAnswer()+" "+ evento.isCorrect()+"\n");
                 
                 
             System.out.println("E' stato effettuato export al path: " +nomefile);    

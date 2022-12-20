@@ -48,6 +48,11 @@ public class TFQuestion extends Question{
         this.answer = answer;
     }
 
+    @Override
+    public String toString() {
+        return "TFQuestion{" + "answer=" + answer + '}';
+    }
+
     
       
     

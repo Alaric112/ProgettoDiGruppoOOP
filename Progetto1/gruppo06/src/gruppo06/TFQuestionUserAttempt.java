@@ -18,8 +18,6 @@ public class TFQuestionUserAttempt extends TFQuestion {
      */
     public TFQuestionUserAttempt() {
     }
-<<<<<<< HEAD
-=======
     
     /**
      * Costruttore appartenente alla classe TFQuestionUserAttemtpt
@@ -28,7 +26,7 @@ public class TFQuestionUserAttempt extends TFQuestion {
      * @param question
      * @param givenAnswer 
      */
->>>>>>> 570071c95c7dbd73eae37fb8b57158dc260140df
+
 
     public TFQuestionUserAttempt(String questionTest, boolean answer, TFQuestion question, boolean givenAnswer) {
         
@@ -70,6 +68,15 @@ public class TFQuestionUserAttempt extends TFQuestion {
         
         else return "Sbagliata";
         
+    }
+
+    public void setGivenAnswer(boolean givenAnswer) {
+        this.givenAnswer = givenAnswer;
+    }
+
+    @Override
+    public String toString() {
+        return "TFQuestionUserAttempt{" + "question=" + question + ", givenAnswer=" + givenAnswer + '}';
     }
     
     

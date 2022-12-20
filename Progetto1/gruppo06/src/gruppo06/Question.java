@@ -79,6 +79,11 @@ public abstract class Question implements Serializable {
         }
         return true;
     }
+
+    @Override
+    public String toString() {
+        return "Question{" + "questionTest=" + questionTest + ", id=" + id + '}';
+    }
     
     
     
