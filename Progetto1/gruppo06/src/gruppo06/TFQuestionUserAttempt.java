@@ -13,6 +13,14 @@ public class TFQuestionUserAttempt extends TFQuestion {
     private TFQuestion question;
     private boolean givenAnswer;   //risposta contrassegnata dall'utente come esatta
 
+    /**
+     * Costruttore vuoto
+     */
+    public TFQuestionUserAttempt() {
+    }
+    
+    
+
     public TFQuestionUserAttempt(String questionTest, boolean answer, TFQuestion question, boolean givenAnswer) {
         
         super(questionTest, answer);
@@ -33,6 +41,11 @@ public class TFQuestionUserAttempt extends TFQuestion {
     public boolean isCorrect(){
         
         return givenAnswer == answer;
+        
+    }
+    
+    public String getResult(){
+        
         
     }
     
