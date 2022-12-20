@@ -46,7 +46,13 @@ public class TFQuestionUserAttempt extends TFQuestion {
     
     public String getResult(){
         
+        if(givenAnswer == answer){
+            
+            return "Corretta";
+            
+        }
         
+        else return "Sbagliata";
     }
     
     
