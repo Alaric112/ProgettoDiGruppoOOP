@@ -23,6 +23,10 @@ public abstract class Question implements Serializable {
         this.questionTest = questionTest;
         id++;
     }
+    
+    public Question() {
+ 
+    }
 
     public String getQuestionTest() {
         return questionTest;

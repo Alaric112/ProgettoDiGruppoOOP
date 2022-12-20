@@ -18,6 +18,10 @@ public class TFQuestion extends Question{
         this.answer = answer;
     }
     
+    public TFQuestion(){
+    
+    }
+    
     /**
      * Getter dell'attributo answer appartenente alla classe TFQuestion
      * @return 
