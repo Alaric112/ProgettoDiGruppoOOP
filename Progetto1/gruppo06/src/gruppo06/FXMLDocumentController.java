@@ -103,7 +103,9 @@ public class FXMLDocumentController implements Initializable {
         cognomeUtente = txdCognome1.getText();
         
         MyQuizAppService slv = new MyQuizAppService();
-      
+        slv.setUrl("http://193.205.163.165/oopdata/questions.csv");
+        
+        slv.start();
         
     }
 
