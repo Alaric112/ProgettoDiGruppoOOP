@@ -6,7 +6,7 @@ package gruppo06;
 
 /**
  *
- * @author Gruppo 06
+ * @author Gruppo06
  */
 public class TFQuestion extends Question{
     
@@ -37,4 +37,5 @@ public class TFQuestion extends Question{
 
     
       
+    
 }
