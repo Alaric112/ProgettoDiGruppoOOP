@@ -18,8 +18,6 @@ public class TFQuestionUserAttempt extends TFQuestion {
      */
     public TFQuestionUserAttempt() {
     }
-    
-    
 
     public TFQuestionUserAttempt(String questionTest, boolean answer, TFQuestion question, boolean givenAnswer) {
         

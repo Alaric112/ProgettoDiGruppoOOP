@@ -25,6 +25,7 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.AnchorPane;
@@ -83,7 +84,7 @@ public class FXMLDocumentController implements Initializable {
         
         btnIniziaQuiz.disableProperty().bind(txdNome1.textProperty().isEmpty().or(txdCognome1.textProperty().isEmpty()));
 
-//        BooleanBinding bb = Bindings.isEmpty(radioTrue);
+   //      BooleanBinding bb = Bindings.isEmpty(radioTrue);
 //        btnIniziaQuiz.disableProperty().bind();
 
        list = FXCollections.observableArrayList();
@@ -95,6 +96,10 @@ public class FXMLDocumentController implements Initializable {
        
        quizTable.setItems(list);         
        pgIndicator1.visibleProperty().set(false);
+       
+       ToggleGroup group = new ToggleGroup();
+       radioTrue.setToggleGroup(group);
+       radioTrue.isSelected();
        
     }    
 
@@ -129,6 +134,9 @@ public class FXMLDocumentController implements Initializable {
 
     @FXML
     private void avantiAction(ActionEvent event) {
+    
+    
+    
     }
 
     @FXML
