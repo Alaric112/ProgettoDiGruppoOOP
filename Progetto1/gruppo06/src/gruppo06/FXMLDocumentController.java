@@ -53,11 +53,11 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private AnchorPane page3;
     @FXML
-    private TableView<?> quizTable;
+    private TableView<TFQuestion> quizTable;
     @FXML
-    private TableColumn<?, ?> domandaClm;
+    private TableColumn<TFQuestion, String> domandaClm;
     @FXML
-    private TableColumn<?, ?> rispostaClm;
+    private TableColumn<TFQuestion, String> rispostaClm;
     @FXML
     private Label lblCongratulazioni3;
     @FXML
@@ -75,12 +75,12 @@ public class FXMLDocumentController implements Initializable {
 
         list = FXCollections.observableArrayList();
 
-               dataCLM.setCellValueFactory(new PropertyValueFactory("data"));
-       eventCLM.setCellValueFactory(new PropertyValueFactory("descrizione"));
+       domandaClm.setCellValueFactory(new PropertyValueFactory("questionTest"));
+       rispostaClm.setCellValueFactory(new PropertyValueFactory("answer"));
        
 //       eventCLM.setCellFactory(TextFieldTableCell.forTableColumn());
        
-       eventTable.setItems(list); 
+       quizTable.setItems(list); 
         
     }    
 
@@ -89,6 +89,8 @@ public class FXMLDocumentController implements Initializable {
     
         pagina1.visibleProperty().set(false);
         page2.visibleProperty().set(true);
+        
+        
         
     }
 
