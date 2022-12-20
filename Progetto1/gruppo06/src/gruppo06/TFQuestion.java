@@ -17,7 +17,11 @@ public class TFQuestion extends Question{
         super(questionTest);
         this.answer = answer;
     }
-
+    
+    /**
+     * Getter dell'attributo answer appartenente alla classe TFQuestion
+     * @return 
+     */
     public boolean isAnswer() {
         return answer;
     }
