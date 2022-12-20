@@ -4,7 +4,12 @@
  */
 package gruppo06;
 
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileWriter;
+import java.io.PrintWriter;
 import java.net.URL;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
@@ -22,6 +27,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.FileChooser;
 
 /**
  *
@@ -96,6 +102,9 @@ public class FXMLDocumentController implements Initializable {
         nomeUtente = txdNome1.getText();
         cognomeUtente = txdCognome1.getText();
         
+        MyQuizAppService slv = new MyQuizAppService();
+      
+        
     }
 
     @FXML
@@ -113,7 +122,33 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void exportAction(ActionEvent event) {
     
-    
+        FileChooser fc = new FileChooser();
+        
+        File f = fc.showSaveDialog(null);
+        
+        if(f==null) return;
+        
+        String nomefile = f.getAbsolutePath();
+        
+        nomefile+= ".txt"; 
+                
+        
+        try(PrintWriter o = new PrintWriter(new BufferedWriter(new FileWriter(nomefile)))){
+            
+           //LocalDate giorno = LocalDate.now();
+                        
+            o.print("myQuizApp\nUtente: "+ nomeUtente+" "+ cognomeUtente+"\nTentativo del "+LocalDate.now() +"\n");
+            o.print("Domanda, Risposta esatta, risposta data");
+            for(TFQuestion evento: list){
+                                
+                //o.print(evento.getData() + "|" + str + "\n");
+                
+            System.out.println("E' stato effettuato export al path: " +nomefile);    
+                
+            }
+        }catch(Exception e){
+            
+        }
     
     }
 

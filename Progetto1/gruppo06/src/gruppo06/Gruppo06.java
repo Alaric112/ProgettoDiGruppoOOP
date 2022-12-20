@@ -20,7 +20,7 @@ public class Gruppo06 extends Application {
     public void start(Stage stage) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("FXMLDocument.fxml"));
         
-        stage.setTitle("Nome prova");
+        stage.setTitle("My Quiz app");
         
         Scene scene = new Scene(root);
         
