@@ -10,7 +10,7 @@ package gruppo06;
  */
 public class TFQuestion extends Question{
     
-    private boolean answer;  //accesso privato e prevede il getter, BOOLEAN PERCHE' puo essere unicamente vero o falso
+    protected boolean answer;  //accesso privato e prevede il getter, BOOLEAN PERCHE' puo essere unicamente vero o falso
 
     public TFQuestion(String questionTest, boolean answer) {
         
@@ -31,5 +31,10 @@ public class TFQuestion extends Question{
         return answer;
     }
 
+    public void setAnswer(boolean answer) {
+        this.answer = answer;
+    }
+
+    
       
 }
