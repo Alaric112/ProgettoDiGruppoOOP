@@ -77,13 +77,16 @@ public class FXMLDocumentController implements Initializable {
     private ObservableList<TFQuestionUserAttempt> list;
     private String nomeUtente;
     private String cognomeUtente;
-    
+    private int counter;
+            
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         
         btnIniziaQuiz.disableProperty().bind(txdNome1.textProperty().isEmpty().or(txdCognome1.textProperty().isEmpty()));
-
+        btnAvanti.disableProperty().bind(radioTrue.selectedProperty().or(radioFalse.scaleShapeProperty()));
+        
+        
    //      BooleanBinding bb = Bindings.isEmpty(radioTrue);
 //        btnIniziaQuiz.disableProperty().bind();
 
@@ -97,9 +100,6 @@ public class FXMLDocumentController implements Initializable {
        quizTable.setItems(list);         
        pgIndicator1.visibleProperty().set(false);
        
-       ToggleGroup group = new ToggleGroup();
-       radioTrue.setToggleGroup(group);
-       radioTrue.isSelected();
        
     }    
 
@@ -122,6 +122,8 @@ public class FXMLDocumentController implements Initializable {
        pagina1.visibleProperty().set(false);
        page2.visibleProperty().set(true);
        
+       counter++;
+       
     }
 
     @FXML
@@ -135,7 +137,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private void avantiAction(ActionEvent event) {
     
-    
+        
     
     }
 
