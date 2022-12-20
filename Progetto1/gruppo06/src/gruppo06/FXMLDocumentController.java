@@ -66,6 +66,8 @@ public class FXMLDocumentController implements Initializable {
     private Button btnFine;
 
     private ObservableList<TFQuestion> list;
+    private String nomeUtente;
+    private String cognomeUtente;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -90,7 +92,8 @@ public class FXMLDocumentController implements Initializable {
         pagina1.visibleProperty().set(false);
         page2.visibleProperty().set(true);
         
-        
+        nomeUtente = txdNome1.getText();
+        cognomeUtente = txdCognome1.getText();
         
     }
 
