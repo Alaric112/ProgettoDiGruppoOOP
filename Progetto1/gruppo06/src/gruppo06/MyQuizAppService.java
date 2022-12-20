@@ -24,7 +24,7 @@ import javafx.concurrent.Task;
  */
 public class MyQuizAppService extends Service {
     private StringProperty url = new SimpleStringProperty();
-    private ObservableList<> list
+    private ObservableList<TFQuestionUserAttempt> list;
     
         public final void setUrl(String value) {
             url.set(value);
@@ -38,21 +38,21 @@ public class MyQuizAppService extends Service {
            return url;
         }    
 
-    public ObservableList<<any>> getList() {
+    public ObservableList<TFQuestionUserAttempt> getList() {
         return list;
     }
 
-    public void setList(ObservableList<<any>> list) {
+    public void setList(ObservableList<TFQuestionUserAttempt> list) {
         this.list = list;
     }
 
         
         
     @Override
-    protected Task<ObservableList<TFQuestion>> createTask() {
-        return new Task<ObservableList<TFQuestion>>() {
+    protected Task<ObservableList<TFQuestionUserAttempt>> createTask() {
+        return new Task<ObservableList<TFQuestionUserAttempt>>() {
                 @Override
-                protected ObservableList<TFQuestion> call()
+                protected ObservableList<TFQuestionUserAttempt> call()
                         throws IOException, MalformedURLException {
                                                                 
                           try(Scanner scan = new Scanner(new BufferedReader( new InputStreamReader( new URL(getUrl()).openStream())))){
@@ -62,7 +62,7 @@ public class MyQuizAppService extends Service {
                                  scan.nextLine();
              
                     while(scan.hasNext()){
-                        TFQuestion q1 = new TFQuestion();
+                        TFQuestionUserAttempt q1 = new TFQuestionUserAttempt();
                         q1.setQuestionTest(scan.next());
              
                         list.add(q1);

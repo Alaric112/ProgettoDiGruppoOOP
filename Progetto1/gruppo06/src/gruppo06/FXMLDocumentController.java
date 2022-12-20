@@ -60,11 +60,11 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private AnchorPane page3;
     @FXML
-    private TableView<TFQuestion> quizTable;
+    private TableView<TFQuestionUserAttempt> quizTable;
     @FXML
-    private TableColumn<TFQuestion, String> domandaClm;
+    private TableColumn<TFQuestionUserAttempt, String> domandaClm;
     @FXML
-    private TableColumn<TFQuestion, String> rispostaClm;
+    private TableColumn<TFQuestionUserAttempt, String> rispostaClm;
     @FXML
     private Label lblCongratulazioni3;
     @FXML
@@ -72,7 +72,7 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Button btnFine;
 
-    private ObservableList<TFQuestion> list;
+    private ObservableList<TFQuestionUserAttempt> list;
     private String nomeUtente;
     private String cognomeUtente;
     
@@ -125,6 +125,8 @@ public class FXMLDocumentController implements Initializable {
     private void exportAction(ActionEvent event) {
     
         FileChooser fc = new FileChooser();
+        int i=0;
+        
         
         File f = fc.showSaveDialog(null);
         
@@ -133,7 +135,6 @@ public class FXMLDocumentController implements Initializable {
         String nomefile = f.getAbsolutePath();
         
         nomefile+= ".txt"; 
-                
         
         try(PrintWriter o = new PrintWriter(new BufferedWriter(new FileWriter(nomefile)))){
             
@@ -141,13 +142,20 @@ public class FXMLDocumentController implements Initializable {
                         
             o.print("myQuizApp\nUtente: "+ nomeUtente+" "+ cognomeUtente+"\nTentativo del "+LocalDate.now() +"\n");
             o.print("Domanda, Risposta esatta, risposta data");
-            for(TFQuestion evento: list){
-                                
-                //o.print(evento.getData() + "|" + str + "\n");
+            for(TFQuestionUserAttempt evento : list){
+
+            if(evento.isCorrect())
+                i++;
+                
+                o.print(evento.getQuestion() + " "+ evento.isAnswer() + " "+ evento.isCorrect() +"\n");
+                
                 
             System.out.println("E' stato effettuato export al path: " +nomefile);    
                 
             }
+            
+            o.print("Punteggio conseguito: " + i);
+            
         }catch(Exception e){
             
         }
