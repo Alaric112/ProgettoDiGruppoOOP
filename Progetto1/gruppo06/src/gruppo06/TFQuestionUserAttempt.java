@@ -36,6 +36,15 @@ public class TFQuestionUserAttempt extends TFQuestion {
         return givenAnswer;
     }
 
+    public boolean isAnswer() {
+        return answer;
+    }
+
+    public void setAnswer(boolean answer) {
+        this.answer = answer;
+    }
+
+    
     
 
     public boolean isCorrect(){
@@ -53,6 +62,7 @@ public class TFQuestionUserAttempt extends TFQuestion {
         }
         
         else return "Sbagliata";
+        
     }
     
     
