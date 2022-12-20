@@ -6,6 +6,8 @@ package gruppo06;
 
 import java.net.URL;
 import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -16,6 +18,8 @@ import javafx.scene.control.RadioButton;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.control.cell.TextFieldTableCell;
 import javafx.scene.layout.AnchorPane;
 
 /**
@@ -61,15 +65,31 @@ public class FXMLDocumentController implements Initializable {
     @FXML
     private Button btnFine;
 
+    private ObservableList<TFQuestion> list;
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
         
-        System.out.println("povero lorenzo");
+        btnIniziaQuiz.disableProperty().bind(txdNome1.textProperty().isEmpty().or(txdCognome1.textProperty().isEmpty()));
+
+        list = FXCollections.observableArrayList();
+
+               dataCLM.setCellValueFactory(new PropertyValueFactory("data"));
+       eventCLM.setCellValueFactory(new PropertyValueFactory("descrizione"));
+       
+//       eventCLM.setCellFactory(TextFieldTableCell.forTableColumn());
+       
+       eventTable.setItems(list); 
+        
     }    
 
     @FXML
     private void IniziaQuizAction(ActionEvent event) {
+    
+        pagina1.visibleProperty().set(false);
+        page2.visibleProperty().set(true);
+        
     }
 
     @FXML
