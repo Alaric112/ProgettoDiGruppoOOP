@@ -12,6 +12,7 @@ import java.net.URL;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 import javafx.application.Platform;
+import javafx.beans.binding.Bindings;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -82,31 +83,40 @@ public class FXMLDocumentController implements Initializable {
         
         btnIniziaQuiz.disableProperty().bind(txdNome1.textProperty().isEmpty().or(txdCognome1.textProperty().isEmpty()));
 
-        list = FXCollections.observableArrayList();
+//        BooleanBinding bb = Bindings.isEmpty(radioTrue);
+//        btnIniziaQuiz.disableProperty().bind();
+
+       list = FXCollections.observableArrayList();
 
        domandaClm.setCellValueFactory(new PropertyValueFactory("questionTest"));
        rispostaClm.setCellValueFactory(new PropertyValueFactory("answer"));
        
 //       eventCLM.setCellFactory(TextFieldTableCell.forTableColumn());
        
-       quizTable.setItems(list); 
-        
+       quizTable.setItems(list);         
+       pgIndicator1.visibleProperty().set(false);
+       
     }    
 
     @FXML
     private void IniziaQuizAction(ActionEvent event) {
-    
-        pagina1.visibleProperty().set(false);
-        page2.visibleProperty().set(true);
-        
+          
         nomeUtente = txdNome1.getText();
         cognomeUtente = txdCognome1.getText();
         
         MyQuizAppService slv = new MyQuizAppService();
         slv.setUrl("http://193.205.163.165/oopdata/questions.csv");
+        slv.setList(list);
         
-        slv.start();
-        
+       pgIndicator1.visibleProperty().bind(slv.runningProperty());
+       
+       slv.start();
+
+       pgIndicator1.progressProperty().bind(slv.progressProperty());       
+      
+       pagina1.visibleProperty().set(false);
+       page2.visibleProperty().set(true);
+       
     }
 
     @FXML
@@ -147,7 +157,7 @@ public class FXMLDocumentController implements Initializable {
             if(evento.isCorrect())
                 i++;
                 
-                o.print(evento.getQuestion() + " "+ evento.isAnswer() + " "+ evento.isCorrect() +"\n");
+                o.print(evento.getQuestion()+" "+ evento.isAnswer()+" "+ evento.isCorrect()+"\n");
                 
                 
             System.out.println("E' stato effettuato export al path: " +nomefile);    

@@ -64,7 +64,7 @@ public class MyQuizAppService extends Service {
                     while(scan.hasNext()){
                         TFQuestionUserAttempt q1 = new TFQuestionUserAttempt();
                         q1.setQuestionTest(scan.next());
-                       // q1.
+                        q1.setAnswer(scan.nextBoolean());
              
                         list.add(q1);
                 }
