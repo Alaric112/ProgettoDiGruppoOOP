@@ -6,7 +6,7 @@ package gruppo06;
 
 /**
  *
- * @author darbo
+ * @author Gruppo 06
  */
 public class TFQuestion extends Question{
     
@@ -22,11 +22,10 @@ public class TFQuestion extends Question{
      * Getter dell'attributo answer appartenente alla classe TFQuestion
      * @return 
      */
+    
     public boolean isAnswer() {
         return answer;
     }
 
-    
-    
-    
+      
 }
