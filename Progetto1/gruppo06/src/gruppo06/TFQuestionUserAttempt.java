@@ -19,7 +19,13 @@ public class TFQuestionUserAttempt extends TFQuestion {
     public TFQuestionUserAttempt() {
     }
     
-    
+    /**
+     * Costruttore appartenente alla classe TFQuestionUserAttemtpt
+     * @param questionTest
+     * @param answer
+     * @param question
+     * @param givenAnswer 
+     */
 
     public TFQuestionUserAttempt(String questionTest, boolean answer, TFQuestion question, boolean givenAnswer) {
         
@@ -27,26 +33,24 @@ public class TFQuestionUserAttempt extends TFQuestion {
         this.question = question;
         this.givenAnswer = givenAnswer;
     }
+    
+    /**
+     * Getter dell'attributo question appartenente alla classe TFQuestion
+     * @return 
+     */
 
     public TFQuestion getQuestion() {
         return question;
     }
 
+    /**
+     * Getter dell'attributo givenAnswer appartenente alla classe TFQuestion
+     * @return 
+     */
     public boolean isGivenAnswer() {
         return givenAnswer;
     }
-
-    public boolean isAnswer() {
-        return answer;
-    }
-
-    public void setAnswer(boolean answer) {
-        this.answer = answer;
-    }
-
-    
-    
-
+  
     public boolean isCorrect(){
         
         return givenAnswer == answer;
