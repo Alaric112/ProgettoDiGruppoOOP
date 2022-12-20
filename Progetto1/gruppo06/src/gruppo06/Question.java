@@ -23,14 +23,25 @@ public abstract class Question implements Serializable {
         this.questionTest = questionTest;
         id++;
     }
-    
+    /**
+     * Costruttore vuoto della classe astratta Question
+     */
     public Question() {
  
     }
+    /**
+     * Getter dell'attributo questionTest appartenente alla classe Question
+     * @return 
+     */
 
     public String getQuestionTest() {
         return questionTest;
     }
+    
+    /**
+     * Setter dell'attributo questionTest appartenente alla classe Question
+     * @param questionTest 
+     */
 
     public void setQuestionTest(String questionTest) {
         this.questionTest = questionTest;
