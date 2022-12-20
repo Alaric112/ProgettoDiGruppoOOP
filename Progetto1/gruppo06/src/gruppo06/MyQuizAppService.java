@@ -9,7 +9,6 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.time.LocalDateTime;
 import java.util.Locale;
 import java.util.Scanner;
 import javafx.beans.property.SimpleStringProperty;
@@ -21,7 +20,7 @@ import javafx.concurrent.Task;
 
 /**
  *
- * @author Portatile
+ * @author Gruppo06
  */
 public class MyQuizAppService extends Service {
     private StringProperty url = new SimpleStringProperty();
