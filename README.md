@@ -1,3 +1,3 @@
 # ProgettoDiGruppoOOP
- Repositary gruppo 6
+ Repository gruppo 6
 
